@@ -1,0 +1,10 @@
+Django>=4.2
+djangorestframework
+django-cors-headers
+djangorestframework-simplejwt
+numpy
+psycopg2-binary
+openpyxl
+reportlab
+gunicorn
+whitenoise

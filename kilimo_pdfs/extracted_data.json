@@ -1,0 +1,187 @@
+{
+  "source": "kilimo.go.tz - Weekly Market Bulletins (extracted via web search)",
+  "generated": "2026-06-29",
+  "national_prices": [
+    {
+      "period": "15-19 June 2026",
+      "crops": {
+        "Maize": 700,
+        "Rice": 2200,
+        "Beans": 2000,
+        "Sorghum": 1600,
+        "Finger Millet": 1600,
+        "Bulrush Millet": 2100,
+        "Irish Potatoes": 1000
+      }
+    },
+    {
+      "period": "25-29 May 2026",
+      "crops": {
+        "Maize": 700,
+        "Rice": 2200,
+        "Beans": 2000,
+        "Sorghum": 1600,
+        "Finger Millet": 1600,
+        "Bulrush Millet": 2100,
+        "Irish Potatoes": 1000
+      },
+      "changes": {
+        "Maize": "0.0%",
+        "Rice": "-8.3%",
+        "Beans": "0.0%",
+        "Sorghum": "0.0%",
+        "Finger Millet": "-5.9%",
+        "Bulrush Millet": "0.0%",
+        "Irish Potatoes": "+11.1%"
+      }
+    },
+    {
+      "period": "18-22 May 2026",
+      "crops": {
+        "Maize": 800,
+        "Rice": 2300,
+        "Beans": 2100,
+        "Sorghum": 1600,
+        "Finger Millet": 1800,
+        "Bulrush Millet": 2200,
+        "Irish Potatoes": 900
+      },
+      "changes": {
+        "Maize": "-12.5%",
+        "Rice": "+4.3%",
+        "Beans": "-4.8%",
+        "Sorghum": "0.0%",
+        "Finger Millet": "-4.5%",
+        "Bulrush Millet": "+6.3%",
+        "Irish Potatoes": "0.0%"
+      }
+    },
+    {
+      "period": "13-17 April 2026",
+      "crops": {
+        "Maize": 800,
+        "Rice": 2500,
+        "Beans": 2200,
+        "Sorghum": 1700,
+        "Finger Millet": 1700,
+        "Bulrush Millet": 2200,
+        "Irish Potatoes": 1000
+      },
+      "changes": {
+        "Maize": "0.0%",
+        "Rice": "+4.2%",
+        "Beans": "+4.8%",
+        "Sorghum": "+6.3%",
+        "Finger Millet": "0.0%",
+        "Bulrush Millet": "0.0%",
+        "Irish Potatoes": "0.0%"
+      }
+    },
+    {
+      "period": "06-10 April 2026",
+      "crops": {
+        "Maize": 800,
+        "Rice": 2400,
+        "Beans": 2100,
+        "Sorghum": 1600,
+        "Finger Millet": 1700,
+        "Bulrush Millet": 2200,
+        "Irish Potatoes": 1000
+      }
+    }
+  ],
+  "viwanda_wholesale_prices": [
+    {
+      "date": "22 May 2026",
+      "markets": [
+        {"region": "Dar es Salaam", "market": "Ilala", "Maize": [90000, 100000], "Rice": [230000, 300000], "Sorghum": [110000, 130000], "Finger Millet": [100000, 130000], "Round Potatoes": [60000, 65000]},
+        {"region": "Dar es Salaam", "market": "Tandika", "Maize": [100000, 110000], "Rice": [220000, 300000], "Sorghum": [120000, 140000], "Finger Millet": [100000, 110000], "Round Potatoes": [100000, 100000]},
+        {"region": "Dar es Salaam", "market": "Temeke", "Maize": [110000, 110000], "Rice": [200000, 310000], "Sorghum": [120000, 150000], "Finger Millet": [105000, 120000], "Round Potatoes": [92000, 100000]},
+        {"region": "Dar es Salaam", "market": "Tandale", "Maize": [100000, 100000], "Rice": [230000, 350000], "Sorghum": [120000, 130000], "Finger Millet": [110000, 110000], "Round Potatoes": [80000, 85000]},
+        {"region": "Tanga", "market": "Mgandini", "Maize": [150000, 150000], "Rice": [280000, 300000], "Sorghum": [150000, 150000], "Round Potatoes": [100000, 150000]}
+      ]
+    },
+    {
+      "date": "30 March 2026",
+      "markets": [
+        {"region": "Dar es Salaam", "market": "Ilala", "Maize": [90000, 100000], "Rice": [230000, 300000], "Sorghum": [110000, 130000], "Finger Millet": [100000, 100000]},
+        {"region": "Dar es Salaam", "market": "Tandika", "Maize": [100000, 110000], "Rice": [220000, 300000], "Sorghum": [120000, 140000], "Finger Millet": [100000, 110000]},
+        {"region": "Dar es Salaam", "market": "Temeke", "Maize": [110000, 110000], "Rice": [200000, 310000], "Sorghum": [120000, 150000], "Finger Millet": [105000, 120000]},
+        {"region": "Dar es Salaam", "market": "Tandale", "Maize": [100000, 100000], "Rice": [230000, 350000], "Sorghum": [120000, 130000], "Finger Millet": [110000, 110000]},
+        {"region": "Kilimanjaro", "market": "Moshi", "Maize": [80000, 85000], "Rice": [340000, 360000], "Sorghum": [150000, 200000], "Finger Millet": [150000, 150000]},
+        {"region": "Singida", "market": "Namfua", "Maize": [80000, 80000], "Rice": [280000, 280000], "Sorghum": [200000, 200000], "Finger Millet": [200000, 200000]},
+        {"region": "Iringa", "market": "Iringa", "Maize": [70000, 75000], "Rice": [250000, 300000], "Sorghum": [150000, 200000], "Finger Millet": [180000, 180000]},
+        {"region": "Mara", "market": "Musoma", "Maize": [80000, 95000], "Rice": [190000, 200000], "Sorghum": [200000, 260000], "Finger Millet": [180000, 180000]},
+        {"region": "Songwe", "market": "Songwe", "Maize": [100000, 100000], "Rice": [200000, 220000]},
+        {"region": "Ruvuma", "market": "Songea", "Maize": [70000, 75000], "Rice": [190000, 230000], "Sorghum": [140000, 150000], "Finger Millet": [100000, 100000]}
+      ]
+    }
+  ],
+  "coffee_prices": {
+    "source": "coffee.go.tz",
+    "date": "28 June 2026",
+    "prices": {
+      "Arabica Clean Coffee": {"USD_per_kg": 6.1, "TZS_per_kg_farmgate_maganda": 4902, "TZS_per_kg_farmgate_CPU": 10213, "TZS_per_kg_farmgate_HP": 8171},
+      "Robusta Clean Coffee": {"USD_per_kg": 3.8, "TZS_per_kg_farmgate_maganda": 3650},
+      "NYC Terminal": {"USD_per_kg": 6.0},
+      "London Terminal": {"USD_per_kg": 3.6}
+    }
+  },
+  "cotton_prices": {
+    "source": "cpb.go.tz (Cotton Board)",
+    "season": "2025/2026",
+    "price_TZS_per_kg": 1240
+  },
+  "cocoa_sales": {
+    "source": "kilimo.go.tz - COPRA",
+    "period": "ending 20 May 2026",
+    "season": "2025/2026",
+    "total_kg": 11673860,
+    "total_value_TZS": 138641049811
+  },
+  "green_gram_sales": {
+    "source": "kilimo.go.tz - COPRA",
+    "period": "ending 18 May 2026",
+    "season": "2024/2025",
+    "total_kg": 33111659,
+    "total_value_TZS": 56072173592
+  },
+  "sesame_sales": {
+    "source": "kilimo.go.tz - COPRA",
+    "period": "ending 19 May 2026",
+    "season": "2025/2026",
+    "total_kg": 10471059,
+    "total_value_TZS": 29752399186
+  },
+  "available_pdfs": {
+    "kilimo_go_tz_weekly_bulletins": [
+      {"date": "19 Jun 2026", "title": "Mwenendo wa Bei za Mazao tarehe 15 - 19 Juni, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1782111998-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2015%20-%2019%20Juni,%202026..pdf"},
+      {"date": "12 Jun 2026", "title": "Mwenendo wa Bei za Mazao tarehe 08 - 12 Juni, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1781514992-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2008%20-12%20Juni,%202026...pdf"},
+      {"date": "06 Jun 2026", "title": "Mwenendo wa Bei za Mazao tarehe 01 - 05 Juni, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1780924324-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2001%20-%2005%20June,%202026.pdf"},
+      {"date": "29 May 2026", "title": "Mwenendo wa Bei za mazao tarehe 25 - 29 Mei, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1780306637-Mwenendo%20wa%20Bei%20za%20mazao%20tarehe%2025%20-%2029%20Mei,%202026.pdf"},
+      {"date": "24 May 2026", "title": "Mwenendo wa Bei za mazao tarehe 18 - 22 Mei 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1779703528-Mwenendo%20wa%20Bei%20za%20mazao%20tarehe%2018%20-%2022%20Mei%202026%20(2).pdf"},
+      {"date": "15 May 2026", "title": "Mwenendo wa Bei za Mazao tarehe 11 - 15 Mei, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1779271417-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2011%20-%2015%20Mei,%202026.pdf"},
+      {"date": "08 May 2026", "title": "Mwenendo wa Bei za Mazao tarehe 04 - 08 Mei, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1778314460-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2004%20-%2008%20Mei,%202026.pdf"},
+      {"date": "01 May 2026", "title": "Mwenendo wa Bei za Mazao tarehe 27 Aprili - 01 Mei, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1778314345-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2027%20Aprili%20-%2001%20Mei,%202026.pdf"},
+      {"date": "24 Apr 2026", "title": "Mwenendo wa Bei za Mazao tarehe 20 - 24 Aprili, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1777041079-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2020%20-%2024%20Aprili,%202026.pdf"},
+      {"date": "17 Apr 2026", "title": "Mwenendo wa Bei za Mazao tarehe 13 - 17 Aprili, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1776426590-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2013%20-17%20Aprili,%202026.pdf"},
+      {"date": "10 Apr 2026", "title": "Mwenendo wa Bei za Mazao tarehe 06 - 10 Aprili, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1775830801-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2006%20-10%20Aprili,%202026.pdf"},
+      {"date": "04 Apr 2026", "title": "Mwenendo wa Bei za Mazao tarehe 30 Machi - 03 Aprili, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1775629627-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2030%20Machi%20-%2003%20Aprili,%202026.pdf"}
+    ],
+    "page_2_documents": [
+      {"date": "29 Mar 2026", "title": "Mwenendo wa Bei za Mazao tarehe 23 - 27 Machi, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1775028206-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2023%20-%2027%20Machi,%202026.pdf"},
+      {"date": "19 Mar 2026", "title": "Mwenendo wa Bei za Mazao tarehe 16 - 18 Machi, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1774523863-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2016%20-%2018%20Machi,%202026.pdf"},
+      {"date": "13 Mar 2026", "title": "Mwenendo wa Bei za Mazao tarehe 09 - 13 Machi, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1773408108-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2009%20-%2013%20Machi,%202026%20(1).pdf"},
+      {"date": "09 Mar 2026", "title": "Kilimo Bulletin - Special Women's Day Edition 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1773067001-WOMAN%20DAY%20BULLETIN%20FINAL.pdf"},
+      {"date": "06 Mar 2026", "title": "Mwenendo wa Bei za Mazao tarehe 02 - 06 Machi, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1772804784-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2002%20-%2006%20Machi,%202026.pdf"},
+      {"date": "05 Mar 2026", "title": "Mwenendo wa Bei za Mazao tarehe 23 - 27 Februari, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1772796335-Mwenendo%20wa%20Bei%20%20za%20Mazao%20Tarehe%2023%20-27%20Februari,%202026.pdf"},
+      {"date": "21 Feb 2026", "title": "Mwenendo wa Bei za Mazao tarehe 16 - 20 Februari, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1771831594-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2016%20-20%20Februari,%202026.pdf"},
+      {"date": "16 Feb 2026", "title": "Mwenendo wa Bei za Mazao tarehe 09 - 13 Februari, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1771245349-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2009%20-13%20Februari,%202026.pdf"},
+      {"date": "06 Feb 2026", "title": "Mwenendo wa Bei za Mazao tarehe 02 - 06 Februari, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1770506797-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2002%20-%2006%20Februari,%202026.pdf"},
+      {"date": "30 Jan 2026", "title": "Mwenendo wa Bei za Mazao tarehe 26 - 30 Januari, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1769775359-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2026%20-%2030%20Januari,%202026.pdf"},
+      {"date": "23 Jan 2026", "title": "Mwenendo wa Bei za Mazao tarehe 19 - 23 Januari, 2026", "url": "https://www.kilimo.go.tz/uploads/documents/sw-1769630049-Mwenendo%20wa%20Bei%20za%20Mazao%20tarehe%2019%20-%2023%20Januari,%202026.pdf"}
+    ],
+    "total_pdfs_on_page_1_and_2": 23,
+    "estimated_total_all_10_pages": "~120+ PDFs"
+  }
+}

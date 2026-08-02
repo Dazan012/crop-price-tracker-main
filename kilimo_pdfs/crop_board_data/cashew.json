@@ -1,0 +1,20 @@
+{
+  "board": "Cashew Board",
+  "short": "cashew",
+  "url": "https://www.cashew.go.tz",
+  "crops": [
+    "Cashew"
+  ],
+  "scrape_date": "2026-06-29T08:33:34.822744",
+  "pdfs_found": 1,
+  "pdf_urls": [
+    "https://www.cashew.go.tz/wp-content/uploads/2022/09/TAKWIMU-ZA-UZALISHAJI-1.pdf"
+  ],
+  "prices_found": 0,
+  "price_samples": [],
+  "subpages_checked": [
+    "https://www.cashew.go.tz/takwimu",
+    "https://www.cashew.go.tz/machapisho",
+    "https://www.cashew.go.tz/publications"
+  ]
+}

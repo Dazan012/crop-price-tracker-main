@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "@prisma/client": "^7.8.0",
+    "prisma": "^7.8.0",
+    "recharts": "^3.8.1"
+  },
+  "scripts": {
+    "prepare:backend": "py -m pip install -r requirements.txt",
+    "dev": "npm run prepare:backend && concurrently -n backend,frontend,translate -c yellow,blue,green \"py manage.py runserver 8000\" \"cd frontend && npm start\" \"cd translation-server && npm start\"",
+    "start:backend": "py manage.py runserver 8000",
+    "start:frontend": "cd frontend && npm start",
+    "start:translate": "cd translation-server && npm start",
+    "start:all": "npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

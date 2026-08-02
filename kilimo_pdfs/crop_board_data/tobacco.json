@@ -1,0 +1,28 @@
+{
+  "board": "TTB - Tobacco Board",
+  "short": "tobacco",
+  "url": "https://www.tobaccoboard.go.tz",
+  "crops": [
+    "Tobacco"
+  ],
+  "scrape_date": "2026-06-29T08:33:13.036066",
+  "pdfs_found": 11,
+  "pdf_urls": [
+    "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 15 JUNE 2025.pdf",
+    "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 08 JUNE 2025.pdf",
+    "https://www.tobaccoboard.go.tz/uploads/documents/TAARIFA YA MWISHO YA UZALISHAJI MSIMU 2024-2025.pdf",
+    "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 01 JUNE 2025.pdf",
+    "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 08 JUNE 2025.pdf",
+    "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 11 MAY 2025.pdf",
+    "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 01 JUNE 2025.pdf",
+    "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 25 MAY 2025.pdf",
+    "https://www.tobaccoboard.go.tz/uploads/documents/TAARIFA YA MWISHO YA UZALISHAJI MSIMU 2024-2025.pdf",
+    "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 15 JUNE 2025.pdf",
+    "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 18 MAY 2025.pdf"
+  ],
+  "prices_found": 0,
+  "price_samples": [],
+  "subpages_checked": [
+    "https://www.tobaccoboard.go.tz/reports"
+  ]
+}

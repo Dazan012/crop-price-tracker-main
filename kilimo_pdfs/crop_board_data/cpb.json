@@ -1,0 +1,20 @@
+{
+  "board": "CPB - Cereals & Other Produce Board",
+  "short": "cpb",
+  "url": "https://www.cpb.go.tz",
+  "crops": [
+    "Maize",
+    "Rice",
+    "Beans",
+    "Sorghum",
+    "Finger Millet"
+  ],
+  "scrape_date": "2026-06-29T08:34:01.169089",
+  "pdfs_found": 0,
+  "pdf_urls": [],
+  "prices_found": 0,
+  "price_samples": [],
+  "subpages_checked": [
+    "https://www.cpb.go.tz/publications"
+  ]
+}

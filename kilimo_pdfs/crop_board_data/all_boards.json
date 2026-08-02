@@ -1,0 +1,125 @@
+{
+  "scrape_date": "2026-06-29T08:33:34.824373",
+  "total_boards": 5,
+  "results": [
+    {
+      "board": "CPB - Cereals & Other Produce Board",
+      "short": "cpb",
+      "url": "https://www.cpb.go.tz",
+      "crops": [
+        "Maize",
+        "Rice",
+        "Beans",
+        "Sorghum",
+        "Finger Millet"
+      ],
+      "scrape_date": "2026-06-29T08:32:06.227602",
+      "pdfs_found": 0,
+      "pdf_urls": [],
+      "prices_found": 0,
+      "price_samples": [],
+      "subpages_checked": [
+        "https://www.cpb.go.tz/publications"
+      ]
+    },
+    {
+      "board": "TCB - Coffee Board",
+      "short": "coffee",
+      "url": "https://www.coffee.go.tz",
+      "crops": [
+        "Coffee Arabica",
+        "Coffee Robusta"
+      ],
+      "scrape_date": "2026-06-29T08:32:11.754742",
+      "pdfs_found": 0,
+      "pdf_urls": [],
+      "prices_found": 3,
+      "price_samples": [
+        {
+          "value": 2.0,
+          "context": "y\"></span>                     <span class=\"px-1 text-bold\">Bei za minada:</span>                     <span class=\"mr-2\">Arabica - Kahawa Safi ($/Kg)</span>                     <s",
+          "source_label": "Auction"
+        },
+        {
+          "value": 2.0,
+          "context": "y\"></span>                     <span class=\"px-1 text-bold\">Bei za minada:</span>                     <span class=\"mr-2\">Robusta - Kahawa Safi ($/kg)</span>                     <s",
+          "source_label": "Auction"
+        },
+        {
+          "value": 1.0,
+          "context": "Terminal Market                                                             </td>                                                             <td class=\"text-bold\" style=\"padding: 1px !important;\">",
+          "source_label": "Terminal"
+        }
+      ],
+      "subpages_checked": [
+        "https://www.coffee.go.tz/publications"
+      ]
+    },
+    {
+      "board": "TBT - Tea Board",
+      "short": "tea",
+      "url": "https://www.teaboard.go.tz",
+      "crops": [
+        "Tea"
+      ],
+      "scrape_date": "2026-06-29T08:32:28.125220",
+      "pdfs_found": 1,
+      "pdf_urls": [
+        "https://www.teaboard.go.tz/uploads/documents/sw-1763014962-TEA INDUSTRY DEVELOPMENT_compressed (1).pdf"
+      ],
+      "prices_found": 0,
+      "price_samples": [],
+      "subpages_checked": [
+        "https://www.teaboard.go.tz/publications"
+      ]
+    },
+    {
+      "board": "TTB - Tobacco Board",
+      "short": "tobacco",
+      "url": "https://www.tobaccoboard.go.tz",
+      "crops": [
+        "Tobacco"
+      ],
+      "scrape_date": "2026-06-29T08:33:12.545979",
+      "pdfs_found": 11,
+      "pdf_urls": [
+        "https://www.tobaccoboard.go.tz/uploads/documents/TAARIFA YA MWISHO YA UZALISHAJI MSIMU 2024-2025.pdf",
+        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 08 JUNE 2025.pdf",
+        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 01 JUNE 2025.pdf",
+        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 15 JUNE 2025.pdf",
+        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 08 JUNE 2025.pdf",
+        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 01 JUNE 2025.pdf",
+        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 11 MAY 2025.pdf",
+        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 25 MAY 2025.pdf",
+        "https://www.tobaccoboard.go.tz/uploads/documents/TAARIFA YA MWISHO YA UZALISHAJI MSIMU 2024-2025.pdf",
+        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 18 MAY 2025.pdf",
+        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 15 JUNE 2025.pdf"
+      ],
+      "prices_found": 0,
+      "price_samples": [],
+      "subpages_checked": [
+        "https://www.tobaccoboard.go.tz/reports"
+      ]
+    },
+    {
+      "board": "Cashew Board",
+      "short": "cashew",
+      "url": "https://www.cashew.go.tz",
+      "crops": [
+        "Cashew"
+      ],
+      "scrape_date": "2026-06-29T08:33:34.822475",
+      "pdfs_found": 1,
+      "pdf_urls": [
+        "https://www.cashew.go.tz/wp-content/uploads/2022/09/TAKWIMU-ZA-UZALISHAJI-1.pdf"
+      ],
+      "prices_found": 0,
+      "price_samples": [],
+      "subpages_checked": [
+        "https://www.cashew.go.tz/takwimu",
+        "https://www.cashew.go.tz/machapisho",
+        "https://www.cashew.go.tz/publications"
+      ]
+    }
+  ]
+}

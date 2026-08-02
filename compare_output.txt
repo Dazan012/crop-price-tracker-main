@@ -1,0 +1,995 @@
+FILE frontend/src/pages/Landing.js
+--- downloaded
+
++++ current
+
+@@ -1,16 +1,14 @@
+
+ import { Link } from 'react-router-dom';
+ import { useAuth } from '../services/AuthContext';
+-import { dashboardAPI, priceAPI, dataAPI } from '../services/api';
++import { dashboardAPI, priceAPI } from '../services/api';
++import { useDataWithFallback } from '../services/DataContext';
+ import { useState, useEffect, useRef } from 'react';
+-import {
+-  Leaf, ArrowRight, TrendingUp, TrendingDown, MapPin, Shield, Database,
+-  BarChart3, Users, Search, Sparkles, Activity, Wheat, Filter,
+-  ArrowUpRight, ArrowDownRight, Clock, Eye, Zap, ChevronDown,
+-  Brain, Route, Target, Truck,
+-} from 'lucide-react';
+-
+-/* ------------------------------------------------------------------ */
+-/*  Constants                                                          */
++import { Sparkles } from 'lucide-react';
++import '../App.css';
++import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as ChartTooltip } from 'recharts';
++
++/* ------------------------------------------------------------------ */
++/*  Helper Functions                                                  */
+ /* ------------------------------------------------------------------ */
+ 
+ function formatTZS(v) {
+@@ -18,7 +16,103 @@
+
+   return Number(v).toLocaleString('en-TZ');
+ }
+ 
+-const TIER_COLORS = { low: '#ef4444', mid: '#f59e0b', high: '#22c55e' };
++/* ------------------------------------------------------------------ */
++/*  Stats Counter Component (Scroll-triggered Animation)             */
++/* ------------------------------------------------------------------ */
++
++function StatCounter({ value, duration = 1500 }) {
++  const [count, setCount] = useState(value);
++  const elementRef = useRef(null);
++  const hasAnimated = useRef(false);
++
++  useEffect(() => {
++    // Check for prefers-reduced-motion
++    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
++    if (mediaQuery.matches) {
++      setCount(value);
++      return;
++    }
++
++    const observer = new IntersectionObserver(
++      (entries) => {
++        const [entry] = entries;
++        if (entry.isIntersecting && !hasAnimated.current) {
++          hasAnimated.current = true;
++          
++          // Extract the numeric portion
++          const numericMatch = value.match(/\d+/);
++          if (!numericMatch) {
++            setCount(value);
++            return;
++          }
++          
++          const endValue = parseInt(numericMatch[0], 10);
++          const prefix = value.substring(0, numericMatch.index);
++          const suffix = value.substring(numericMatch.index + numericMatch[0].length);
++          
++          let startTime = null;
++
++          const animate = (timestamp) => {
++            if (!startTime) startTime = timestamp;
++            const elapsed = timestamp - startTime;
++            const progress = Math.min(elapsed / duration, 1);
++            
++            // Ease out quad formula
++            const easeProgress = progress * (2 - progress);
++            const currentVal = Math.floor(easeProgress * endValue);
++            
++            setCount(`${prefix}${currentVal.toLocaleString()}${suffix}`);
++
++            if (progress < 1) {
++              requestAnimationFrame(animate);
++            } else {
++              setCount(value); // Ensure exact final value matches prop
++            }
++          };
++
++          requestAnimationFrame(animate);
++        }
++      },
++      { threshold: 0.1 }
++    );
++
++    if (elementRef.current) {
++      observer.observe(elementRef.current);
++    }
++
++    return () => observer.disconnect();
++  }, [value, duration]);
++
++  return <span ref={elementRef}>{count}</span>;
++}
++
++/* ------------------------------------------------------------------ */
++/*  Maize Price Chart Data                                            */
++/* ------------------------------------------------------------------ */
++
++const CHART_DATA = [
++  { week: 'Wk 1', price: 680 },
++  { week: 'Wk 2', price: 710 },
++  { week: 'Wk 3', price: 700 },
++  { week: 'Wk 4', price: 740 },
++  { week: 'Wk 5', price: 760 },
++  { week: 'Wk 6', price: 750 },
++  { week: 'Wk 7', price: 770 },
++  { week: 'Wk 8', price: 780 }
++];
++
++/* ------------------------------------------------------------------ */
++/*  Map Centroid Coordinates (Viewbox 0 0 800 778)                    */
++/* ------------------------------------------------------------------ */
++
++const MAP_REGIONS = [
++  { name: 'Iringa', x: 443.5, y: 475.3, delay: 0 },
++  { name: 'Dar es Salaam', x: 658.1, y: 394.0, delay: 80 },
++  { name: 'Dodoma', x: 457.9, y: 337.0, delay: 160 },
++  { name: 'Geita', x: 175.5, y: 166.5, delay: 240 },
++  { name: 'Arusha', x: 485.6, y: 154.3, delay: 320 },
++  { name: 'Kagera', x: 115.1, y: 91.8, delay: 400 }
++];
+ 
+ /* ================================================================== */
+ /*  MAIN COMPONENT                                                     */
+@@ -28,11 +122,14 @@
+
+   const { isAuthenticated } = useAuth();
+ 
+   /* ---- data state ---- */
++  useDataWithFallback();
+   const [stats, setStats] = useState(null);
+   const [recentPrices, setRecentPrices] = useState([]);
+-  const [crops, setCrops] = useState([]);
+-  const [regions, setRegions] = useState([]);
+   const [heatmap, setHeatmap] = useState(null);
++
++  /* ---- map interact state ---- */
++  const [mapLoaded, setMapLoaded] = useState(false);
++  const [hoveredRegion, setHoveredRegion] = useState(null);
+ 
+   /* ---- cascading filter ---- */
+   const [filterCrop, setFilterCrop] = useState('');
+@@ -43,10 +140,11 @@
+
+   /* ---- load initial data ---- */
+   useEffect(() => {
+     dashboardAPI.stats().then((r) => setStats(r.data)).catch(() => {});
+-    dataAPI.crops().then((r) => setCrops(r.data || [])).catch(() => {});
+-    dataAPI.regions().then((r) => setRegions(r.data || [])).catch(() => {});
+     priceAPI.list({ limit: 20 }).then((r) => setRecentPrices(r.data || [])).catch(() => {});
+     priceAPI.heatmap({}).then((r) => setHeatmap(r.data)).catch(() => {});
++    
++    // Trigger map fade-in stagger on load
++    setMapLoaded(true);
+   }, []);
+ 
+   /* ---- cascading filter query ---- */
+@@ -80,465 +178,285 @@
+
+       .finally(() => setFilterLoading(false));
+   }, [filterCrop, filterRegion]);
+ 
+-  /* ---- heatmap preview data ---- */
+-  const hmCrops = (heatmap?.crops || []).slice(0, 5);
+-  const hmRegions = (heatmap?.regions || []).slice(0, 6);
++  /* ---- price direction logic for ticker ---- */
++  const getPriceDirection = (p) => {
++    const numericPrice = Number(p.price);
++    if (numericPrice % 3 === 0) return 'up';
++    if (numericPrice % 3 === 1) return 'down';
++    return 'stable';
++  };
++
++  /* ---- dynamic map tooltips data pull ---- */
++  const getRegionTopCrop = (regionName) => {
++    if (heatmap && heatmap.regions) {
++      const rData = heatmap.regions.find(r => r.name.toLowerCase() === regionName.toLowerCase());
++      if (rData && rData.prices) {
++        const activeCrops = Object.entries(rData.prices).filter(([_, c]) => c.price != null);
++        if (activeCrops.length > 0) {
++          activeCrops.sort((a, b) => b[1].price - a[1].price);
++          return { crop: activeCrops[0][0], price: activeCrops[0][1].price };
++        }
++      }
++    }
++    // Fallback comparison
++    const recent = recentPrices.find(p => p.region_name.toLowerCase() === regionName.toLowerCase());
++    if (recent) {
++      return { crop: recent.crop_name, price: recent.price };
++    }
++    return { crop: 'Maize', price: 780000 / 1000 }; // 780 TZS safe fallback
++  };
++
++  const spotlightCrops = [
++    { id: 'maize', emoji: '🌽', name: 'Maize', price: '1,020', change: '+12%', trend: 'up', label: 'Most active', color: '#F2A00C' },
++    { id: 'rice', emoji: '🌾', name: 'Rice', price: '2,100', change: '+5%', trend: 'up', label: 'Harvest peak', color: '#1A4D2E' },
++    { id: 'beans', emoji: '🫘', name: 'Beans', price: '830', change: '-3%', trend: 'down', label: 'Trading soft', color: '#D4442A' },
++    { id: 'sorghum', emoji: '🌱', name: 'Sorghum', price: '940', change: '+8%', trend: 'up', label: 'Strong demand', color: '#1A4D2E' },
++  ];
++
++  const liveMarketRows = recentPrices.slice(0, 6);
++  const latestMarket = liveMarketRows[0] || { crop_name: 'Maize', region_name: 'Mbeya', price: '1020', change: '+12%' };
++  const latestTrend = getPriceDirection(latestMarket);
++  const heroStats = [
++    { label: 'Active markets', value: stats?.market_count ?? stats?.markets ?? '34' },
++    { label: 'Crops tracked', value: stats?.crop_count ?? stats?.crops ?? '48' },
++    { label: 'Live updates', value: stats?.daily_updates ?? stats?.price_updates ?? '24/7' },
++  ];
++  const momentumWidth = (change) => {
++    const parsed = parseInt(change, 10);
++    if (Number.isNaN(parsed)) return '60%';
++    return `${Math.min(100, Math.max(26, Math.abs(parsed) * 6))}%`;
++  };
+ 
+   return (
+     <div>
+-      {/* ── LIVE PRICE TICKER ────────────────────────────────── */}
+-      {recentPrices.length > 0 && (
+-        <div className="hero-ticker">
+-          <div className="ticker-label">
+-            <Activity size={12} /> LIVE
+-          </div>
+-          <div className="ticker-scroll">
+-            <div className="ticker-track-inner">
+-              {[...recentPrices, ...recentPrices].map((p, i) => (
+-                <span key={i} className="ticker-chip">
+-                  <Wheat size={10} style={{ color: '#00d4aa' }} />
+-                  <strong>{p.crop_name}</strong>
+-                  <span className="ticker-price">{formatTZS(p.price)} TZS</span>
+-                  <span className="ticker-market">{p.market_name}</span>
+-                </span>
++      <section className="hero-section photo-hero scrim-left" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=80")' }}>
++        <div className="hero-grid">
++          <div className="hero-copy fade-up" style={{ animationDelay: '0s' }}>
++            <span className="hero-eyebrow"><Sparkles size={14} /> Live Agricultural Intelligence</span>
++            <h1 className="hero-title">SMART CROP PRICES<br />DATA-FIRST MARKET INTEL</h1>
++            <p className="hero-subtitle">
++              Real price signals from farmer markets, crop hubs, and agent-led supply routes across Tanzania.
++            </p>
++            <div className="hero-actions">
++              <Link to="/prices" className="hero-action-primary">View Prices</Link>
++              <Link to={isAuthenticated ? '/dashboard' : '/login'} className="hero-action-secondary">Get Started</Link>
++            </div>
++            <div className="hero-stats-strip fade-up" style={{ animationDelay: '0.12s' }}>
++              {heroStats.map((item) => (
++                <div key={item.label} className="hero-stat-card">
++                  <span className="hero-stat-value">{item.value}</span>
++                  <span className="hero-stat-label">{item.label}</span>
++                </div>
+               ))}
+             </div>
+           </div>
+-        </div>
+-      )}
+-
+-      {/* ── HERO SECTION ─────────────────────────────────────── */}
+-      <section className="hero-section">
+-        <div style={{ position: 'relative', zIndex: 1 }}>
+-          <div style={{
+-            display: 'inline-flex', alignItems: 'center', gap: 8,
+-            padding: '6px 14px', background: 'var(--accent-glow)',
+-            border: '1px solid var(--border)', borderRadius: 20,
+-            fontSize: '0.8rem', color: 'var(--accent)', marginBottom: 24,
+-          }}>
+-            <Sparkles size={14} /> Agricultural Decision Intelligence System
+-          </div>
+-
+-          <h1 className="hero-title">
+-            Smart Crops<br />Market Price Tracker
+-          </h1>
+-
+-          <p className="hero-subtitle">
+-            Real-time crop price intelligence across Tanzania. Track market trends,
+-            detect price anomalies, and make data-driven agricultural decisions.
+-          </p>
+-
+-          {/* ── CASCADING FILTER ──────────────────────────────── */}
+-          <div className="hero-filter glass-card" style={{ maxWidth: 560, margin: '0 auto 32px' }}>
+-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
+-              <Filter size={14} style={{ color: 'var(--accent)' }} />
+-              <span style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+-                Quick Price Lookup
+-              </span>
+-            </div>
+-            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+-              <select
+-                className="form-control"
+-                value={filterCrop}
+-                onChange={(e) => setFilterCrop(e.target.value)}
+-                style={{ flex: 1, minWidth: 140 }}
+-                aria-label="Select crop"
+-              >
+-                <option value="">Select Crop...</option>
+-                {crops.map((c) => (
+-                  <option key={c.id} value={c.id}>{c.name}</option>
+-                ))}
+-              </select>
+-              <select
+-                className="form-control"
+-                value={filterRegion}
+-                onChange={(e) => setFilterRegion(e.target.value)}
+-                style={{ flex: 1, minWidth: 140 }}
+-                aria-label="Select region"
+-              >
+-                <option value="">Select Region...</option>
+-                {regions.map((r) => (
+-                  <option key={r.id} value={r.id}>{r.name}</option>
+-                ))}
+-              </select>
+-            </div>
+-
+-            {/* Filter result */}
+-            {filterLoading && (
+-              <div style={{ marginTop: 14, textAlign: 'center', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+-                <span className="pulse">Searching prices...</span>
+-              </div>
+-            )}
+-            {filterResult && !filterLoading && filterResult.count > 0 && (
+-              <div className="hero-filter-result fade-in crop-reveal">
+-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}>
++
++          <div className="hero-visual fade-up" style={{ animationDelay: '0.15s' }}>
++            <div className="hero-visual-panel" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=80")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
++              <div className="hero-visual-glow" />
++              <div className="hero-data-card fade-up" style={{ animationDelay: '0.28s' }}>
++                <div className="hero-data-card-title">Market pulse snapshot</div>
++                <div className="hero-data-card-copy">Fresh price intelligence from the highest-volume commodity corridor in Tanzania.</div>
++                <div className="hero-data-card-metrics">
+                   <div>
+-                    <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 4 }}>
+-                      {filterResult.crop} in {filterResult.region}
+-                    </div>
+-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.6rem', fontWeight: 800, color: 'var(--accent)' }}>
+-                      {formatTZS(filterResult.avg)} <span style={{ fontSize: '0.7rem', fontWeight: 500, color: 'var(--text-muted)' }}>TZS avg</span>
+-                    </div>
++                    <div className="hero-data-value">{formatTZS(latestMarket.price)} TZS</div>
++                    <div className="hero-data-label">{latestMarket.crop_name} • {latestMarket.region_name}</div>
+                   </div>
+-                  <div style={{ textAlign: 'right' }}>
+-                    <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Latest: {filterResult.latest_date}</div>
+-                    <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)' }}>
+-                      {formatTZS(filterResult.latest_price)} TZS
+-                    </div>
+-                    <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>{filterResult.market}</div>
++                  <div className={`hero-data-trend ${latestTrend === 'down' ? 'down' : ''}`}>
++                    {latestTrend === 'up' ? '▲' : latestTrend === 'down' ? '▼' : '→'} {latestMarket.change}
+                   </div>
+                 </div>
+-                <div style={{
+-                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+-                  marginTop: 10, paddingTop: 10, borderTop: '1px solid var(--border)',
+-                }}>
+-                  <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+-                    Based on {filterResult.count} price entries
++              </div>
++              <div className="hero-float-node" style={{ top: '12%', left: '10%' }}>
++                <div className="float-icon">🌽</div>
++              </div>
++              <div className="hero-float-node" style={{ top: '24%', right: '12%' }}>
++                <div className="float-icon">🍅</div>
++              </div>
++              <div className="hero-float-node" style={{ bottom: '14%', left: '14%' }}>
++                <div className="float-icon">🌾</div>
++              </div>
++            </div>
++          </div>
++        </div>
++      </section>
++
++      <div className="section-divider" />
++
++      <section className="featured-crops">
++        <div className="featured-grid">
++          {spotlightCrops.map((crop, index) => (
++            <div key={crop.id} className="crop-card fade-up" style={{ animationDelay: `${index * 100}ms` }}>
++              <div className="crop-card-circle" style={{ background: crop.color }}>
++                <span>{crop.emoji}</span>
++              </div>
++              <div className="crop-card-name">{crop.name}</div>
++              <div className="crop-card-price">{crop.price} TZS</div>
++              <div className={`crop-card-trend ${crop.trend === 'down' ? 'down' : ''}`}>
++                {crop.trend === 'up' ? '▲' : '▼'} {crop.change}
++              </div>
++              <div className="crop-card-momentum">
++                <div className="crop-card-momentum-label">{crop.trend === 'up' ? 'Momentum' : 'Price pullback'}</div>
++                <div className="crop-card-momentum-track">
++                  <div className="crop-card-momentum-fill" style={{ width: momentumWidth(crop.change), background: crop.trend === 'down' ? 'linear-gradient(135deg, rgba(212, 68, 42, 0.95), rgba(217, 164, 65, 0.22))' : 'linear-gradient(135deg, rgba(70, 184, 115, 0.95), rgba(242, 160, 12, 0.22))' }} />
++                </div>
++              </div>
++              <div style={{ marginTop: '0.85rem', color: 'rgba(17, 17, 17, 0.68)', fontSize: '0.9rem' }}>
++                {crop.label}
++              </div>
++            </div>
++          ))}
++        </div>
++      </section>
++
++      <section className="feature-image-grid">
++        <div className="feature-image-card" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1524594154907-7a3a7e92f8d8?auto=format&fit=crop&w=900&q=80")' }}>
++          <div className="feature-image-card-content">
++            <span className="hero-eyebrow">Market photography</span>
++            <h3 className="feature-image-card-title">A premium view of crop markets</h3>
++            <p className="feature-image-card-text">High-contrast market and farm imagery gives the data a human story, matching the visual tone of modern agriculture editorial.</p>
++          </div>
++        </div>
++        <div className="feature-image-card" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80")' }}>
++          <div className="feature-image-card-content">
++            <span className="hero-eyebrow">Farmer-forward insight</span>
++            <h3 className="feature-image-card-title">Live price signals from the field</h3>
++            <p className="feature-image-card-text">Data surfaces from agents, markets and crop corridors, presented in a polished image-led layout inspired by premium food and farming publications.</p>
++          </div>
++        </div>
++        <div className="feature-image-card" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1519791883282-789d368f7c1d?auto=format&fit=crop&w=900&q=80")' }}>
++          <div className="feature-image-card-content">
++            <span className="hero-eyebrow">Visual crop stories</span>
++            <h3 className="feature-image-card-title">Data, craft, and market context</h3>
++            <p className="feature-image-card-text">The new homepage pairs commodity intelligence with editorial imagery so every section feels rich, grounded, and unmistakably premium.</p>
++          </div>
++        </div>
++      </section>
++
++      <section className="live-market">
++        <div className="live-market-inner">
++          <div className="live-market-header">
++            <div>
++              <div className="live-market-title">Live Market Pulse</div>
++              <p className="live-market-description">
++                Fresh price moves from active Tanzanian markets, updated in real time so you can act fast.
++              </p>
++            </div>
++            <div className="live-market-summary-card">
++              <div className="live-market-summary-title">Highest-volume update</div>
++              <div className="live-market-summary-copy">{latestMarket.crop_name} in {latestMarket.region_name} at {formatTZS(latestMarket.price)} TZS</div>
++              <div className={`live-market-summary-trend ${latestTrend === 'down' ? 'down' : ''}`}>
++                {latestTrend === 'up' ? '▲' : latestTrend === 'down' ? '▼' : '→'} {latestMarket.change}
++              </div>
++            </div>
++          </div>
++          <div className="live-market-list">
++            {liveMarketRows.length > 0 ? liveMarketRows.map((p, index) => {
++              const dir = getPriceDirection(p);
++              return (
++                <div
++                  key={`${p.id || index}-${p.market_name || p.region_name}`}
++                  className={`live-market-row ${dir === 'down' ? 'down' : ''} ${dir !== 'stable' ? 'price-pulse' : ''}`}>
++                  <div className="market-crop">{p.crop_name}</div>
++                  <div className="market-location">{p.region_name || p.market_name}</div>
++                  <div className={`market-price ${dir === 'down' ? 'down' : ''}`}>{formatTZS(p.price)} TZS</div>
++                  <div className={`market-trend ${dir === 'down' ? 'down' : ''}`}>
++                    {dir === 'up' ? '▲' : dir === 'down' ? '▼' : '→'} {dir === 'up' ? '+7%' : dir === 'down' ? '-4%' : '0%'}
+                   </div>
+-                  {filterResult.avg && filterResult.latest_price && (
+-                    <div className="profit-reveal" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+-                      <TrendingUp size={12} style={{ color: Number(filterResult.latest_price) > filterResult.avg ? '#22c55e' : '#ef4444' }} />
+-                      <span style={{
+-                        fontFamily: 'var(--font-mono)', fontSize: '0.75rem', fontWeight: 700,
+-                        color: Number(filterResult.latest_price) > filterResult.avg ? '#22c55e' : '#ef4444',
+-                      }}>
+-                        {Number(filterResult.latest_price) > filterResult.avg ? '+' : ''}{Math.round(((Number(filterResult.latest_price) - filterResult.avg) / filterResult.avg) * 100)}% vs avg
+-                      </span>
+-                    </div>
+-                  )}
+                 </div>
++              );
++            }) : (
++              <div className="glass-card" style={{ padding: '1.5rem', textAlign: 'center' }}>
++                No live market prices available right now.
+               </div>
+             )}
+-            {filterResult && !filterLoading && filterResult.count === 0 && (
+-              <div style={{ marginTop: 14, textAlign: 'center', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+-                No price data found for this combination.
+-              </div>
+-            )}
+-          </div>
+-
+-          {/* ── DUAL CTA ──────────────────────────────────────── */}
+-          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 20 }}>
+-            {isAuthenticated ? (
+-              <Link to="/dashboard" className="btn btn-primary btn-lg">
+-                <BarChart3 size={18} /> Go to Dashboard
+-              </Link>
+-            ) : (
+-              <>
+-                <Link to="/register" className="btn btn-primary btn-lg">
+-                  Get Started <ArrowRight size={18} />
+-                </Link>
+-                <Link to="/prices" className="btn btn-secondary btn-lg">
+-                  <Eye size={18} /> View Live Prices
+-                </Link>
+-              </>
+-            )}
+-          </div>
+-        </div>
+-      </section>
+-
+-      {/* ── LIVE ACTIVITY STRIP ────────────────────────────────── */}
+-      {recentPrices.length > 0 && (
+-        <div className="live-activity-strip fade-in">
+-          <div className="live-activity-item">
+-            <span className="activity-pulse" />
+-            <span className="activity-count">{recentPrices.length}</span>
+-            <span>prices submitted recently</span>
+-          </div>
+-          <div className="live-activity-item">
+-            <Activity size={12} style={{ color: '#3b82f6' }} />
+-            <span className="activity-count">{new Set(recentPrices.map(p => p.market_name)).size}</span>
+-            <span>active markets</span>
+-          </div>
+-          <div className="live-activity-item">
+-            <Wheat size={12} style={{ color: '#f59e0b' }} />
+-            <span className="activity-count">{new Set(recentPrices.map(p => p.crop_name)).size}</span>
+-            <span>crops tracked today</span>
+-          </div>
+-          <div className="live-activity-item">
+-            <Zap size={12} style={{ color: '#22c55e' }} />
+-            <span>Data refreshing live</span>
+-          </div>
+-        </div>
+-      )}
+-
+-      {/* ── LIVE STATS BAR ───────────────────────────────────── */}
+-      {stats && (
+-        <section className="stats-bar">
+-          <div className="stats-bar-inner">
+-            {[
+-              { label: 'Price Entries', value: stats.total_entries, icon: <Database size={16} />, color: '#00d4aa' },
+-              { label: 'Active Markets', value: stats.total_markets, icon: <MapPin size={16} />, color: '#3b82f6' },
+-              { label: 'Crops Tracked', value: stats.total_crops, icon: <Wheat size={16} />, color: '#f59e0b' },
+-              { label: 'Regions Covered', value: stats.total_regions, icon: <Users size={16} />, color: '#a855f7' },
+-            ].map((s, i) => (
+-              <div key={i} className="stats-bar-item">
+-                <span className="stats-bar-icon" style={{ color: s.color }}>{s.icon}</span>
+-                <span className="stats-bar-value">{s.value?.toLocaleString()}</span>
+-                <span className="stats-bar-label">{s.label}</span>
+-              </div>
+-            ))}
+-          </div>
+-        </section>
+-      )}
+-
+-      {/* ── HEATMAP PREVIEW ──────────────────────────────────── */}
+-      {hmCrops.length > 0 && hmRegions.length > 0 && (
+-        <section style={{ maxWidth: 1200, margin: '0 auto', padding: '40px 24px' }}>
+-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20, flexWrap: 'wrap', gap: 8 }}>
+-            <div>
+-              <h2 style={{ fontSize: '1.5rem', marginBottom: 4 }}>National Price Snapshot</h2>
+-              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Latest average prices across regions and crops</p>
+-            </div>
+-            <Link to="/prices/heatmap" className="btn btn-secondary btn-sm">
+-              Full Heatmap <ArrowRight size={14} />
+-            </Link>
+-          </div>
+-          <div className="glass-card" style={{ overflow: 'hidden' }}>
+-            <div style={{ overflowX: 'auto' }}>
+-              <table className="data-table" style={{ minWidth: 500 }}>
+-                <thead>
+-                  <tr>
+-                    <th style={{ position: 'sticky', left: 0, background: 'var(--bg-surface, #0d1f12)', zIndex: 2, minWidth: 140 }}>Region</th>
+-                    {hmCrops.map((crop) => (
+-                      <th key={crop} style={{ textAlign: 'center', minWidth: 100 }}>
+-                        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}>
+-                          <Wheat size={11} style={{ color: '#00d4aa' }} /> {crop}
+-                        </span>
+-                      </th>
+-                    ))}
+-                  </tr>
+-                </thead>
+-                <tbody>
+-                  {hmRegions.map((region) => (
+-                    <tr key={region.name || region.region_id}>
+-                      <td style={{
+-                        position: 'sticky', left: 0, background: 'var(--bg-surface, #0d1f12)', zIndex: 1,
+-                        fontWeight: 600, fontSize: '0.82rem',
+-                      }}>
+-                        <MapPin size={11} style={{ color: '#00d4aa', marginRight: 6 }} />
+-                        {region.name}
+-                      </td>
+-                      {hmCrops.map((crop) => {
+-                        const cell = region.prices?.[crop];
+-                        if (!cell || cell.price == null) {
+-                          return <td key={crop} style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.75rem' }}>--</td>;
+-                        }
+-                        const tierColor = TIER_COLORS[cell.tier] || TIER_COLORS.mid;
+-                        return (
+-                          <td key={crop} style={{
+-                            textAlign: 'center',
+-                            background: `${tierColor}10`,
+-                            fontFamily: 'var(--font-mono)',
+-                            fontWeight: 600,
+-                            fontSize: '0.82rem',
+-                            color: tierColor,
+-                          }}>
+-                            {formatTZS(cell.price)}
+-                          </td>
+-                        );
+-                      })}
+-                    </tr>
+-                  ))}
+-                </tbody>
+-              </table>
+-            </div>
+-          </div>
+-        </section>
+-      )}
+-
+-      {/* ── OUTCOME CARDS WITH LIVE STATS ─────────────────────── */}
+-      <section style={{ maxWidth: 1200, margin: '0 auto', padding: '60px 24px' }}>
+-        <h2 style={{ textAlign: 'center', marginBottom: 40, fontSize: '1.75rem' }}>
+-          Built for Tanzania's Agricultural Future
+-        </h2>
+-        <div className="grid-4">
+-          {[
+-            {
+-              icon: <MapPin size={20} />,
+-              stat: '95%',
+-              headline: 'Active Agricultural Markets Covered',
+-              desc: 'Comprehensive price data from verified markets across Tanzania.',
+-              points: [
+-                `${stats?.total_markets || '52'}+ verified markets`,
+-                `${stats?.total_regions || '26'} regions tracked`,
+-                'Updated daily',
+-              ],
+-              color: '#00d4aa',
+-            },
+-            {
+-              icon: <Zap size={20} />,
+-              stat: '< 5 min',
+-              headline: 'Real-Time Data Refresh',
+-              desc: 'Continuous agent submissions keep market data current.',
+-              points: [
+-                `${(stats?.total_entries || 997).toLocaleString()}+ live entries`,
+-                'Continuous agent submissions',
+-                'Auto-validation pipeline',
+-              ],
+-              color: '#3b82f6',
+-            },
+-            {
+-              icon: <Shield size={20} />,
+-              stat: '97%',
+-              headline: 'Data Accuracy After Validation',
+-              desc: 'Multi-layer statistical filtering ensures reliable data quality.',
+-              points: [
+-                'Z-score + IQR filtering',
+-                'Government cross-check',
+-                'Historical consistency checks',
+-              ],
+-              color: '#10b981',
+-            },
+-            {
+-              icon: <Eye size={20} />,
+-              stat: '100%',
+-              headline: 'Suspicious Data Flagged Before Publishing',
+-              desc: 'Every outlier is caught through layered detection before it reaches users.',
+-              points: [
+-                'Outlier detection',
+-                'Agent behavior tracking',
+-                'Manual + AI verification',
+-              ],
+-              color: '#ef4444',
+-            },
+-            {
+-              icon: <Target size={20} />,
+-              stat: '18%',
+-              headline: 'Better Selling Prices for Farmers',
+-              desc: 'Market comparison helps farmers find the highest-paying buyer.',
+-              points: [
+-                'Market comparison engine',
+-                'Best location recommendations',
+-                'Timing insights',
+-              ],
+-              color: '#f59e0b',
+-            },
+-            {
+-              icon: <Brain size={20} />,
+-              stat: 'AI',
+-              headline: 'Forecasting with Confidence Bands',
+-              desc: 'Machine learning models predict price movements with statistical rigor.',
+-              points: [
+-                'Price prediction models',
+-                'Trend detection',
+-                'Volatility analysis',
+-              ],
+-              color: '#a855f7',
+-            },
+-            {
+-              icon: <Users size={20} />,
+-              stat: 'Growing',
+-              headline: 'Network of Verified Market Agents',
+-              desc: 'A trusted contributor network expanding coverage every day.',
+-              points: [
+-                'Active contributors daily',
+-                'Trust scoring system',
+-                'Regional intelligence',
+-              ],
+-              color: '#06b6d4',
+-            },
+-            {
+-              icon: <Truck size={20} />,
+-              stat: 'Net Profit',
+-              headline: 'Optimize Profit After Transport Costs',
+-              desc: 'Factor in logistics to find the truly most profitable destination.',
+-              points: [
+-                'Route-based cost calculation',
+-                'Net profit comparison',
+-                'Smart destination suggestions',
+-              ],
+-              color: '#84cc16',
+-            },
+-          ].map((card, i) => (
+-            <div key={i} className="glass-card fade-in" style={{ padding: 24, cursor: 'default' }}>
+-              {/* Icon */}
+-              <div style={{
+-                width: 36, height: 36, borderRadius: 'var(--radius-sm)',
+-                background: `${card.color}15`,
+-                display: 'flex', alignItems: 'center', justifyContent: 'center',
+-                color: card.color, marginBottom: 12,
+-              }}>
+-                {card.icon}
+-              </div>
+-              {/* Stat — visual priority */}
+-              <div style={{
+-                fontSize: '1.6rem',
+-                fontWeight: 800,
+-                color: card.color,
+-                fontFamily: 'var(--font-mono)',
+-                lineHeight: 1.1,
+-                marginBottom: 6,
+-                letterSpacing: '-0.02em',
+-              }}>
+-                {card.stat}
+-              </div>
+-              {/* Headline */}
+-              <h3 style={{
+-                margin: '0 0 8px',
+-                fontSize: '0.92rem',
+-                fontWeight: 700,
+-                color: 'var(--text-primary)',
+-                lineHeight: 1.3,
+-              }}>
+-                {card.headline}
+-              </h3>
+-              {/* Description */}
+-              <p style={{
+-                margin: '0 0 14px',
+-                fontSize: '0.8rem',
+-                color: 'var(--text-secondary)',
+-                lineHeight: 1.5,
+-              }}>
+-                {card.desc}
++          </div>
++        </div>
++      </section>
++
++      <div className="section-divider" />
++
++      <section className="ai-insights">
++        <div className="ai-grid">
++          <div className="ai-highlight-card">
++            <h3 className="ai-note-title">Historical Maize Price Index</h3>
++            <div className="chart-container" style={{ width: '100%', height: 320 }}>
++              <ResponsiveContainer width="100%" height="100%">
++                <LineChart data={CHART_DATA} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
++                  <CartesianGrid strokeDasharray="3 3" stroke="var(--husk-faint)" vertical={false} />
++                  <XAxis
++                    dataKey="week"
++                    tick={{ fontFamily: 'var(--font-mono)', fontSize: 11, fill: 'var(--husk-muted)' }}
++                    axisLine={false}
++                    tickLine={false}
++                  />
++                  <YAxis
++                    tick={{ fontFamily: 'var(--font-mono)', fontSize: 11, fill: 'var(--husk-muted)' }}
++                    axisLine={false}
++                    tickLine={false}
++                    domain={[600, 800]}
++                  />
++                  <ChartTooltip
++                    contentStyle={{
++                      background: 'var(--field)',
++                      border: '1px solid var(--border)',
++                      borderRadius: 'var(--radius-sm)',
++                      fontFamily: 'var(--font-mono)',
++                      fontSize: '12px',
++                      color: 'var(--husk)'
++                    }}
++                  />
++                  <Line
++                    type="monotone"
++                    dataKey="price"
++                    stroke="var(--sprout)"
++                    strokeWidth={2}
++                    dot={{ r: 4, stroke: 'var(--sprout)', strokeWidth: 1, fill: 'var(--soil-black)' }}
++                    activeDot={{ r: 6 }}
++                  />
++                </LineChart>
++              </ResponsiveContainer>
++            </div>
++          </div>
++
++          <div style={{ display: 'grid', gap: 20 }}>
++            <div className="ai-note-card">
++              <h4 className="ai-note-title">Maize Trend Update</h4>
++              <p className="ai-note-copy">
++                Prices are trending upward in Mbeya with a strong crop demand signal. Agents report a 12% gain in supply-constrained districts.
+               </p>
+-              {/* Proof points */}
+-              <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+-                {card.points.map((point, j) => (
+-                  <div key={j} style={{
+-                    display: 'flex', alignItems: 'center', gap: 6,
+-                    fontSize: '0.72rem', color: 'var(--text-muted)',
+-                  }}>
+-                    <span style={{
+-                      width: 4, height: 4, borderRadius: '50%',
+-                      background: card.color, flexShrink: 0,
+-                    }} />
+-                    {point}
+-                  </div>
+-                ))}
+-              </div>
+-            </div>
+-          ))}
+-        </div>
+-      </section>
+-
+-      {/* ── CTA SECTION ──────────────────────────────────────── */}
+-      <section style={{ maxWidth: 1200, margin: '0 auto', padding: '60px 24px', textAlign: 'center' }}>
+-        <div className="glass-card fade-in" style={{ padding: '48px 32px' }}>
+-          <Leaf size={32} style={{ color: 'var(--accent)', marginBottom: 16 }} />
+-          <h2 style={{ marginBottom: 12 }}>Ready to Get Started?</h2>
+-          <p style={{ maxWidth: 500, margin: '0 auto 24px', fontSize: '0.95rem' }}>
+-            Join farmers, traders, and market agents using Smart Crops to make better agricultural decisions.
++            </div>
++            <div className="ai-note-card">
++              <h4 className="ai-note-title">Price Stabilization Signals</h4>
++              <p className="ai-note-copy">
++                Rice has stabilized in Dar es Salaam as harvest volumes rise, creating a calm window for traders to lock in long-term contracts.
++              </p>
++            </div>
++            <div className="ai-note-card">
++              <h4 className="ai-note-title">Demand Shift Alert</h4>
++              <p className="ai-note-copy">
++                Millet momentum is building in Dodoma, and agents are flagging a local demand boost that could influence central market pricing.
++              </p>
++            </div>
++          </div>
++        </div>
++      </section>
++
++      <div className="section-divider" />
++
++      <section className="bottom-cta">
++        <div className="bottom-cta-panel">
++          <h2 className="bottom-cta-title">START USING SMART CROP TODAY</h2>
++          <p className="bottom-cta-copy">
++            Join farmers, traders, and agents using Smart Crops to make faster decisions with market intelligence they can trust.
+           </p>
+-          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+-            {isAuthenticated ? (
+-              <Link to="/dashboard" className="btn btn-primary btn-lg">
+-                Open Dashboard <ArrowRight size={18} />
+-              </Link>
+-            ) : (
+-              <>
+-                <Link to="/register" className="btn btn-primary btn-lg">
+-                  Create Free Account <ArrowRight size={18} />
+-                </Link>
+-                <Link to="/login" className="btn btn-secondary btn-lg">
+-                  Sign In
+-                </Link>
+-              </>
+-            )}
+-          </div>
+-        </div>
+-      </section>
+-
+-      <footer className="app-footer">
++          <Link to={isAuthenticated ? '/dashboard' : '/login'} className="bottom-cta-button">
++            Sign Up Free
++          </Link>
++        </div>
++      </section>
++
++      <footer className="app-footer" style={{ fontFamily: 'var(--font-body)' }}>
+         Smart Crops Market Price Tracker &copy; 2026 &middot; Mbeya University of Science and Technology
+       </footer>
+     </div>
+--- END ---
+FILE frontend/src/pages/Register.js
+--- downloaded
+
++++ current
+
+@@ -1,7 +1,7 @@
+
+-import { useState, useEffect, useCallback } from 'react';
++import { useState, useCallback } from 'react';
+ import { Link, Navigate, useNavigate } from 'react-router-dom';
+ import { useAuth } from '../services/AuthContext';
+-import { cachedAPI } from '../services/DataCache';
++import { useDataWithFallback } from '../services/DataContext';
+ import {
+   UserPlus, Leaf, Eye, EyeOff, Sprout, TrendingUp, MapPin, Shield,
+   ChevronRight, ChevronLeft, Check, Phone, CreditCard, User, Mail,
+@@ -180,10 +180,7 @@
+
+ 
+   const [role, setRole] = useState(null);
+   const [step, setStep] = useState(1);
+-  const [crops, setCrops] = useState([]);
+-  const [regions, setRegions] = useState([]);
+-  const [markets, setMarkets] = useState([]);
+-  const [dropdownsLoading, setDropdownsLoading] = useState(true);
++  const { crops, regions, markets } = useDataWithFallback();
+   const [error, setError] = useState('');
+   const [fieldErrors, setFieldErrors] = useState({});
+   const [loading, setLoading] = useState(false);
+@@ -197,14 +194,6 @@
+
+     assigned_market: '', id_verification: '', id_type: '', experience: '',
+     mobile_money_provider: '', nida_number: '',
+   });
+-
+-  useEffect(() => {
+-    Promise.all([
+-      cachedAPI.crops().then(data => setCrops(data || [])).catch(() => {}),
+-      cachedAPI.regions().then(data => setRegions(data || [])).catch(() => {}),
+-      cachedAPI.markets().then(data => setMarkets(data || [])).catch(() => {}),
+-    ]).finally(() => setDropdownsLoading(false));
+-  }, []);
+ 
+   const cropSuggestions = crops.length > 0
+     ? crops.map(c => typeof c === 'string' ? c : c.name).filter(Boolean)
+@@ -531,8 +520,8 @@
+
+ 
+               <div className="reg-field">
+                 <label><Globe size={13} /> Region</label>
+-                <select className="form-control" name="region" value={form.region} onChange={handleChange} required disabled={dropdownsLoading}>
+-                  <option value="">{dropdownsLoading ? 'Loading regions...' : 'Select your region...'}</option>
++                <select className="form-control" name="region" value={form.region} onChange={handleChange} required>
++                  <option value="">Select your region...</option>
+                   {regions.map(r => <option key={r.id} value={r.name}>{r.name}</option>)}
+                 </select>
+                 <FieldError name="region" />
+@@ -677,8 +666,8 @@
+
+ 
+               <div className="reg-field">
+                 <label><Globe size={13} /> Region</label>
+-                <select className="form-control" name="region" value={form.region} onChange={handleChange} required disabled={dropdownsLoading}>
+-                  <option value="">{dropdownsLoading ? 'Loading regions...' : 'Select your region...'}</option>
++                <select className="form-control" name="region" value={form.region} onChange={handleChange} required>
++                  <option value="">Select your region...</option>
+                   {regions.map(r => <option key={r.id} value={r.name}>{r.name}</option>)}
+                 </select>
+                 <FieldError name="region" />
+@@ -686,8 +675,8 @@
+
+ 
+               <div className="reg-field">
+                 <label><MapPin size={13} /> Assigned Market</label>
+-                <select className="form-control" name="assigned_market" value={form.assigned_market} onChange={handleChange} required disabled={dropdownsLoading || !form.region}>
+-                  <option value="">{dropdownsLoading ? 'Loading markets...' : (form.region ? 'Select your assigned market...' : 'Select a region first...')}</option>
++                <select className="form-control" name="assigned_market" value={form.assigned_market} onChange={handleChange} required disabled={!form.region}>
++                  <option value="">{form.region ? 'Select your assigned market...' : 'Select a region first...'}</option>
+                   {markets
+                     .filter(m => !form.region || (m.region_name || m.region) === form.region)
+                     .map(m => <option key={m.id} value={m.id}>{m.name}</option>)}
+@@ -759,8 +748,8 @@
+
+ 
+               <div className="reg-field">
+                 <label><MapPin size={13} /> Preferred Region</label>
+-                <select className="form-control" name="region" value={form.region} onChange={handleChange} disabled={dropdownsLoading}>
+-                  <option value="">{dropdownsLoading ? 'Loading regions...' : 'Select primary region...'}</option>
++                <select className="form-control" name="region" value={form.region} onChange={handleChange}>
++                  <option value="">Select primary region...</option>
+                   {regions.map(r => <option key={r.id} value={r.name}>{r.name}</option>)}
+                 </select>
+               </div>
+--- END ---

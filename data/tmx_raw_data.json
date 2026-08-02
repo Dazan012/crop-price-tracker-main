@@ -1,0 +1,7159 @@
+{
+  "documents": [
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_0",
+      "fields": {
+        "Commodity": {
+          "stringValue": "Pigeon peas"
+        },
+        "High Price (TZS/kg)": {
+          "stringValue": "1300.00"
+        },
+        "Location": {
+          "stringValue": "Simiyu"
+        },
+        "Volume": {
+          "integerValue": "80450"
+        },
+        "Date": {
+          "stringValue": "2026-07-08"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "290"
+        },
+        "position": {
+          "integerValue": "0"
+        },
+        "Code": {
+          "stringValue": "PP"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "stringValue": "1300.00"
+              },
+              {
+                "integerValue": "1010"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "870"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "850"
+              },
+              {
+                "integerValue": "1200"
+              },
+              {
+                "integerValue": "1080"
+              },
+              {
+                "integerValue": "1250"
+              },
+              {
+                "integerValue": "880"
+              },
+              {
+                "integerValue": "1200"
+              },
+              {
+                "integerValue": "1180"
+              },
+              {
+                "integerValue": "1080"
+              },
+              {
+                "integerValue": "1010"
+              },
+              {
+                "integerValue": "1030"
+              },
+              {
+                "integerValue": "970"
+              },
+              {
+                "integerValue": "1010"
+              },
+              {
+                "integerValue": "1000"
+              },
+              {
+                "integerValue": "1010"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "940"
+              },
+              {
+                "integerValue": "980"
+              },
+              {
+                "integerValue": "990"
+              },
+              {
+                "integerValue": "990"
+              },
+              {
+                "integerValue": "970"
+              },
+              {
+                "integerValue": "990"
+              },
+              {
+                "integerValue": "880"
+              },
+              {
+                "integerValue": "940"
+              },
+              {
+                "integerValue": "980"
+              },
+              {
+                "integerValue": "880"
+              },
+              {
+                "integerValue": "980"
+              },
+              {
+                "integerValue": "990"
+              },
+              {
+                "integerValue": "1010"
+              },
+              {
+                "integerValue": "1060"
+              },
+              {
+                "integerValue": "1110"
+              },
+              {
+                "integerValue": "1130"
+              },
+              {
+                "integerValue": "1180"
+              },
+              {
+                "integerValue": "1140"
+              },
+              {
+                "integerValue": "1160"
+              },
+              {
+                "integerValue": "1170"
+              },
+              {
+                "integerValue": "1190"
+              },
+              {
+                "integerValue": "1240"
+              },
+              {
+                "integerValue": "1220"
+              },
+              {
+                "integerValue": "1200"
+              },
+              {
+                "integerValue": "1180"
+              },
+              {
+                "integerValue": "1250"
+              },
+              {
+                "integerValue": "1190"
+              },
+              {
+                "integerValue": "1190"
+              },
+              {
+                "integerValue": "1150"
+              },
+              {
+                "integerValue": "1160"
+              },
+              {
+                "integerValue": "1155"
+              },
+              {
+                "integerValue": "1290"
+              },
+              {
+                "integerValue": "1290"
+              },
+              {
+                "integerValue": "1310"
+              },
+              {
+                "integerValue": "1350"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1612"
+        },
+        "Low Price (TZS/kg)": {
+          "stringValue": "1300.00"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_1",
+      "fields": {
+        "Date": {
+          "stringValue": "2026-07-06"
+        },
+        "Commodity": {
+          "stringValue": "GreenGrams"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1160"
+        },
+        "Location": {
+          "stringValue": "Lindi"
+        },
+        "Volume": {
+          "integerValue": "3450"
+        },
+        "Code": {
+          "stringValue": "GG"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1160"
+              },
+              {
+                "integerValue": "1000"
+              },
+              {
+                "integerValue": "1310"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1611"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1160"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "160"
+        },
+        "position": {
+          "integerValue": "1"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_10",
+      "fields": {
+        "Price Change (TZS/kg)": {
+          "integerValue": "660"
+        },
+        "position": {
+          "integerValue": "10"
+        },
+        "Code": {
+          "stringValue": "SS"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "2160"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "2160"
+              },
+              {
+                "integerValue": "1500"
+              },
+              {
+                "integerValue": "1890"
+              },
+              {
+                "integerValue": "1900"
+              },
+              {
+                "integerValue": "1945"
+              },
+              {
+                "integerValue": "2010"
+              },
+              {
+                "integerValue": "2050"
+              },
+              {
+                "integerValue": "2110"
+              },
+              {
+                "integerValue": "2170"
+              },
+              {
+                "integerValue": "2210"
+              },
+              {
+                "integerValue": "2220"
+              },
+              {
+                "integerValue": "2250"
+              },
+              {
+                "integerValue": "2310"
+              },
+              {
+                "integerValue": "2200"
+              },
+              {
+                "integerValue": "2320"
+              },
+              {
+                "integerValue": "2310"
+              },
+              {
+                "integerValue": "2270"
+              },
+              {
+                "integerValue": "2210"
+              },
+              {
+                "integerValue": "2310"
+              },
+              {
+                "integerValue": "2310"
+              },
+              {
+                "integerValue": "2360"
+              },
+              {
+                "integerValue": "2340"
+              },
+              {
+                "integerValue": "2380"
+              },
+              {
+                "integerValue": "2260"
+              },
+              {
+                "integerValue": "2390"
+              },
+              {
+                "integerValue": "2400"
+              },
+              {
+                "integerValue": "2420"
+              },
+              {
+                "integerValue": "2390"
+              },
+              {
+                "integerValue": "2605"
+              },
+              {
+                "integerValue": "2560"
+              },
+              {
+                "integerValue": "2550"
+              },
+              {
+                "integerValue": "2550"
+              },
+              {
+                "integerValue": "2390"
+              },
+              {
+                "integerValue": "2400"
+              },
+              {
+                "integerValue": "2210"
+              },
+              {
+                "integerValue": "2300"
+              },
+              {
+                "integerValue": "2380"
+              },
+              {
+                "integerValue": "2400"
+              },
+              {
+                "integerValue": "2640"
+              },
+              {
+                "integerValue": "2740"
+              },
+              {
+                "integerValue": "2770"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1598"
+        },
+        "Commodity": {
+          "stringValue": "Sesame Seeds"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "2160"
+        },
+        "Location": {
+          "stringValue": "Morogoro"
+        },
+        "Volume": {
+          "integerValue": "68100"
+        },
+        "Date": {
+          "stringValue": "2026-06-23"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_11",
+      "fields": {
+        "Date": {
+          "stringValue": "2026-06-19"
+        },
+        "Volume": {
+          "integerValue": "80500"
+        },
+        "Location": {
+          "stringValue": "Iringa"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "2250"
+        },
+        "Commodity": {
+          "stringValue": "Sesame Seeds"
+        },
+        "Code": {
+          "stringValue": "SS"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "2250"
+              },
+              {
+                "integerValue": "2210"
+              },
+              {
+                "integerValue": "2310"
+              },
+              {
+                "integerValue": "2290"
+              },
+              {
+                "integerValue": "2410"
+              },
+              {
+                "integerValue": "2310"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1594"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "2250"
+        },
+        "position": {
+          "integerValue": "11"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "40"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_12",
+      "fields": {
+        "Volume": {
+          "integerValue": "121512"
+        },
+        "Location": {
+          "stringValue": "Pwani"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "2250"
+        },
+        "Commodity": {
+          "stringValue": "Sesame Seeds"
+        },
+        "Date": {
+          "stringValue": "2026-06-18"
+        },
+        "position": {
+          "integerValue": "12"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "250"
+        },
+        "ID": {
+          "integerValue": "1593"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "2250"
+              },
+              {
+                "integerValue": "2000"
+              },
+              {
+                "integerValue": "2110"
+              },
+              {
+                "integerValue": "2460"
+              },
+              {
+                "integerValue": "2460"
+              },
+              {
+                "integerValue": "2540"
+              },
+              {
+                "integerValue": "2570"
+              },
+              {
+                "integerValue": "2490"
+              }
+            ]
+          }
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "2250"
+        },
+        "Code": {
+          "stringValue": "SS"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_13",
+      "fields": {
+        "Code": {
+          "stringValue": "SOY"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1250"
+        },
+        "ID": {
+          "integerValue": "1587"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1250"
+              },
+              {
+                "integerValue": "1100"
+              },
+              {
+                "integerValue": "1040"
+              },
+              {
+                "integerValue": "1040"
+              },
+              {
+                "integerValue": "1210"
+              },
+              {
+                "integerValue": "1210"
+              },
+              {
+                "integerValue": "1300"
+              }
+            ]
+          }
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "150"
+        },
+        "position": {
+          "integerValue": "13"
+        },
+        "Date": {
+          "stringValue": "2026-06-12"
+        },
+        "Location": {
+          "stringValue": "Ruvuma"
+        },
+        "Volume": {
+          "integerValue": "13209"
+        },
+        "Commodity": {
+          "stringValue": "Soy Beans"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1250"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_14",
+      "fields": {
+        "High Price (TZS/kg)": {
+          "integerValue": "1330"
+        },
+        "Commodity": {
+          "stringValue": "GreenGrams"
+        },
+        "Volume": {
+          "integerValue": "35950"
+        },
+        "Location": {
+          "stringValue": "Shinyanga"
+        },
+        "Date": {
+          "stringValue": "2026-06-11"
+        },
+        "position": {
+          "integerValue": "14"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-160"
+        },
+        "Code": {
+          "stringValue": "GG"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1330"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1330"
+              },
+              {
+                "integerValue": "1490"
+              },
+              {
+                "integerValue": "1495"
+              },
+              {
+                "integerValue": "1485"
+              },
+              {
+                "integerValue": "1480"
+              },
+              {
+                "integerValue": "1510"
+              },
+              {
+                "integerValue": "1570"
+              },
+              {
+                "integerValue": "1570"
+              },
+              {
+                "integerValue": "1540"
+              },
+              {
+                "integerValue": "1560"
+              },
+              {
+                "integerValue": "1420"
+              },
+              {
+                "integerValue": "1515"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1586"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_15",
+      "fields": {
+        "High Price (TZS/kg)": {
+          "integerValue": "1330"
+        },
+        "Commodity": {
+          "stringValue": "GreenGrams"
+        },
+        "Volume": {
+          "integerValue": "40108"
+        },
+        "Location": {
+          "stringValue": "Simiyu"
+        },
+        "Date": {
+          "stringValue": "2026-06-10"
+        },
+        "position": {
+          "integerValue": "15"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "60"
+        },
+        "Code": {
+          "stringValue": "GG"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1330"
+        },
+        "ID": {
+          "integerValue": "1585"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1330"
+              },
+              {
+                "integerValue": "1270"
+              },
+              {
+                "integerValue": "1360"
+              },
+              {
+                "integerValue": "1370"
+              },
+              {
+                "integerValue": "1360"
+              },
+              {
+                "integerValue": "1410"
+              },
+              {
+                "integerValue": "1515"
+              },
+              {
+                "integerValue": "1510"
+              },
+              {
+                "integerValue": "1510"
+              },
+              {
+                "integerValue": "1530"
+              },
+              {
+                "integerValue": "1620"
+              },
+              {
+                "integerValue": "1590"
+              },
+              {
+                "integerValue": "1630"
+              },
+              {
+                "integerValue": "1570"
+              },
+              {
+                "integerValue": "1510"
+              },
+              {
+                "integerValue": "1260"
+              },
+              {
+                "integerValue": "1320"
+              },
+              {
+                "integerValue": "1460"
+              },
+              {
+                "integerValue": "1450"
+              },
+              {
+                "integerValue": "1450"
+              },
+              {
+                "integerValue": "1450"
+              }
+            ]
+          }
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_16",
+      "fields": {
+        "position": {
+          "integerValue": "16"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "140"
+        },
+        "Code": {
+          "stringValue": "SS"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "2150"
+        },
+        "ID": {
+          "integerValue": "1584"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "2150"
+              },
+              {
+                "integerValue": "2010"
+              },
+              {
+                "integerValue": "2110"
+              },
+              {
+                "integerValue": "2170"
+              },
+              {
+                "integerValue": "2150"
+              },
+              {
+                "integerValue": "2200"
+              },
+              {
+                "integerValue": "2200"
+              },
+              {
+                "integerValue": "2200"
+              },
+              {
+                "integerValue": "2260"
+              },
+              {
+                "integerValue": "2340"
+              },
+              {
+                "integerValue": "2290"
+              },
+              {
+                "integerValue": "2220"
+              },
+              {
+                "integerValue": "2270"
+              },
+              {
+                "integerValue": "2320"
+              },
+              {
+                "integerValue": "2410"
+              },
+              {
+                "integerValue": "2740"
+              },
+              {
+                "integerValue": "2750"
+              }
+            ]
+          }
+        },
+        "Volume": {
+          "integerValue": "82409"
+        },
+        "Location": {
+          "stringValue": "Katavi"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "2150"
+        },
+        "Commodity": {
+          "stringValue": "Sesame Seeds"
+        },
+        "Date": {
+          "stringValue": "2026-06-09"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_17",
+      "fields": {
+        "Code": {
+          "stringValue": "GG"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1270"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1270"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1579"
+        },
+        "position": {
+          "integerValue": "17"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "0"
+        },
+        "Date": {
+          "stringValue": "2026-06-02"
+        },
+        "Volume": {
+          "integerValue": "117600"
+        },
+        "Location": {
+          "stringValue": "Dodoma"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1270"
+        },
+        "Commodity": {
+          "stringValue": "GreenGrams"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_18",
+      "fields": {
+        "Date": {
+          "stringValue": "2026-05-19"
+        },
+        "Location": {
+          "stringValue": "Singida"
+        },
+        "Volume": {
+          "integerValue": "104150"
+        },
+        "Commodity": {
+          "stringValue": "Sesame Seeds"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "2370"
+        },
+        "ID": {
+          "integerValue": "1568"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "2370"
+              },
+              {
+                "integerValue": "2250"
+              },
+              {
+                "integerValue": "2400"
+              },
+              {
+                "integerValue": "2805"
+              }
+            ]
+          }
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "2370"
+        },
+        "Code": {
+          "stringValue": "SS"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "120"
+        },
+        "position": {
+          "integerValue": "18"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_19",
+      "fields": {
+        "Volume": {
+          "integerValue": "40208"
+        },
+        "Location": {
+          "stringValue": "Rukwa"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "2490"
+        },
+        "Commodity": {
+          "stringValue": "Sesame Seeds"
+        },
+        "Date": {
+          "stringValue": "2026-05-13"
+        },
+        "position": {
+          "integerValue": "19"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "50"
+        },
+        "Code": {
+          "stringValue": "SS"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "2490"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "2490"
+              },
+              {
+                "integerValue": "2440"
+              },
+              {
+                "integerValue": "2250"
+              },
+              {
+                "integerValue": "2350"
+              },
+              {
+                "integerValue": "2330"
+              },
+              {
+                "integerValue": "2740"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1564"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_2",
+      "fields": {
+        "Code": {
+          "stringValue": "SS"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "2440"
+        },
+        "ID": {
+          "integerValue": "1610"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "2440"
+              },
+              {
+                "integerValue": "2440"
+              },
+              {
+                "integerValue": "2310"
+              },
+              {
+                "integerValue": "2395"
+              },
+              {
+                "integerValue": "2310"
+              },
+              {
+                "integerValue": "1965"
+              },
+              {
+                "integerValue": "1850"
+              },
+              {
+                "integerValue": "1950"
+              },
+              {
+                "integerValue": "2240"
+              },
+              {
+                "integerValue": "2260"
+              },
+              {
+                "integerValue": "2260"
+              },
+              {
+                "integerValue": "2370"
+              },
+              {
+                "integerValue": "2390"
+              },
+              {
+                "integerValue": "2330"
+              },
+              {
+                "integerValue": "2450"
+              },
+              {
+                "integerValue": "2520"
+              },
+              {
+                "integerValue": "2400"
+              },
+              {
+                "integerValue": "2260"
+              },
+              {
+                "integerValue": "2420"
+              },
+              {
+                "integerValue": "2720"
+              }
+            ]
+          }
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "0"
+        },
+        "position": {
+          "integerValue": "2"
+        },
+        "Date": {
+          "stringValue": "2026-07-05"
+        },
+        "Commodity": {
+          "stringValue": "Sesame Seeds"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "2440"
+        },
+        "Location": {
+          "stringValue": "Manyara"
+        },
+        "Volume": {
+          "integerValue": "33000"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_20",
+      "fields": {
+        "Code": {
+          "stringValue": "GG"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1330"
+              },
+              {
+                "integerValue": "1470"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1557"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1330"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-140"
+        },
+        "position": {
+          "integerValue": "20"
+        },
+        "Date": {
+          "stringValue": "2026-05-05"
+        },
+        "Commodity": {
+          "stringValue": "GreenGrams"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1330"
+        },
+        "Location": {
+          "stringValue": "Tabora"
+        },
+        "Volume": {
+          "integerValue": "135600"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_21",
+      "fields": {
+        "Code": {
+          "stringValue": "CC"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "7500"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "7500"
+              },
+              {
+                "integerValue": "7020"
+              },
+              {
+                "integerValue": "10140"
+              },
+              {
+                "integerValue": "12260"
+              },
+              {
+                "integerValue": "10510"
+              },
+              {
+                "integerValue": "9540"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1554"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "480"
+        },
+        "position": {
+          "integerValue": "21"
+        },
+        "Date": {
+          "stringValue": "2026-04-29"
+        },
+        "Location": {
+          "stringValue": "Tanga"
+        },
+        "Volume": {
+          "integerValue": "19670"
+        },
+        "Commodity": {
+          "stringValue": "Cocoa"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "7500"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_22",
+      "fields": {
+        "Price Change (TZS/kg)": {
+          "integerValue": "1450"
+        },
+        "position": {
+          "integerValue": "22"
+        },
+        "ID": {
+          "integerValue": "1550"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "7470"
+              },
+              {
+                "integerValue": "6020"
+              },
+              {
+                "integerValue": "10140"
+              },
+              {
+                "integerValue": "11720"
+              },
+              {
+                "integerValue": "12420"
+              },
+              {
+                "integerValue": "10420"
+              },
+              {
+                "integerValue": "10060"
+              },
+              {
+                "integerValue": "10220"
+              },
+              {
+                "integerValue": "11600"
+              },
+              {
+                "integerValue": "12020"
+              },
+              {
+                "integerValue": "11440"
+              },
+              {
+                "integerValue": "11200"
+              },
+              {
+                "integerValue": "14540"
+              },
+              {
+                "integerValue": "14020"
+              },
+              {
+                "integerValue": "13520"
+              },
+              {
+                "integerValue": "15960"
+              },
+              {
+                "integerValue": "17300"
+              },
+              {
+                "integerValue": "15000"
+              },
+              {
+                "integerValue": "14020"
+              },
+              {
+                "integerValue": "15620"
+              },
+              {
+                "integerValue": "15620"
+              },
+              {
+                "integerValue": "17900"
+              },
+              {
+                "integerValue": "16800"
+              },
+              {
+                "integerValue": "21820"
+              },
+              {
+                "integerValue": "19200"
+              },
+              {
+                "integerValue": "18340"
+              },
+              {
+                "integerValue": "19320"
+              },
+              {
+                "integerValue": "18200"
+              },
+              {
+                "integerValue": "17520"
+              },
+              {
+                "integerValue": "21023"
+              },
+              {
+                "integerValue": "19020"
+              },
+              {
+                "integerValue": "22020"
+              },
+              {
+                "integerValue": "20120"
+              },
+              {
+                "integerValue": "19520"
+              },
+              {
+                "integerValue": "17020"
+              },
+              {
+                "integerValue": "17623"
+              },
+              {
+                "integerValue": "17720"
+              },
+              {
+                "integerValue": "22760"
+              }
+            ]
+          }
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "7470"
+        },
+        "Code": {
+          "stringValue": "CC"
+        },
+        "Commodity": {
+          "stringValue": "Cocoa"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "7470"
+        },
+        "Location": {
+          "stringValue": "Morogoro"
+        },
+        "Volume": {
+          "integerValue": "34650"
+        },
+        "Date": {
+          "stringValue": "2026-04-22"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_23",
+      "fields": {
+        "Commodity": {
+          "stringValue": "GreenGrams"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1470"
+        },
+        "Location": {
+          "stringValue": "Mwanza"
+        },
+        "Volume": {
+          "integerValue": "30000"
+        },
+        "Date": {
+          "stringValue": "2026-04-21"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-40"
+        },
+        "position": {
+          "integerValue": "23"
+        },
+        "Code": {
+          "stringValue": "GG"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1470"
+        },
+        "ID": {
+          "integerValue": "1549"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1470"
+              },
+              {
+                "integerValue": "1510"
+              },
+              {
+                "integerValue": "1540"
+              },
+              {
+                "integerValue": "1600"
+              },
+              {
+                "integerValue": "1580"
+              },
+              {
+                "integerValue": "1580"
+              },
+              {
+                "integerValue": "1520"
+              },
+              {
+                "integerValue": "1260"
+              },
+              {
+                "integerValue": "1400"
+              },
+              {
+                "integerValue": "1310"
+              },
+              {
+                "integerValue": "1440"
+              },
+              {
+                "integerValue": "1450"
+              },
+              {
+                "integerValue": "1430"
+              }
+            ]
+          }
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_24",
+      "fields": {
+        "Code": {
+          "stringValue": "RCN-UG"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "2380"
+        },
+        "ID": {
+          "integerValue": "1531"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "2380"
+              },
+              {
+                "integerValue": "2070"
+              }
+            ]
+          }
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "310"
+        },
+        "position": {
+          "integerValue": "24"
+        },
+        "Date": {
+          "stringValue": "2026-03-24"
+        },
+        "Location": {
+          "stringValue": "Tanga"
+        },
+        "Volume": {
+          "integerValue": "84633"
+        },
+        "Commodity": {
+          "stringValue": "Cashew Nuts"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "2380"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_25",
+      "fields": {
+        "position": {
+          "integerValue": "25"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "90"
+        },
+        "Code": {
+          "stringValue": "GG"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1500"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1519"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1500"
+        },
+        "Volume": {
+          "integerValue": "52450"
+        },
+        "Location": {
+          "stringValue": "Mara"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1500"
+        },
+        "Commodity": {
+          "stringValue": "GreenGrams"
+        },
+        "Date": {
+          "stringValue": "2026-03-06"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_26",
+      "fields": {
+        "Date": {
+          "stringValue": "2026-01-29"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "9505"
+        },
+        "Commodity": {
+          "stringValue": "Coffee-Robusta Clean Certified"
+        },
+        "Volume": {
+          "integerValue": "28363"
+        },
+        "Location": {
+          "stringValue": "Kagera"
+        },
+        "Code": {
+          "stringValue": "CF-RBCC"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "9505"
+              },
+              {
+                "integerValue": "9995"
+              },
+              {
+                "integerValue": "9005"
+              },
+              {
+                "integerValue": "10005"
+              },
+              {
+                "integerValue": "10005"
+              },
+              {
+                "integerValue": "10005"
+              },
+              {
+                "integerValue": "10005"
+              },
+              {
+                "integerValue": "10045"
+              },
+              {
+                "integerValue": "10045"
+              },
+              {
+                "integerValue": "10005"
+              },
+              {
+                "integerValue": "10005"
+              },
+              {
+                "integerValue": "10000"
+              },
+              {
+                "integerValue": "10005"
+              },
+              {
+                "integerValue": "10000"
+              },
+              {
+                "integerValue": "10205"
+              },
+              {
+                "integerValue": "10005"
+              },
+              {
+                "integerValue": "10005"
+              },
+              {
+                "integerValue": "10235"
+              },
+              {
+                "integerValue": "11005"
+              },
+              {
+                "integerValue": "10240"
+              },
+              {
+                "integerValue": "9010"
+              },
+              {
+                "integerValue": "9000"
+              },
+              {
+                "integerValue": "9000"
+              },
+              {
+                "integerValue": "9000"
+              },
+              {
+                "integerValue": "9000"
+              },
+              {
+                "integerValue": "9000"
+              },
+              {
+                "integerValue": "9000"
+              },
+              {
+                "integerValue": "9000"
+              },
+              {
+                "integerValue": "9000"
+              },
+              {
+                "integerValue": "9000"
+              },
+              {
+                "integerValue": "10500"
+              },
+              {
+                "integerValue": "11835"
+              },
+              {
+                "integerValue": "11710"
+              },
+              {
+                "integerValue": "11780"
+              },
+              {
+                "integerValue": "11775"
+              },
+              {
+                "integerValue": "11770"
+              },
+              {
+                "integerValue": "11770"
+              },
+              {
+                "integerValue": "11755"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1507"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "9505"
+        },
+        "position": {
+          "integerValue": "26"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-490"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_27",
+      "fields": {
+        "position": {
+          "integerValue": "27"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-400"
+        },
+        "Code": {
+          "stringValue": "RCN-SG"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "2210"
+        },
+        "ID": {
+          "integerValue": "1505"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "2210"
+              }
+            ]
+          }
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "2210"
+        },
+        "Commodity": {
+          "stringValue": "Cashew Nuts"
+        },
+        "Volume": {
+          "integerValue": "7540"
+        },
+        "Location": {
+          "stringValue": "Tanga"
+        },
+        "Date": {
+          "stringValue": "2026-01-26"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_28",
+      "fields": {
+        "position": {
+          "integerValue": "28"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-10"
+        },
+        "ID": {
+          "integerValue": "1504"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1720"
+              },
+              {
+                "integerValue": "1730"
+              },
+              {
+                "integerValue": "2010"
+              },
+              {
+                "integerValue": "1870"
+              },
+              {
+                "integerValue": "1830"
+              },
+              {
+                "integerValue": "1850"
+              }
+            ]
+          }
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1660"
+        },
+        "Code": {
+          "stringValue": "RCN-UG"
+        },
+        "Volume": {
+          "integerValue": "262323"
+        },
+        "Location": {
+          "stringValue": "Lindi"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1720"
+        },
+        "Commodity": {
+          "stringValue": "Cashew Nuts"
+        },
+        "Date": {
+          "stringValue": "2026-01-23"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_29",
+      "fields": {
+        "Commodity": {
+          "stringValue": "Cashew Nuts"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1880"
+        },
+        "Location": {
+          "stringValue": "Mtwara"
+        },
+        "Volume": {
+          "integerValue": "101627"
+        },
+        "Date": {
+          "stringValue": "2026-01-23"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "80"
+        },
+        "position": {
+          "integerValue": "29"
+        },
+        "ID": {
+          "integerValue": "1503"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1880"
+              },
+              {
+                "integerValue": "1800"
+              },
+              {
+                "integerValue": "2160"
+              },
+              {
+                "integerValue": "2280"
+              },
+              {
+                "integerValue": "2130"
+              },
+              {
+                "integerValue": "1800"
+              },
+              {
+                "integerValue": "2240"
+              },
+              {
+                "integerValue": "1910"
+              },
+              {
+                "integerValue": "2010"
+              },
+              {
+                "integerValue": "2260"
+              },
+              {
+                "integerValue": "2470"
+              }
+            ]
+          }
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1510"
+        },
+        "Code": {
+          "stringValue": "RCN-UG"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_3",
+      "fields": {
+        "Price Change (TZS/kg)": {
+          "integerValue": "40"
+        },
+        "position": {
+          "integerValue": "3"
+        },
+        "Code": {
+          "stringValue": "SS"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "2470"
+        },
+        "ID": {
+          "integerValue": "1609"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "2470"
+              },
+              {
+                "integerValue": "2430"
+              },
+              {
+                "integerValue": "2370"
+              },
+              {
+                "integerValue": "2210"
+              },
+              {
+                "integerValue": "2420"
+              },
+              {
+                "integerValue": "2340"
+              },
+              {
+                "integerValue": "2230"
+              },
+              {
+                "integerValue": "2390"
+              },
+              {
+                "integerValue": "2210"
+              },
+              {
+                "integerValue": "2250"
+              },
+              {
+                "integerValue": "2390"
+              },
+              {
+                "integerValue": "1610"
+              },
+              {
+                "integerValue": "1900"
+              },
+              {
+                "integerValue": "2080"
+              },
+              {
+                "integerValue": "1850"
+              },
+              {
+                "integerValue": "1910"
+              },
+              {
+                "integerValue": "1970"
+              },
+              {
+                "integerValue": "1950"
+              },
+              {
+                "integerValue": "2010"
+              },
+              {
+                "integerValue": "2190"
+              },
+              {
+                "integerValue": "2290"
+              },
+              {
+                "integerValue": "2290"
+              },
+              {
+                "integerValue": "2310"
+              },
+              {
+                "integerValue": "2390"
+              },
+              {
+                "integerValue": "2310"
+              },
+              {
+                "integerValue": "2320"
+              },
+              {
+                "integerValue": "2330"
+              },
+              {
+                "integerValue": "2430"
+              },
+              {
+                "integerValue": "2350"
+              },
+              {
+                "integerValue": "2410"
+              },
+              {
+                "integerValue": "2490"
+              },
+              {
+                "integerValue": "2450"
+              },
+              {
+                "integerValue": "2480"
+              },
+              {
+                "integerValue": "2460"
+              },
+              {
+                "integerValue": "2510"
+              },
+              {
+                "integerValue": "2440"
+              },
+              {
+                "integerValue": "2655"
+              },
+              {
+                "integerValue": "2550"
+              },
+              {
+                "integerValue": "2510"
+              },
+              {
+                "integerValue": "2420"
+              },
+              {
+                "integerValue": "2530"
+              },
+              {
+                "integerValue": "2340"
+              },
+              {
+                "integerValue": "2450"
+              },
+              {
+                "integerValue": "2430"
+              },
+              {
+                "integerValue": "2310"
+              },
+              {
+                "integerValue": "2220"
+              },
+              {
+                "integerValue": "2350"
+              },
+              {
+                "integerValue": "2340"
+              },
+              {
+                "integerValue": "2470"
+              },
+              {
+                "integerValue": "2650"
+              },
+              {
+                "integerValue": "2630"
+              },
+              {
+                "integerValue": "2850"
+              },
+              {
+                "integerValue": "2800"
+              }
+            ]
+          }
+        },
+        "Location": {
+          "stringValue": "Dodoma"
+        },
+        "Volume": {
+          "integerValue": "64000"
+        },
+        "Commodity": {
+          "stringValue": "Sesame Seeds"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "2470"
+        },
+        "Date": {
+          "stringValue": "2026-07-04"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_30",
+      "fields": {
+        "Price Change (TZS/kg)": {
+          "integerValue": "-50"
+        },
+        "position": {
+          "integerValue": "30"
+        },
+        "ID": {
+          "integerValue": "1500"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1760"
+              },
+              {
+                "integerValue": "1810"
+              }
+            ]
+          }
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1760"
+        },
+        "Code": {
+          "stringValue": "RCN-UG"
+        },
+        "Commodity": {
+          "stringValue": "Cashew Nuts"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1760"
+        },
+        "Location": {
+          "stringValue": "Mbeya"
+        },
+        "Volume": {
+          "integerValue": "10027"
+        },
+        "Date": {
+          "stringValue": "2026-01-20"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_31",
+      "fields": {
+        "Code": {
+          "stringValue": "RCN-SG"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "2670"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "2790"
+              },
+              {
+                "integerValue": "2770"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1501"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "20"
+        },
+        "position": {
+          "integerValue": "31"
+        },
+        "Date": {
+          "stringValue": "2026-01-20"
+        },
+        "Commodity": {
+          "stringValue": "Cashew Nuts"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "2790"
+        },
+        "Location": {
+          "stringValue": "Singida"
+        },
+        "Volume": {
+          "integerValue": "247791"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_32",
+      "fields": {
+        "Price Change (TZS/kg)": {
+          "integerValue": "-180"
+        },
+        "position": {
+          "integerValue": "32"
+        },
+        "ID": {
+          "integerValue": "1491"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1610"
+              },
+              {
+                "integerValue": "1790"
+              },
+              {
+                "integerValue": "1710"
+              },
+              {
+                "integerValue": "1770"
+              }
+            ]
+          }
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1510"
+        },
+        "Code": {
+          "stringValue": "RCN-UG"
+        },
+        "Location": {
+          "stringValue": "Ruvuma"
+        },
+        "Volume": {
+          "integerValue": "143780"
+        },
+        "Commodity": {
+          "stringValue": "Cashew Nuts"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1610"
+        },
+        "Date": {
+          "stringValue": "2026-01-09"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_33",
+      "fields": {
+        "Commodity": {
+          "stringValue": "Cashew Nuts"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1510"
+        },
+        "Location": {
+          "stringValue": "Lindi"
+        },
+        "Volume": {
+          "integerValue": "2869"
+        },
+        "Date": {
+          "stringValue": "2026-01-09"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-1030"
+        },
+        "position": {
+          "integerValue": "33"
+        },
+        "ID": {
+          "integerValue": "1494"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1510"
+              },
+              {
+                "integerValue": "2540"
+              },
+              {
+                "integerValue": "2330"
+              },
+              {
+                "integerValue": "2640"
+              },
+              {
+                "integerValue": "2270"
+              },
+              {
+                "integerValue": "2780"
+              },
+              {
+                "integerValue": "2460"
+              },
+              {
+                "integerValue": "2740"
+              },
+              {
+                "integerValue": "2650"
+              },
+              {
+                "integerValue": "2700"
+              },
+              {
+                "integerValue": "2560"
+              },
+              {
+                "integerValue": "2580"
+              },
+              {
+                "integerValue": "2555"
+              },
+              {
+                "integerValue": "2610"
+              },
+              {
+                "integerValue": "2460"
+              },
+              {
+                "integerValue": "2460"
+              },
+              {
+                "integerValue": "2460"
+              },
+              {
+                "integerValue": "2460"
+              },
+              {
+                "integerValue": "2460"
+              }
+            ]
+          }
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1510"
+        },
+        "Code": {
+          "stringValue": "RCN-SG"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_34",
+      "fields": {
+        "Date": {
+          "stringValue": "2026-01-09"
+        },
+        "Volume": {
+          "integerValue": "12637"
+        },
+        "Location": {
+          "stringValue": "Ruvuma"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "2060"
+        },
+        "Commodity": {
+          "stringValue": "Cashew Nuts"
+        },
+        "Code": {
+          "stringValue": "RCN-SG"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "2060"
+              },
+              {
+                "integerValue": "2560"
+              },
+              {
+                "integerValue": "2220"
+              },
+              {
+                "integerValue": "2380"
+              },
+              {
+                "integerValue": "2590"
+              },
+              {
+                "integerValue": "2550"
+              },
+              {
+                "integerValue": "2560"
+              },
+              {
+                "integerValue": "2560"
+              },
+              {
+                "integerValue": "2560"
+              },
+              {
+                "integerValue": "2440"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1493"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "2060"
+        },
+        "position": {
+          "integerValue": "34"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-500"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_35",
+      "fields": {
+        "Commodity": {
+          "stringValue": "Cashew Nuts"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1990"
+        },
+        "Location": {
+          "stringValue": "Mtwara"
+        },
+        "Volume": {
+          "integerValue": "13977"
+        },
+        "Date": {
+          "stringValue": "2026-01-09"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-760"
+        },
+        "position": {
+          "integerValue": "35"
+        },
+        "ID": {
+          "integerValue": "1490"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1990"
+              },
+              {
+                "integerValue": "2750"
+              },
+              {
+                "integerValue": "2010"
+              },
+              {
+                "integerValue": "2670"
+              },
+              {
+                "integerValue": "2170"
+              },
+              {
+                "integerValue": "2650"
+              },
+              {
+                "integerValue": "2360"
+              },
+              {
+                "integerValue": "2650"
+              },
+              {
+                "integerValue": "2550"
+              },
+              {
+                "integerValue": "2670"
+              },
+              {
+                "integerValue": "2620"
+              },
+              {
+                "integerValue": "2740"
+              },
+              {
+                "integerValue": "2700"
+              },
+              {
+                "integerValue": "2710"
+              },
+              {
+                "integerValue": "2690"
+              },
+              {
+                "integerValue": "2660"
+              },
+              {
+                "integerValue": "2250"
+              },
+              {
+                "integerValue": "2340"
+              },
+              {
+                "integerValue": "2510"
+              }
+            ]
+          }
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1990"
+        },
+        "Code": {
+          "stringValue": "RCN-SG"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_36",
+      "fields": {
+        "Date": {
+          "stringValue": "2026-01-08"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1710"
+        },
+        "Commodity": {
+          "stringValue": "Cashew Nuts"
+        },
+        "Volume": {
+          "integerValue": "263958"
+        },
+        "Location": {
+          "stringValue": "Pwani"
+        },
+        "Code": {
+          "stringValue": "RCN-UG"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1510"
+        },
+        "ID": {
+          "integerValue": "1488"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1710"
+              },
+              {
+                "integerValue": "1900"
+              },
+              {
+                "integerValue": "1890"
+              },
+              {
+                "integerValue": "2020"
+              },
+              {
+                "integerValue": "2090"
+              },
+              {
+                "integerValue": "2110"
+              }
+            ]
+          }
+        },
+        "position": {
+          "integerValue": "36"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-190"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_37",
+      "fields": {
+        "position": {
+          "integerValue": "37"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-470"
+        },
+        "Code": {
+          "stringValue": "RCN-SG"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1750"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1750"
+              },
+              {
+                "integerValue": "2220"
+              },
+              {
+                "integerValue": "2180"
+              },
+              {
+                "integerValue": "2280"
+              },
+              {
+                "integerValue": "2550"
+              },
+              {
+                "integerValue": "2470"
+              },
+              {
+                "integerValue": "2350"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1487"
+        },
+        "Volume": {
+          "integerValue": "30680"
+        },
+        "Location": {
+          "stringValue": "Pwani"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1750"
+        },
+        "Commodity": {
+          "stringValue": "Cashew Nuts"
+        },
+        "Date": {
+          "stringValue": "2026-01-08"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_38",
+      "fields": {
+        "position": {
+          "integerValue": "38"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-10"
+        },
+        "Code": {
+          "stringValue": "CP"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "850"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "870"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "940"
+              },
+              {
+                "integerValue": "880"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "970"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "960"
+              },
+              {
+                "integerValue": "990"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "950"
+              },
+              {
+                "integerValue": "970"
+              },
+              {
+                "integerValue": "1000"
+              },
+              {
+                "integerValue": "990"
+              },
+              {
+                "integerValue": "990"
+              },
+              {
+                "integerValue": "1020"
+              },
+              {
+                "integerValue": "1000"
+              },
+              {
+                "integerValue": "1020"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "1020"
+              },
+              {
+                "integerValue": "1110"
+              },
+              {
+                "integerValue": "1220"
+              },
+              {
+                "integerValue": "1230"
+              },
+              {
+                "integerValue": "1240"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1476"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "850"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "850"
+        },
+        "Commodity": {
+          "stringValue": "Chick peas"
+        },
+        "Volume": {
+          "integerValue": "60000"
+        },
+        "Location": {
+          "stringValue": "Simiyu"
+        },
+        "Date": {
+          "stringValue": "2025-12-31"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_39",
+      "fields": {
+        "ID": {
+          "integerValue": "1477"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "870"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "880"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "880"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "870"
+              },
+              {
+                "integerValue": "940"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "950"
+              },
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "940"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "820"
+              },
+              {
+                "integerValue": "850"
+              },
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "980"
+              },
+              {
+                "integerValue": "950"
+              },
+              {
+                "integerValue": "960"
+              },
+              {
+                "integerValue": "880"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "1030"
+              },
+              {
+                "integerValue": "1190"
+              },
+              {
+                "integerValue": "1230"
+              },
+              {
+                "integerValue": "1220"
+              }
+            ]
+          }
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "850"
+        },
+        "Code": {
+          "stringValue": "CP"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "20"
+        },
+        "position": {
+          "integerValue": "39"
+        },
+        "Date": {
+          "stringValue": "2025-12-31"
+        },
+        "Commodity": {
+          "stringValue": "Chick peas"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "890"
+        },
+        "Location": {
+          "stringValue": "Manyara"
+        },
+        "Volume": {
+          "integerValue": "419000"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_4",
+      "fields": {
+        "Code": {
+          "stringValue": "SS"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "2200"
+        },
+        "ID": {
+          "integerValue": "1608"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "2200"
+              },
+              {
+                "integerValue": "2510"
+              },
+              {
+                "integerValue": "2590"
+              },
+              {
+                "integerValue": "2590"
+              },
+              {
+                "integerValue": "2715"
+              },
+              {
+                "integerValue": "2690"
+              },
+              {
+                "integerValue": "1945"
+              },
+              {
+                "integerValue": "2010"
+              },
+              {
+                "integerValue": "2210"
+              },
+              {
+                "integerValue": "2360"
+              },
+              {
+                "integerValue": "2435"
+              },
+              {
+                "integerValue": "2430"
+              },
+              {
+                "integerValue": "2450"
+              },
+              {
+                "integerValue": "2500"
+              },
+              {
+                "integerValue": "2550"
+              },
+              {
+                "integerValue": "2550"
+              },
+              {
+                "integerValue": "2790"
+              },
+              {
+                "integerValue": "2810"
+              },
+              {
+                "integerValue": "2870"
+              },
+              {
+                "integerValue": "2960"
+              },
+              {
+                "integerValue": "3200"
+              },
+              {
+                "integerValue": "3200"
+              }
+            ]
+          }
+        },
+        "position": {
+          "integerValue": "4"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-310"
+        },
+        "Date": {
+          "stringValue": "2026-07-03"
+        },
+        "Volume": {
+          "integerValue": "10897"
+        },
+        "Location": {
+          "stringValue": "Songwe"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "2200"
+        },
+        "Commodity": {
+          "stringValue": "Sesame Seeds"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_40",
+      "fields": {
+        "Commodity": {
+          "stringValue": "Chick peas"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "850"
+        },
+        "Location": {
+          "stringValue": "Shinyanga"
+        },
+        "Volume": {
+          "integerValue": "52700"
+        },
+        "Date": {
+          "stringValue": "2025-12-31"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-40"
+        },
+        "position": {
+          "integerValue": "40"
+        },
+        "Code": {
+          "stringValue": "CP"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "850"
+              },
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "830"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "870"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "880"
+              },
+              {
+                "integerValue": "870"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "940"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "925"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "1010"
+              },
+              {
+                "integerValue": "990"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "940"
+              },
+              {
+                "integerValue": "880"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "970"
+              },
+              {
+                "integerValue": "1040"
+              },
+              {
+                "integerValue": "960"
+              },
+              {
+                "integerValue": "1000"
+              },
+              {
+                "integerValue": "1000"
+              },
+              {
+                "integerValue": "1040"
+              },
+              {
+                "integerValue": "1000"
+              },
+              {
+                "integerValue": "990"
+              },
+              {
+                "integerValue": "970"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "1040"
+              },
+              {
+                "integerValue": "1070"
+              },
+              {
+                "integerValue": "1120"
+              },
+              {
+                "integerValue": "1150"
+              },
+              {
+                "integerValue": "1160"
+              },
+              {
+                "integerValue": "1220"
+              },
+              {
+                "integerValue": "1190"
+              },
+              {
+                "integerValue": "1235"
+              },
+              {
+                "integerValue": "1230"
+              },
+              {
+                "integerValue": "1250"
+              },
+              {
+                "integerValue": "1270"
+              },
+              {
+                "integerValue": "1280"
+              },
+              {
+                "integerValue": "1430"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1479"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "850"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_41",
+      "fields": {
+        "position": {
+          "integerValue": "41"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-10"
+        },
+        "ID": {
+          "integerValue": "1478"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "870"
+              },
+              {
+                "integerValue": "880"
+              },
+              {
+                "integerValue": "840"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "920"
+              }
+            ]
+          }
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "870"
+        },
+        "Code": {
+          "stringValue": "CP"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "870"
+        },
+        "Commodity": {
+          "stringValue": "Chick peas"
+        },
+        "Volume": {
+          "integerValue": "30000"
+        },
+        "Location": {
+          "stringValue": "Arusha"
+        },
+        "Date": {
+          "stringValue": "2025-12-31"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_42",
+      "fields": {
+        "Date": {
+          "stringValue": "2025-12-30"
+        },
+        "Commodity": {
+          "stringValue": "Pigeon peas"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1110"
+        },
+        "Location": {
+          "stringValue": "Manyara"
+        },
+        "Volume": {
+          "integerValue": "1263200"
+        },
+        "Code": {
+          "stringValue": "PP"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1110"
+              },
+              {
+                "integerValue": "1090"
+              },
+              {
+                "integerValue": "1110"
+              },
+              {
+                "integerValue": "970"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "960"
+              },
+              {
+                "integerValue": "950"
+              },
+              {
+                "integerValue": "960"
+              },
+              {
+                "integerValue": "970"
+              },
+              {
+                "integerValue": "1010"
+              },
+              {
+                "integerValue": "1120"
+              },
+              {
+                "integerValue": "1030"
+              },
+              {
+                "integerValue": "1090"
+              },
+              {
+                "integerValue": "1110"
+              },
+              {
+                "integerValue": "1090"
+              },
+              {
+                "integerValue": "1020"
+              },
+              {
+                "integerValue": "1030"
+              },
+              {
+                "integerValue": "990"
+              },
+              {
+                "integerValue": "970"
+              },
+              {
+                "integerValue": "980"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "980"
+              },
+              {
+                "integerValue": "990"
+              },
+              {
+                "integerValue": "940"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "875"
+              },
+              {
+                "integerValue": "865"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "790"
+              },
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "750"
+              },
+              {
+                "integerValue": "1000"
+              },
+              {
+                "integerValue": "1020"
+              },
+              {
+                "integerValue": "1010"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1471"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1060"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "20"
+        },
+        "position": {
+          "integerValue": "42"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_43",
+      "fields": {
+        "High Price (TZS/kg)": {
+          "integerValue": "1110"
+        },
+        "Commodity": {
+          "stringValue": "Pigeon peas"
+        },
+        "Volume": {
+          "integerValue": "200000"
+        },
+        "Location": {
+          "stringValue": "Arusha"
+        },
+        "Date": {
+          "stringValue": "2025-12-30"
+        },
+        "position": {
+          "integerValue": "43"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-10"
+        },
+        "Code": {
+          "stringValue": "PP"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1110"
+        },
+        "ID": {
+          "integerValue": "1473"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1110"
+              },
+              {
+                "integerValue": "1120"
+              },
+              {
+                "integerValue": "990"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "960"
+              },
+              {
+                "integerValue": "950"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "960"
+              },
+              {
+                "integerValue": "1000"
+              },
+              {
+                "integerValue": "1070"
+              },
+              {
+                "integerValue": "1020"
+              },
+              {
+                "integerValue": "1110"
+              },
+              {
+                "integerValue": "990"
+              },
+              {
+                "integerValue": "1090"
+              },
+              {
+                "integerValue": "1070"
+              },
+              {
+                "integerValue": "1070"
+              },
+              {
+                "integerValue": "1040"
+              },
+              {
+                "integerValue": "1050"
+              },
+              {
+                "integerValue": "1030"
+              },
+              {
+                "integerValue": "1010"
+              },
+              {
+                "integerValue": "960"
+              },
+              {
+                "integerValue": "1030"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "1030"
+              },
+              {
+                "integerValue": "970"
+              }
+            ]
+          }
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_44",
+      "fields": {
+        "Code": {
+          "stringValue": "RCN-UG"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1920"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "2020"
+              },
+              {
+                "integerValue": "2040"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1458"
+        },
+        "position": {
+          "integerValue": "44"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-20"
+        },
+        "Date": {
+          "stringValue": "2025-12-23"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "2020"
+        },
+        "Commodity": {
+          "stringValue": "Cashew Nuts"
+        },
+        "Volume": {
+          "integerValue": "93233"
+        },
+        "Location": {
+          "stringValue": "Morogoro"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_45",
+      "fields": {
+        "Commodity": {
+          "stringValue": "Cashew Nuts"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "2270"
+        },
+        "Location": {
+          "stringValue": "Morogoro"
+        },
+        "Volume": {
+          "integerValue": "31144"
+        },
+        "Date": {
+          "stringValue": "2025-12-23"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "30"
+        },
+        "position": {
+          "integerValue": "45"
+        },
+        "Code": {
+          "stringValue": "RCN-SG"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "2190"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "2270"
+              },
+              {
+                "integerValue": "2240"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1457"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_46",
+      "fields": {
+        "position": {
+          "integerValue": "46"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-50"
+        },
+        "Code": {
+          "stringValue": "PP"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "610"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "610"
+              },
+              {
+                "integerValue": "660"
+              },
+              {
+                "integerValue": "790"
+              },
+              {
+                "integerValue": "700"
+              },
+              {
+                "integerValue": "780"
+              },
+              {
+                "integerValue": "790"
+              },
+              {
+                "integerValue": "680"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "770"
+              },
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "750"
+              },
+              {
+                "integerValue": "895"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "780"
+              },
+              {
+                "integerValue": "820"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "800"
+              },
+              {
+                "integerValue": "790"
+              },
+              {
+                "integerValue": "790"
+              },
+              {
+                "integerValue": "830"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "820"
+              },
+              {
+                "integerValue": "740"
+              },
+              {
+                "integerValue": "730"
+              },
+              {
+                "integerValue": "770"
+              },
+              {
+                "integerValue": "780"
+              },
+              {
+                "integerValue": "710"
+              },
+              {
+                "integerValue": "680"
+              },
+              {
+                "integerValue": "720"
+              },
+              {
+                "integerValue": "690"
+              },
+              {
+                "integerValue": "700"
+              },
+              {
+                "integerValue": "780"
+              },
+              {
+                "integerValue": "760"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "770"
+              },
+              {
+                "integerValue": "780"
+              },
+              {
+                "integerValue": "740"
+              },
+              {
+                "integerValue": "680"
+              },
+              {
+                "integerValue": "760"
+              },
+              {
+                "integerValue": "710"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "960"
+              },
+              {
+                "integerValue": "960"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1441"
+        },
+        "Volume": {
+          "integerValue": "70066"
+        },
+        "Location": {
+          "stringValue": "Morogoro"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "610"
+        },
+        "Commodity": {
+          "stringValue": "Pigeon peas"
+        },
+        "Date": {
+          "stringValue": "2025-12-16"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_47",
+      "fields": {
+        "Commodity": {
+          "stringValue": "Coffee-Arabica Clean Certified"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "10100"
+        },
+        "Location": {
+          "stringValue": "Kagera"
+        },
+        "Volume": {
+          "integerValue": "179"
+        },
+        "Date": {
+          "stringValue": "2025-12-11"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-400"
+        },
+        "position": {
+          "integerValue": "47"
+        },
+        "Code": {
+          "stringValue": "CF-ARCC"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "10000"
+        },
+        "ID": {
+          "integerValue": "1419"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "10100"
+              },
+              {
+                "integerValue": "10500"
+              },
+              {
+                "integerValue": "10010"
+              },
+              {
+                "integerValue": "10010"
+              },
+              {
+                "integerValue": "10025"
+              },
+              {
+                "integerValue": "9000"
+              },
+              {
+                "integerValue": "9205"
+              },
+              {
+                "integerValue": "9005"
+              },
+              {
+                "integerValue": "9000"
+              },
+              {
+                "integerValue": "9000"
+              },
+              {
+                "integerValue": "9000"
+              },
+              {
+                "integerValue": "10500"
+              },
+              {
+                "integerValue": "11700"
+              },
+              {
+                "integerValue": "11780"
+              },
+              {
+                "integerValue": "11775"
+              },
+              {
+                "integerValue": "11770"
+              },
+              {
+                "integerValue": "11760"
+              },
+              {
+                "integerValue": "11705"
+              }
+            ]
+          }
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_48",
+      "fields": {
+        "High Price (TZS/kg)": {
+          "integerValue": "4910"
+        },
+        "Commodity": {
+          "stringValue": "Coffee-Robusta"
+        },
+        "Volume": {
+          "integerValue": "2109"
+        },
+        "Location": {
+          "stringValue": "Kagera"
+        },
+        "Date": {
+          "stringValue": "2025-12-11"
+        },
+        "position": {
+          "integerValue": "48"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-255"
+        },
+        "Code": {
+          "stringValue": "CF-RB"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "4510"
+        },
+        "ID": {
+          "integerValue": "1421"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "4910"
+              },
+              {
+                "integerValue": "5165"
+              },
+              {
+                "integerValue": "5110"
+              },
+              {
+                "integerValue": "5210"
+              },
+              {
+                "integerValue": "5130"
+              },
+              {
+                "integerValue": "5130"
+              },
+              {
+                "integerValue": "5110"
+              },
+              {
+                "integerValue": "5100"
+              },
+              {
+                "integerValue": "5105"
+              },
+              {
+                "integerValue": "5080"
+              },
+              {
+                "integerValue": "5060"
+              },
+              {
+                "integerValue": "5030"
+              },
+              {
+                "integerValue": "5010"
+              },
+              {
+                "integerValue": "5210"
+              },
+              {
+                "integerValue": "5305"
+              },
+              {
+                "integerValue": "5325"
+              },
+              {
+                "integerValue": "5355"
+              },
+              {
+                "integerValue": "5405"
+              },
+              {
+                "integerValue": "5520"
+              },
+              {
+                "integerValue": "5500"
+              },
+              {
+                "integerValue": "5510"
+              },
+              {
+                "integerValue": "5530"
+              },
+              {
+                "integerValue": "5175"
+              },
+              {
+                "integerValue": "4810"
+              },
+              {
+                "integerValue": "4840"
+              },
+              {
+                "integerValue": "5010"
+              },
+              {
+                "integerValue": "4610"
+              },
+              {
+                "integerValue": "4460"
+              },
+              {
+                "integerValue": "4660"
+              },
+              {
+                "integerValue": "4460"
+              },
+              {
+                "integerValue": "4405"
+              },
+              {
+                "integerValue": "4415"
+              },
+              {
+                "integerValue": "4320"
+              },
+              {
+                "integerValue": "5010"
+              },
+              {
+                "integerValue": "5010"
+              },
+              {
+                "integerValue": "4820"
+              },
+              {
+                "integerValue": "4855"
+              },
+              {
+                "integerValue": "5010"
+              },
+              {
+                "integerValue": "5105"
+              },
+              {
+                "integerValue": "5081"
+              }
+            ]
+          }
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_49",
+      "fields": {
+        "ID": {
+          "integerValue": "1418"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "950"
+              },
+              {
+                "integerValue": "760"
+              },
+              {
+                "integerValue": "1030"
+              },
+              {
+                "integerValue": "960"
+              },
+              {
+                "integerValue": "950"
+              },
+              {
+                "integerValue": "870"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "850"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "780"
+              },
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "850"
+              },
+              {
+                "integerValue": "870"
+              },
+              {
+                "integerValue": "840"
+              },
+              {
+                "integerValue": "1110"
+              }
+            ]
+          }
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "950"
+        },
+        "Code": {
+          "stringValue": "PP"
+        },
+        "position": {
+          "integerValue": "49"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "190"
+        },
+        "Date": {
+          "stringValue": "2025-12-10"
+        },
+        "Volume": {
+          "integerValue": "128000"
+        },
+        "Location": {
+          "stringValue": "Singida"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "950"
+        },
+        "Commodity": {
+          "stringValue": "Pigeon peas"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_5",
+      "fields": {
+        "Date": {
+          "stringValue": "2026-07-02"
+        },
+        "Location": {
+          "stringValue": "Kagera"
+        },
+        "Volume": {
+          "integerValue": "3607"
+        },
+        "Commodity": {
+          "stringValue": "Coffee-Arabica"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "5010"
+        },
+        "Code": {
+          "stringValue": "CF-AR"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "5010"
+        },
+        "ID": {
+          "integerValue": "1607"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "5010"
+              },
+              {
+                "integerValue": "4610"
+              },
+              {
+                "integerValue": "4005"
+              },
+              {
+                "integerValue": "4010"
+              },
+              {
+                "integerValue": "4005"
+              },
+              {
+                "integerValue": "5010"
+              },
+              {
+                "integerValue": "5010"
+              },
+              {
+                "integerValue": "4510"
+              },
+              {
+                "integerValue": "4510"
+              },
+              {
+                "integerValue": "4510"
+              },
+              {
+                "integerValue": "5010"
+              },
+              {
+                "integerValue": "5010"
+              },
+              {
+                "integerValue": "5010"
+              },
+              {
+                "integerValue": "5005"
+              },
+              {
+                "integerValue": "5070"
+              },
+              {
+                "integerValue": "5060"
+              },
+              {
+                "integerValue": "5055"
+              }
+            ]
+          }
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "400"
+        },
+        "position": {
+          "integerValue": "5"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_50",
+      "fields": {
+        "Commodity": {
+          "stringValue": "Chick peas"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "810"
+        },
+        "Location": {
+          "stringValue": "Singida"
+        },
+        "Volume": {
+          "integerValue": "42600"
+        },
+        "Date": {
+          "stringValue": "2025-12-08"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "50"
+        },
+        "position": {
+          "integerValue": "50"
+        },
+        "Code": {
+          "stringValue": "CP"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "760"
+              },
+              {
+                "integerValue": "710"
+              },
+              {
+                "integerValue": "840"
+              },
+              {
+                "integerValue": "850"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "880"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "940"
+              },
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "880"
+              },
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "970"
+              },
+              {
+                "integerValue": "1010"
+              },
+              {
+                "integerValue": "970"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "950"
+              },
+              {
+                "integerValue": "990"
+              },
+              {
+                "integerValue": "1110"
+              },
+              {
+                "integerValue": "1160"
+              },
+              {
+                "integerValue": "1170"
+              },
+              {
+                "integerValue": "1230"
+              },
+              {
+                "integerValue": "1220"
+              },
+              {
+                "integerValue": "1250"
+              },
+              {
+                "integerValue": "1230"
+              },
+              {
+                "integerValue": "1350"
+              },
+              {
+                "integerValue": "1350"
+              },
+              {
+                "integerValue": "1410"
+              },
+              {
+                "integerValue": "1350"
+              },
+              {
+                "integerValue": "1290"
+              },
+              {
+                "integerValue": "1220"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1408"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "810"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_51",
+      "fields": {
+        "Date": {
+          "stringValue": "2025-12-04"
+        },
+        "Location": {
+          "stringValue": "Kagera"
+        },
+        "Volume": {
+          "integerValue": "20110"
+        },
+        "Commodity": {
+          "stringValue": "Coffee-Robusta Certified"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "5210"
+        },
+        "Code": {
+          "stringValue": "CF-RBC"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "5210"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "5210"
+              },
+              {
+                "integerValue": "5010"
+              },
+              {
+                "integerValue": "5120"
+              },
+              {
+                "integerValue": "5520"
+              },
+              {
+                "integerValue": "5520"
+              },
+              {
+                "integerValue": "5100"
+              },
+              {
+                "integerValue": "5100"
+              },
+              {
+                "integerValue": "5055"
+              },
+              {
+                "integerValue": "5065"
+              },
+              {
+                "integerValue": "5055"
+              },
+              {
+                "integerValue": "5105"
+              },
+              {
+                "integerValue": "5210"
+              },
+              {
+                "integerValue": "5210"
+              },
+              {
+                "integerValue": "5315"
+              },
+              {
+                "integerValue": "5220"
+              },
+              {
+                "integerValue": "5310"
+              },
+              {
+                "integerValue": "5470"
+              },
+              {
+                "integerValue": "5440"
+              },
+              {
+                "integerValue": "5510"
+              },
+              {
+                "integerValue": "5330"
+              },
+              {
+                "integerValue": "5295"
+              },
+              {
+                "integerValue": "4790"
+              },
+              {
+                "integerValue": "4790"
+              },
+              {
+                "integerValue": "4640"
+              },
+              {
+                "integerValue": "4630"
+              },
+              {
+                "integerValue": "4450"
+              },
+              {
+                "integerValue": "4695"
+              },
+              {
+                "integerValue": "4430"
+              },
+              {
+                "integerValue": "4380"
+              },
+              {
+                "integerValue": "4410"
+              },
+              {
+                "integerValue": "4300"
+              },
+              {
+                "integerValue": "4260"
+              },
+              {
+                "integerValue": "4310"
+              },
+              {
+                "integerValue": "4820"
+              },
+              {
+                "integerValue": "4855"
+              },
+              {
+                "integerValue": "5056"
+              },
+              {
+                "integerValue": "5020"
+              },
+              {
+                "integerValue": "5055"
+              },
+              {
+                "integerValue": "5111"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1397"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "200"
+        },
+        "position": {
+          "integerValue": "51"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_52",
+      "fields": {
+        "Date": {
+          "stringValue": "2025-12-01"
+        },
+        "Volume": {
+          "integerValue": "360000"
+        },
+        "Location": {
+          "stringValue": "Mwanza"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "880"
+        },
+        "Commodity": {
+          "stringValue": "Chick peas"
+        },
+        "ID": {
+          "integerValue": "1389"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "880"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "950"
+              },
+              {
+                "integerValue": "940"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "970"
+              },
+              {
+                "integerValue": "950"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "950"
+              },
+              {
+                "integerValue": "1000"
+              },
+              {
+                "integerValue": "990"
+              },
+              {
+                "integerValue": "1010"
+              },
+              {
+                "integerValue": "1030"
+              },
+              {
+                "integerValue": "1020"
+              },
+              {
+                "integerValue": "1060"
+              },
+              {
+                "integerValue": "1030"
+              },
+              {
+                "integerValue": "950"
+              },
+              {
+                "integerValue": "970"
+              },
+              {
+                "integerValue": "990"
+              },
+              {
+                "integerValue": "1060"
+              },
+              {
+                "integerValue": "1120"
+              },
+              {
+                "integerValue": "1150"
+              },
+              {
+                "integerValue": "1210"
+              },
+              {
+                "integerValue": "1180"
+              },
+              {
+                "integerValue": "1225"
+              },
+              {
+                "integerValue": "1210"
+              }
+            ]
+          }
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "860"
+        },
+        "Code": {
+          "stringValue": "CP"
+        },
+        "position": {
+          "integerValue": "52"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-20"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_53",
+      "fields": {
+        "Code": {
+          "stringValue": "CP"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "760"
+              },
+              {
+                "integerValue": "710"
+              },
+              {
+                "integerValue": "800"
+              },
+              {
+                "integerValue": "850"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "870"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "870"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "960"
+              },
+              {
+                "integerValue": "950"
+              },
+              {
+                "integerValue": "950"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "1110"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1383"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "760"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "50"
+        },
+        "position": {
+          "integerValue": "53"
+        },
+        "Date": {
+          "stringValue": "2025-12-01"
+        },
+        "Commodity": {
+          "stringValue": "Chick peas"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "760"
+        },
+        "Location": {
+          "stringValue": "Mara"
+        },
+        "Volume": {
+          "integerValue": "32000"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_54",
+      "fields": {
+        "Date": {
+          "stringValue": "2025-11-25"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "650"
+        },
+        "Commodity": {
+          "stringValue": "Pigeon peas"
+        },
+        "Volume": {
+          "integerValue": "320513"
+        },
+        "Location": {
+          "stringValue": "Kigoma"
+        },
+        "Code": {
+          "stringValue": "PP"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "650"
+              },
+              {
+                "integerValue": "790"
+              },
+              {
+                "integerValue": "790"
+              },
+              {
+                "integerValue": "730"
+              },
+              {
+                "integerValue": "770"
+              },
+              {
+                "integerValue": "700"
+              },
+              {
+                "integerValue": "715"
+              },
+              {
+                "integerValue": "700"
+              },
+              {
+                "integerValue": "650"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "670"
+              },
+              {
+                "integerValue": "670"
+              },
+              {
+                "integerValue": "760"
+              },
+              {
+                "integerValue": "830"
+              },
+              {
+                "integerValue": "910"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1349"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "650"
+        },
+        "position": {
+          "integerValue": "54"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-140"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_55",
+      "fields": {
+        "Code": {
+          "stringValue": "PP"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "890"
+        },
+        "ID": {
+          "integerValue": "1344"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "820"
+              },
+              {
+                "integerValue": "1010"
+              },
+              {
+                "integerValue": "1030"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "980"
+              },
+              {
+                "integerValue": "1050"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "1060"
+              },
+              {
+                "integerValue": "760"
+              },
+              {
+                "integerValue": "760"
+              },
+              {
+                "integerValue": "990"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "780"
+              },
+              {
+                "integerValue": "880"
+              },
+              {
+                "integerValue": "680"
+              },
+              {
+                "integerValue": "840"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "710"
+              },
+              {
+                "integerValue": "870"
+              },
+              {
+                "integerValue": "800"
+              },
+              {
+                "integerValue": "820"
+              },
+              {
+                "integerValue": "720"
+              },
+              {
+                "integerValue": "770"
+              },
+              {
+                "integerValue": "770"
+              },
+              {
+                "integerValue": "800"
+              },
+              {
+                "integerValue": "800"
+              },
+              {
+                "integerValue": "750"
+              },
+              {
+                "integerValue": "820"
+              },
+              {
+                "integerValue": "850"
+              },
+              {
+                "integerValue": "850"
+              },
+              {
+                "integerValue": "790"
+              },
+              {
+                "integerValue": "790"
+              },
+              {
+                "integerValue": "750"
+              },
+              {
+                "integerValue": "760"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "800"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "980"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "960"
+              },
+              {
+                "integerValue": "1010"
+              },
+              {
+                "integerValue": "1010"
+              }
+            ]
+          }
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "70"
+        },
+        "position": {
+          "integerValue": "55"
+        },
+        "Date": {
+          "stringValue": "2025-11-24"
+        },
+        "Commodity": {
+          "stringValue": "Pigeon peas"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "890"
+        },
+        "Location": {
+          "stringValue": "Dodoma"
+        },
+        "Volume": {
+          "integerValue": "1179584"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_56",
+      "fields": {
+        "Date": {
+          "stringValue": "2025-11-15"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "800"
+        },
+        "Commodity": {
+          "stringValue": "Pigeon peas"
+        },
+        "Volume": {
+          "integerValue": "289168"
+        },
+        "Location": {
+          "stringValue": "Tanga"
+        },
+        "ID": {
+          "integerValue": "1308"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "800"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "820"
+              },
+              {
+                "integerValue": "875"
+              },
+              {
+                "integerValue": "840"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "710"
+              },
+              {
+                "integerValue": "770"
+              },
+              {
+                "integerValue": "730"
+              },
+              {
+                "integerValue": "780"
+              },
+              {
+                "integerValue": "680"
+              },
+              {
+                "integerValue": "800"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "750"
+              },
+              {
+                "integerValue": "820"
+              },
+              {
+                "integerValue": "730"
+              },
+              {
+                "integerValue": "840"
+              },
+              {
+                "integerValue": "750"
+              },
+              {
+                "integerValue": "710"
+              }
+            ]
+          }
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "690"
+        },
+        "Code": {
+          "stringValue": "PP"
+        },
+        "position": {
+          "integerValue": "56"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-60"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_57",
+      "fields": {
+        "position": {
+          "integerValue": "57"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "20"
+        },
+        "Code": {
+          "stringValue": "CP"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "890"
+              },
+              {
+                "integerValue": "870"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "830"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "930"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "960"
+              },
+              {
+                "integerValue": "1030"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "1000"
+              },
+              {
+                "integerValue": "1170"
+              },
+              {
+                "integerValue": "1170"
+              },
+              {
+                "integerValue": "1210"
+              },
+              {
+                "integerValue": "1300"
+              },
+              {
+                "integerValue": "1430"
+              },
+              {
+                "integerValue": "1060"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1294"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "890"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "890"
+        },
+        "Commodity": {
+          "stringValue": "Chick peas"
+        },
+        "Volume": {
+          "integerValue": "96000"
+        },
+        "Location": {
+          "stringValue": "Dodoma"
+        },
+        "Date": {
+          "stringValue": "2025-11-13"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_58",
+      "fields": {
+        "Price Change (TZS/kg)": {
+          "integerValue": "100"
+        },
+        "position": {
+          "integerValue": "58"
+        },
+        "ID": {
+          "integerValue": "1273"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "830"
+              },
+              {
+                "integerValue": "730"
+              },
+              {
+                "integerValue": "750"
+              },
+              {
+                "integerValue": "730"
+              },
+              {
+                "integerValue": "730"
+              },
+              {
+                "integerValue": "780"
+              },
+              {
+                "integerValue": "720"
+              },
+              {
+                "integerValue": "840"
+              },
+              {
+                "integerValue": "710"
+              },
+              {
+                "integerValue": "720"
+              },
+              {
+                "integerValue": "630"
+              },
+              {
+                "integerValue": "650"
+              },
+              {
+                "integerValue": "670"
+              },
+              {
+                "integerValue": "650"
+              },
+              {
+                "integerValue": "780"
+              },
+              {
+                "integerValue": "700"
+              },
+              {
+                "integerValue": "710"
+              },
+              {
+                "integerValue": "750"
+              },
+              {
+                "integerValue": "630"
+              },
+              {
+                "integerValue": "670"
+              },
+              {
+                "integerValue": "710"
+              },
+              {
+                "integerValue": "680"
+              },
+              {
+                "integerValue": "760"
+              }
+            ]
+          }
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "830"
+        },
+        "Code": {
+          "stringValue": "PP"
+        },
+        "Location": {
+          "stringValue": "Ruvuma"
+        },
+        "Volume": {
+          "integerValue": "163735"
+        },
+        "Commodity": {
+          "stringValue": "Pigeon peas"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "830"
+        },
+        "Date": {
+          "stringValue": "2025-11-06"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_59",
+      "fields": {
+        "Date": {
+          "stringValue": "2025-10-24"
+        },
+        "Commodity": {
+          "stringValue": "Chick peas"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "820"
+        },
+        "Location": {
+          "stringValue": "Tanga"
+        },
+        "Volume": {
+          "integerValue": "30831"
+        },
+        "Code": {
+          "stringValue": "CP"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "820"
+        },
+        "ID": {
+          "integerValue": "1241"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "820"
+              },
+              {
+                "integerValue": "860"
+              }
+            ]
+          }
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-40"
+        },
+        "position": {
+          "integerValue": "59"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_6",
+      "fields": {
+        "Code": {
+          "stringValue": "CC"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "11120"
+        },
+        "ID": {
+          "integerValue": "1606"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "11120"
+              },
+              {
+                "integerValue": "10540"
+              },
+              {
+                "integerValue": "9780"
+              },
+              {
+                "integerValue": "9360"
+              },
+              {
+                "integerValue": "9400"
+              },
+              {
+                "integerValue": "9480"
+              },
+              {
+                "integerValue": "8980"
+              },
+              {
+                "integerValue": "8470"
+              },
+              {
+                "integerValue": "10380"
+              },
+              {
+                "integerValue": "9310"
+              },
+              {
+                "integerValue": "7710"
+              },
+              {
+                "integerValue": "7360"
+              },
+              {
+                "integerValue": "7175"
+              },
+              {
+                "integerValue": "7275"
+              },
+              {
+                "integerValue": "7010"
+              },
+              {
+                "integerValue": "6565"
+              },
+              {
+                "integerValue": "6590"
+              },
+              {
+                "integerValue": "7050"
+              },
+              {
+                "integerValue": "6960"
+              },
+              {
+                "integerValue": "6800"
+              },
+              {
+                "integerValue": "6920"
+              },
+              {
+                "integerValue": "6310"
+              },
+              {
+                "integerValue": "5540"
+              },
+              {
+                "integerValue": "7520"
+              },
+              {
+                "integerValue": "10120"
+              },
+              {
+                "integerValue": "10140"
+              },
+              {
+                "integerValue": "11060"
+              },
+              {
+                "integerValue": "11870"
+              },
+              {
+                "integerValue": "12250"
+              },
+              {
+                "integerValue": "12360"
+              },
+              {
+                "integerValue": "11720"
+              },
+              {
+                "integerValue": "11800"
+              },
+              {
+                "integerValue": "11860"
+              },
+              {
+                "integerValue": "12420"
+              },
+              {
+                "integerValue": "12620"
+              },
+              {
+                "integerValue": "11300"
+              },
+              {
+                "integerValue": "10620"
+              },
+              {
+                "integerValue": "10560"
+              },
+              {
+                "integerValue": "10940"
+              },
+              {
+                "integerValue": "10420"
+              },
+              {
+                "integerValue": "10220"
+              },
+              {
+                "integerValue": "11580"
+              },
+              {
+                "integerValue": "11010"
+              },
+              {
+                "integerValue": "12020"
+              },
+              {
+                "integerValue": "11580"
+              },
+              {
+                "integerValue": "10620"
+              },
+              {
+                "integerValue": "10020"
+              },
+              {
+                "integerValue": "10020"
+              },
+              {
+                "integerValue": "10620"
+              },
+              {
+                "integerValue": "11400"
+              },
+              {
+                "integerValue": "11680"
+              },
+              {
+                "integerValue": "13155"
+              },
+              {
+                "integerValue": "13030"
+              },
+              {
+                "integerValue": "13020"
+              },
+              {
+                "integerValue": "14020"
+              },
+              {
+                "integerValue": "14280"
+              },
+              {
+                "integerValue": "14420"
+              },
+              {
+                "integerValue": "14020"
+              },
+              {
+                "integerValue": "14320"
+              },
+              {
+                "integerValue": "13520"
+              },
+              {
+                "integerValue": "15260"
+              },
+              {
+                "integerValue": "13520"
+              },
+              {
+                "integerValue": "14500"
+              },
+              {
+                "integerValue": "17360"
+              },
+              {
+                "integerValue": "14520"
+              },
+              {
+                "integerValue": "14520"
+              },
+              {
+                "integerValue": "14520"
+              },
+              {
+                "integerValue": "15800"
+              },
+              {
+                "integerValue": "14880"
+              },
+              {
+                "integerValue": "14881"
+              },
+              {
+                "integerValue": "15100"
+              },
+              {
+                "integerValue": "16340"
+              },
+              {
+                "integerValue": "17160"
+              },
+              {
+                "integerValue": "18520"
+              },
+              {
+                "integerValue": "18750"
+              },
+              {
+                "integerValue": "18710"
+              },
+              {
+                "integerValue": "19120"
+              },
+              {
+                "integerValue": "21360"
+              },
+              {
+                "integerValue": "21620"
+              },
+              {
+                "integerValue": "19200"
+              },
+              {
+                "integerValue": "19240"
+              },
+              {
+                "integerValue": "20150"
+              },
+              {
+                "integerValue": "19040"
+              },
+              {
+                "integerValue": "18660"
+              },
+              {
+                "integerValue": "18520"
+              },
+              {
+                "integerValue": "17440"
+              },
+              {
+                "integerValue": "19120"
+              },
+              {
+                "integerValue": "17210"
+              },
+              {
+                "integerValue": "19020"
+              },
+              {
+                "integerValue": "19520"
+              },
+              {
+                "integerValue": "20020"
+              },
+              {
+                "integerValue": "22000"
+              },
+              {
+                "integerValue": "23500"
+              },
+              {
+                "integerValue": "22700"
+              },
+              {
+                "integerValue": "19700"
+              },
+              {
+                "integerValue": "20000"
+              },
+              {
+                "integerValue": "22060"
+              },
+              {
+                "integerValue": "18260"
+              },
+              {
+                "integerValue": "19590"
+              },
+              {
+                "integerValue": "20140"
+              },
+              {
+                "integerValue": "20030"
+              },
+              {
+                "integerValue": "18620"
+              },
+              {
+                "integerValue": "19400"
+              },
+              {
+                "integerValue": "19320"
+              },
+              {
+                "integerValue": "23020"
+              }
+            ]
+          }
+        },
+        "position": {
+          "integerValue": "6"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "580"
+        },
+        "Date": {
+          "stringValue": "2026-07-01"
+        },
+        "Volume": {
+          "integerValue": "358120"
+        },
+        "Location": {
+          "stringValue": "Mbeya"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "11120"
+        },
+        "Commodity": {
+          "stringValue": "Cocoa"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_60",
+      "fields": {
+        "Code": {
+          "stringValue": "PP"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "710"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "960"
+              },
+              {
+                "integerValue": "840"
+              },
+              {
+                "integerValue": "760"
+              },
+              {
+                "integerValue": "710"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1238"
+        },
+        "position": {
+          "integerValue": "60"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "120"
+        },
+        "Date": {
+          "stringValue": "2025-10-23"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "960"
+        },
+        "Commodity": {
+          "stringValue": "Pigeon peas"
+        },
+        "Volume": {
+          "integerValue": "292849"
+        },
+        "Location": {
+          "stringValue": "Pwani"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_61",
+      "fields": {
+        "Date": {
+          "stringValue": "2025-10-18"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "680"
+        },
+        "Commodity": {
+          "stringValue": "Pigeon peas"
+        },
+        "Volume": {
+          "integerValue": "78301"
+        },
+        "Location": {
+          "stringValue": "Lindi"
+        },
+        "Code": {
+          "stringValue": "PP"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "680"
+              },
+              {
+                "integerValue": "820"
+              },
+              {
+                "integerValue": "800"
+              },
+              {
+                "integerValue": "800"
+              },
+              {
+                "integerValue": "800"
+              },
+              {
+                "integerValue": "740"
+              },
+              {
+                "integerValue": "730"
+              },
+              {
+                "integerValue": "770"
+              },
+              {
+                "integerValue": "790"
+              },
+              {
+                "integerValue": "800"
+              },
+              {
+                "integerValue": "730"
+              },
+              {
+                "integerValue": "740"
+              },
+              {
+                "integerValue": "740"
+              },
+              {
+                "integerValue": "760"
+              },
+              {
+                "integerValue": "770"
+              },
+              {
+                "integerValue": "790"
+              },
+              {
+                "integerValue": "830"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1193"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "680"
+        },
+        "position": {
+          "integerValue": "61"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-140"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_62",
+      "fields": {
+        "Date": {
+          "stringValue": "2025-10-15"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "850"
+        },
+        "Commodity": {
+          "stringValue": "Chick peas"
+        },
+        "Volume": {
+          "integerValue": "94000"
+        },
+        "Location": {
+          "stringValue": "Geita"
+        },
+        "Code": {
+          "stringValue": "CP"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "850"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "850"
+              },
+              {
+                "integerValue": "810"
+              },
+              {
+                "integerValue": "860"
+              },
+              {
+                "integerValue": "850"
+              },
+              {
+                "integerValue": "820"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "900"
+              },
+              {
+                "integerValue": "920"
+              },
+              {
+                "integerValue": "960"
+              },
+              {
+                "integerValue": "950"
+              },
+              {
+                "integerValue": "970"
+              },
+              {
+                "integerValue": "910"
+              },
+              {
+                "integerValue": "960"
+              },
+              {
+                "integerValue": "1170"
+              },
+              {
+                "integerValue": "1270"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1172"
+        },
+        "position": {
+          "integerValue": "62"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "40"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_63",
+      "fields": {
+        "Code": {
+          "stringValue": "PP"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "770"
+              },
+              {
+                "integerValue": "700"
+              },
+              {
+                "integerValue": "690"
+              },
+              {
+                "integerValue": "800"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1110"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "740"
+        },
+        "position": {
+          "integerValue": "63"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "70"
+        },
+        "Date": {
+          "stringValue": "2025-10-07"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "770"
+        },
+        "Commodity": {
+          "stringValue": "Pigeon peas"
+        },
+        "Volume": {
+          "integerValue": "311116"
+        },
+        "Location": {
+          "stringValue": "Rukwa"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_64",
+      "fields": {
+        "Volume": {
+          "integerValue": "1966638"
+        },
+        "Location": {
+          "stringValue": "Mtwara"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "770"
+        },
+        "Commodity": {
+          "stringValue": "Pigeon peas"
+        },
+        "Date": {
+          "stringValue": "2025-10-03"
+        },
+        "position": {
+          "integerValue": "64"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "10"
+        },
+        "Code": {
+          "stringValue": "PP"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "700"
+        },
+        "ID": {
+          "integerValue": "1087"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "770"
+              },
+              {
+                "integerValue": "760"
+              },
+              {
+                "integerValue": "765"
+              },
+              {
+                "integerValue": "800"
+              },
+              {
+                "integerValue": "730"
+              },
+              {
+                "integerValue": "780"
+              },
+              {
+                "integerValue": "820"
+              },
+              {
+                "integerValue": "900"
+              }
+            ]
+          }
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_65",
+      "fields": {
+        "Code": {
+          "stringValue": "CF-ARC"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "4010"
+        },
+        "ID": {
+          "integerValue": "1077"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "4010"
+              },
+              {
+                "integerValue": "4510"
+              },
+              {
+                "integerValue": "4505"
+              },
+              {
+                "integerValue": "4505"
+              },
+              {
+                "integerValue": "4515"
+              },
+              {
+                "integerValue": "4515"
+              },
+              {
+                "integerValue": "5015"
+              },
+              {
+                "integerValue": "5010"
+              },
+              {
+                "integerValue": "5015"
+              },
+              {
+                "integerValue": "5315"
+              },
+              {
+                "integerValue": "5005"
+              }
+            ]
+          }
+        },
+        "position": {
+          "integerValue": "65"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-500"
+        },
+        "Date": {
+          "stringValue": "2025-10-02"
+        },
+        "Volume": {
+          "integerValue": "15765"
+        },
+        "Location": {
+          "stringValue": "Kagera"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "4010"
+        },
+        "Commodity": {
+          "stringValue": "Coffee-Arabica Certified"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_66",
+      "fields": {
+        "Date": {
+          "stringValue": "2025-09-27"
+        },
+        "Volume": {
+          "integerValue": "105870"
+        },
+        "Location": {
+          "stringValue": "Katavi"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "670"
+        },
+        "Commodity": {
+          "stringValue": "Pigeon peas"
+        },
+        "Code": {
+          "stringValue": "PP"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "670"
+              },
+              {
+                "integerValue": "730"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1039"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "670"
+        },
+        "position": {
+          "integerValue": "66"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-60"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_67",
+      "fields": {
+        "Volume": {
+          "integerValue": "60000"
+        },
+        "Location": {
+          "stringValue": "Tabora"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "960"
+        },
+        "Commodity": {
+          "stringValue": "Chick peas"
+        },
+        "Date": {
+          "stringValue": "2025-09-08"
+        },
+        "position": {
+          "integerValue": "67"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "0"
+        },
+        "Code": {
+          "stringValue": "CP"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "960"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "960"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "892"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_68",
+      "fields": {
+        "position": {
+          "integerValue": "68"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-220"
+        },
+        "ID": {
+          "integerValue": "866"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1660"
+              },
+              {
+                "integerValue": "1880"
+              },
+              {
+                "integerValue": "1990"
+              },
+              {
+                "integerValue": "2320"
+              },
+              {
+                "integerValue": "2452"
+              }
+            ]
+          }
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1660"
+        },
+        "Code": {
+          "stringValue": "SS"
+        },
+        "Volume": {
+          "integerValue": "153138"
+        },
+        "Location": {
+          "stringValue": "Tanga"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1660"
+        },
+        "Commodity": {
+          "stringValue": "Sesame Seeds"
+        },
+        "Date": {
+          "stringValue": "2025-09-03"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_69",
+      "fields": {
+        "position": {
+          "integerValue": "69"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "0"
+        },
+        "Code": {
+          "stringValue": "PP"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "710"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "817"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "710"
+        },
+        "Volume": {
+          "integerValue": "36348"
+        },
+        "Location": {
+          "stringValue": "Mara"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "710"
+        },
+        "Commodity": {
+          "stringValue": "Pigeon peas"
+        },
+        "Date": {
+          "stringValue": "2025-08-28"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_7",
+      "fields": {
+        "Date": {
+          "stringValue": "2026-06-30"
+        },
+        "Commodity": {
+          "stringValue": "Sesame Seeds"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "2410"
+        },
+        "Location": {
+          "stringValue": "Ruvuma"
+        },
+        "Volume": {
+          "integerValue": "1037"
+        },
+        "Code": {
+          "stringValue": "SS"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "2410"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "2410"
+              },
+              {
+                "integerValue": "2310"
+              },
+              {
+                "integerValue": "2010"
+              },
+              {
+                "integerValue": "2280"
+              },
+              {
+                "integerValue": "2260"
+              },
+              {
+                "integerValue": "2270"
+              },
+              {
+                "integerValue": "2400"
+              },
+              {
+                "integerValue": "2510"
+              },
+              {
+                "integerValue": "2390"
+              },
+              {
+                "integerValue": "2360"
+              },
+              {
+                "integerValue": "2440"
+              },
+              {
+                "integerValue": "2410"
+              },
+              {
+                "integerValue": "2420"
+              },
+              {
+                "integerValue": "2210"
+              },
+              {
+                "integerValue": "2280"
+              },
+              {
+                "integerValue": "2460"
+              },
+              {
+                "integerValue": "2310"
+              },
+              {
+                "integerValue": "2410"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1605"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "100"
+        },
+        "position": {
+          "integerValue": "7"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_70",
+      "fields": {
+        "Date": {
+          "stringValue": "2025-08-18"
+        },
+        "Location": {
+          "stringValue": "Mbeya"
+        },
+        "Volume": {
+          "integerValue": "55550"
+        },
+        "Commodity": {
+          "stringValue": "Pigeon peas"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "810"
+        },
+        "Code": {
+          "stringValue": "PP"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "810"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "810"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "751"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "0"
+        },
+        "position": {
+          "integerValue": "70"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_71",
+      "fields": {
+        "Date": {
+          "stringValue": "2025-08-14"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "8210"
+        },
+        "Commodity": {
+          "stringValue": "Coffee-Robusta Clean"
+        },
+        "Volume": {
+          "integerValue": "12123"
+        },
+        "Location": {
+          "stringValue": "Kagera"
+        },
+        "ID": {
+          "integerValue": "720"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "8210"
+              },
+              {
+                "integerValue": "8210"
+              },
+              {
+                "integerValue": "8210"
+              },
+              {
+                "integerValue": "8210"
+              },
+              {
+                "integerValue": "8210"
+              },
+              {
+                "integerValue": "8210"
+              },
+              {
+                "integerValue": "8210"
+              }
+            ]
+          }
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "8210"
+        },
+        "Code": {
+          "stringValue": "CF-RBC"
+        },
+        "position": {
+          "integerValue": "71"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "0"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_72",
+      "fields": {
+        "Date": {
+          "stringValue": "2025-08-13"
+        },
+        "Volume": {
+          "integerValue": "1417800"
+        },
+        "Location": {
+          "stringValue": "Lindi"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "2260"
+        },
+        "Commodity": {
+          "stringValue": "Sesame Seeds"
+        },
+        "Code": {
+          "stringValue": "SS"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "2260"
+              },
+              {
+                "integerValue": "2370"
+              },
+              {
+                "integerValue": "2500"
+              },
+              {
+                "integerValue": "2600"
+              },
+              {
+                "integerValue": "2600"
+              },
+              {
+                "integerValue": "2790"
+              },
+              {
+                "integerValue": "2560"
+              },
+              {
+                "integerValue": "2740"
+              },
+              {
+                "integerValue": "2630"
+              },
+              {
+                "integerValue": "2780"
+              },
+              {
+                "integerValue": "2580"
+              },
+              {
+                "integerValue": "2740"
+              },
+              {
+                "integerValue": "2820"
+              },
+              {
+                "integerValue": "2510"
+              },
+              {
+                "integerValue": "2720"
+              },
+              {
+                "integerValue": "2710"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "711"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "2025"
+        },
+        "position": {
+          "integerValue": "72"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-110"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_73",
+      "fields": {
+        "Code": {
+          "stringValue": "SS"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1860"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1900"
+              },
+              {
+                "integerValue": "2230"
+              },
+              {
+                "integerValue": "2260"
+              },
+              {
+                "integerValue": "2285"
+              },
+              {
+                "integerValue": "2285"
+              },
+              {
+                "integerValue": "2460"
+              },
+              {
+                "integerValue": "2420"
+              },
+              {
+                "integerValue": "2260"
+              },
+              {
+                "integerValue": "2520"
+              },
+              {
+                "integerValue": "2400"
+              },
+              {
+                "integerValue": "2360"
+              },
+              {
+                "integerValue": "2440"
+              },
+              {
+                "integerValue": "2450"
+              },
+              {
+                "integerValue": "2430"
+              },
+              {
+                "integerValue": "2520"
+              },
+              {
+                "integerValue": "2360"
+              },
+              {
+                "integerValue": "2570"
+              },
+              {
+                "integerValue": "2670"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "714"
+        },
+        "position": {
+          "integerValue": "73"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-330"
+        },
+        "Date": {
+          "stringValue": "2025-08-13"
+        },
+        "Volume": {
+          "integerValue": "387950"
+        },
+        "Location": {
+          "stringValue": "Mbeya"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1900"
+        },
+        "Commodity": {
+          "stringValue": "Sesame Seeds"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_74",
+      "fields": {
+        "Date": {
+          "stringValue": "2025-07-18"
+        },
+        "Location": {
+          "stringValue": "Mtwara"
+        },
+        "Volume": {
+          "integerValue": "278330"
+        },
+        "Commodity": {
+          "stringValue": "Sesame Seeds"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "2630"
+        },
+        "ID": {
+          "integerValue": "581"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "2630"
+              },
+              {
+                "integerValue": "2620"
+              },
+              {
+                "integerValue": "2510"
+              },
+              {
+                "integerValue": "2700"
+              },
+              {
+                "integerValue": "2550"
+              },
+              {
+                "integerValue": "2690"
+              },
+              {
+                "integerValue": "2540"
+              },
+              {
+                "integerValue": "2600"
+              }
+            ]
+          }
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "2620"
+        },
+        "Code": {
+          "stringValue": "SS"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "10"
+        },
+        "position": {
+          "integerValue": "74"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T09:55:55.646468Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_8",
+      "fields": {
+        "Code": {
+          "stringValue": "GG"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1185"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1185"
+              },
+              {
+                "integerValue": "1210"
+              },
+              {
+                "integerValue": "1250"
+              },
+              {
+                "integerValue": "1410"
+              },
+              {
+                "integerValue": "1420"
+              },
+              {
+                "integerValue": "1340"
+              }
+            ]
+          }
+        },
+        "ID": {
+          "integerValue": "1604"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-25"
+        },
+        "position": {
+          "integerValue": "8"
+        },
+        "Date": {
+          "stringValue": "2026-06-29"
+        },
+        "Commodity": {
+          "stringValue": "GreenGrams"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1185"
+        },
+        "Location": {
+          "stringValue": "Mtwara"
+        },
+        "Volume": {
+          "integerValue": "76476"
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    },
+    {
+      "name": "projects/tmx-automation-564bd/databases/(default)/documents/sheetsData/row_9",
+      "fields": {
+        "Commodity": {
+          "stringValue": "GreenGrams"
+        },
+        "High Price (TZS/kg)": {
+          "integerValue": "1160"
+        },
+        "Location": {
+          "stringValue": "Singida"
+        },
+        "Volume": {
+          "integerValue": "12563"
+        },
+        "Date": {
+          "stringValue": "2026-06-26"
+        },
+        "Price Change (TZS/kg)": {
+          "integerValue": "-330"
+        },
+        "position": {
+          "integerValue": "9"
+        },
+        "Code": {
+          "stringValue": "GG"
+        },
+        "Low Price (TZS/kg)": {
+          "integerValue": "1160"
+        },
+        "ID": {
+          "integerValue": "1601"
+        },
+        "historicalData": {
+          "arrayValue": {
+            "values": [
+              {
+                "integerValue": "1160"
+              }
+            ]
+          }
+        }
+      },
+      "createTime": "2026-07-08T09:55:55.646468Z",
+      "updateTime": "2026-07-08T13:51:31.247061Z"
+    }
+  ]
+}

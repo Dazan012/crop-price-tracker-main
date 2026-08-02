@@ -1,0 +1,33 @@
+{
+  "board": "TCB - Coffee Board",
+  "short": "coffee",
+  "url": "https://www.coffee.go.tz",
+  "crops": [
+    "Coffee Arabica",
+    "Coffee Robusta"
+  ],
+  "scrape_date": "2026-06-29T08:34:06.553100",
+  "pdfs_found": 0,
+  "pdf_urls": [],
+  "prices_found": 3,
+  "price_samples": [
+    {
+      "value": 2.0,
+      "context": "y\"></span>                     <span class=\"px-1 text-bold\">Bei za minada:</span>                     <span class=\"mr-2\">Arabica - Kahawa Safi ($/Kg)</span>                     <s",
+      "source_label": "Auction"
+    },
+    {
+      "value": 2.0,
+      "context": "y\"></span>                     <span class=\"px-1 text-bold\">Bei za minada:</span>                     <span class=\"mr-2\">Robusta - Kahawa Safi ($/kg)</span>                     <s",
+      "source_label": "Auction"
+    },
+    {
+      "value": 1.0,
+      "context": "Terminal Market                                                             </td>                                                             <td class=\"text-bold\" style=\"padding: 1px !important;\">",
+      "source_label": "Terminal"
+    }
+  ],
+  "subpages_checked": [
+    "https://www.coffee.go.tz/publications"
+  ]
+}

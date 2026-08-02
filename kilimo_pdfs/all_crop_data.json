@@ -1,0 +1,1405 @@
+{
+  "source": "kilimo.go.tz",
+  "total_pdfs": 10,
+  "total_documents": 12,
+  "data": [
+    {
+      "file": "sw-1782111998-Mwenendo wa Bei za Mazao tarehe 15 - 19 Juni, 2026..pdf",
+      "url": "https://www.kilimo.go.tz/uploads/documents/sw-1782111998-Mwenendo wa Bei za Mazao tarehe 15 - 19 Juni, 2026..pdf",
+      "date": "19 Jun, 2026",
+      "period": "Mwenendo wa Bei za Mazao tarehe 15 - 19 Juni, 2026",
+      "regions": [
+        {
+          "region": "Dodoma",
+          "prices": [
+            600,
+            2600,
+            2300,
+            500,
+            1300,
+            1900,
+            900
+          ]
+        },
+        {
+          "region": "Arusha",
+          "prices": [
+            600,
+            3100,
+            1900,
+            1300,
+            null,
+            2300,
+            1000
+          ]
+        },
+        {
+          "region": "Dar es Salaam",
+          "prices": [
+            700,
+            2600,
+            2500,
+            1200,
+            1200,
+            1900,
+            null
+          ]
+        },
+        {
+          "region": "Lindi",
+          "prices": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "region": "Morogoro",
+          "prices": [
+            600,
+            2000,
+            2400,
+            1500,
+            null,
+            1700,
+            1200
+          ]
+        },
+        {
+          "region": "Tanga",
+          "prices": [
+            600,
+            2400,
+            1800,
+            1200,
+            1000,
+            2000,
+            1500
+          ]
+        },
+        {
+          "region": "Mtwara",
+          "prices": [
+            600,
+            2600,
+            2200,
+            2000,
+            null,
+            3500,
+            1200
+          ]
+        },
+        {
+          "region": "Iringa",
+          "prices": [
+            400,
+            2300,
+            2200,
+            1800,
+            1900,
+            2300,
+            900
+          ]
+        },
+        {
+          "region": "Ruvuma",
+          "prices": [
+            500,
+            2100,
+            2100,
+            null,
+            null,
+            null,
+            700
+          ]
+        },
+        {
+          "region": "Tabora",
+          "prices": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "region": "Rukwa",
+          "prices": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "region": "Shinyanga",
+          "prices": [
+            700,
+            2200,
+            2300,
+            1800,
+            1800,
+            2000,
+            1100
+          ]
+        }
+      ],
+      "num_regions": 12
+    },
+    {
+      "file": "sw-1780924324-Mwenendo wa Bei za Mazao tarehe 01 - 05 June, 2026.pdf",
+      "url": "https://www.kilimo.go.tz/uploads/documents/sw-1780924324-Mwenendo wa Bei za Mazao tarehe 01 - 05 June, 2026.pdf",
+      "date": "06 Jun, 2026",
+      "period": "Mwenendo wa Bei za Mazao tarehe 01 - 05 Juni, 2026",
+      "regions": [
+        {
+          "region": "Dodoma",
+          "prices": [
+            600,
+            2300,
+            2300,
+            600,
+            1200,
+            1900,
+            700
+          ]
+        },
+        {
+          "region": "Arusha",
+          "prices": [
+            700,
+            2900,
+            1900,
+            1300,
+            null,
+            2300,
+            1000
+          ]
+        },
+        {
+          "region": "Dar es Salaam",
+          "prices": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "region": "Lindi",
+          "prices": [
+            800,
+            2500,
+            2400,
+            2300,
+            2800,
+            2800,
+            1200
+          ]
+        },
+        {
+          "region": "Morogoro",
+          "prices": [
+            600,
+            2600,
+            2400,
+            1500,
+            null,
+            1700,
+            1200
+          ]
+        },
+        {
+          "region": "Tanga",
+          "prices": [
+            800,
+            2400,
+            2100,
+            1200,
+            1400,
+            2500,
+            1100
+          ]
+        },
+        {
+          "region": "Mtwara",
+          "prices": [
+            600,
+            2600,
+            2100,
+            2000,
+            null,
+            null,
+            1300
+          ]
+        },
+        {
+          "region": "Iringa",
+          "prices": [
+            500,
+            2400,
+            2200,
+            1800,
+            1900,
+            2300,
+            900
+          ]
+        },
+        {
+          "region": "Tabora",
+          "prices": [
+            600,
+            2000,
+            2200,
+            1900,
+            1800,
+            2100,
+            1000
+          ]
+        },
+        {
+          "region": "Rukwa",
+          "prices": [
+            500,
+            1800,
+            1600,
+            null,
+            null,
+            800,
+            1100
+          ]
+        }
+      ],
+      "num_regions": 10
+    },
+    {
+      "file": "sw-1780306637-Mwenendo wa Bei za mazao tarehe 25 - 29 Mei, 2026.pdf",
+      "url": "https://www.kilimo.go.tz/uploads/documents/sw-1780306637-Mwenendo wa Bei za mazao tarehe 25 - 29 Mei, 2026.pdf",
+      "date": "29 May, 2026",
+      "period": "Mwenendo wa Bei za Mazao tarehe 25 - 29 Mei, 2026",
+      "regions": [
+        {
+          "region": "Dodoma",
+          "prices": [
+            600,
+            2200,
+            2100,
+            null,
+            1300,
+            1900,
+            700
+          ]
+        },
+        {
+          "region": "Arusha",
+          "prices": [
+            600,
+            2200,
+            2100,
+            null,
+            1300,
+            1900,
+            700
+          ]
+        },
+        {
+          "region": "Dar es Salaam",
+          "prices": [
+            1100,
+            2700,
+            2900,
+            null,
+            null,
+            null,
+            700
+          ]
+        },
+        {
+          "region": "Lindi",
+          "prices": [
+            800,
+            2600,
+            2500,
+            2300,
+            2800,
+            2800,
+            900
+          ]
+        },
+        {
+          "region": "Morogoro",
+          "prices": [
+            600,
+            2600,
+            2300,
+            1500,
+            null,
+            1700,
+            900
+          ]
+        },
+        {
+          "region": "Tanga",
+          "prices": [
+            900,
+            2600,
+            2100,
+            1200,
+            1400,
+            2500,
+            900
+          ]
+        },
+        {
+          "region": "Mtwara",
+          "prices": [
+            700,
+            2200,
+            2100,
+            2000,
+            null,
+            null,
+            1600
+          ]
+        },
+        {
+          "region": "Iringa",
+          "prices": [
+            700,
+            2700,
+            2400,
+            1800,
+            1900,
+            2300,
+            700
+          ]
+        },
+        {
+          "region": "Ruvuma",
+          "prices": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "region": "Tabora",
+          "prices": [
+            600,
+            2100,
+            2500,
+            1900,
+            1800,
+            2100,
+            1000
+          ]
+        },
+        {
+          "region": "Rukwa",
+          "prices": [
+            500,
+            2100,
+            1500,
+            null,
+            null,
+            1100,
+            900
+          ]
+        },
+        {
+          "region": "Kigoma",
+          "prices": [
+            600,
+            2000,
+            1300,
+            null,
+            null,
+            2600,
+            null
+          ]
+        }
+      ],
+      "num_regions": 12
+    },
+    {
+      "file": "sw-1779703528-Mwenendo wa Bei za mazao tarehe 18 - 22 Mei 2026 (2).pdf",
+      "url": "https://www.kilimo.go.tz/uploads/documents/sw-1779703528-Mwenendo wa Bei za mazao tarehe 18 - 22 Mei 2026 (2).pdf",
+      "date": "24 May, 2026",
+      "period": "Mwenendo wa Bei za Mazao tarehe 18 - 22 Mei, 2026",
+      "regions": [
+        {
+          "region": "Dodoma",
+          "prices": [
+            700,
+            2900,
+            2000,
+            null,
+            1400,
+            2100,
+            700
+          ]
+        },
+        {
+          "region": "Arusha",
+          "prices": [
+            800,
+            2900,
+            2100,
+            1300,
+            null,
+            null,
+            900
+          ]
+        },
+        {
+          "region": "Dar es Salaam",
+          "prices": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "region": "Lindi",
+          "prices": [
+            800,
+            2700,
+            2400,
+            2300,
+            2800,
+            3300,
+            800
+          ]
+        },
+        {
+          "region": "Morogoro",
+          "prices": [
+            600,
+            2700,
+            2300,
+            1500,
+            null,
+            null,
+            700
+          ]
+        },
+        {
+          "region": "Tanga",
+          "prices": [
+            900,
+            2600,
+            2100,
+            1200,
+            1400,
+            2500,
+            800
+          ]
+        },
+        {
+          "region": "Mtwara",
+          "prices": [
+            700,
+            2800,
+            2100,
+            2000,
+            null,
+            null,
+            900
+          ]
+        },
+        {
+          "region": "Iringa",
+          "prices": [
+            700,
+            2700,
+            2400,
+            1800,
+            1900,
+            2300,
+            700
+          ]
+        },
+        {
+          "region": "Ruvuma",
+          "prices": [
+            600,
+            2600,
+            2100,
+            null,
+            null,
+            null,
+            800
+          ]
+        },
+        {
+          "region": "Tabora",
+          "prices": [
+            600,
+            2100,
+            2200,
+            1900,
+            1800,
+            2100,
+            800
+          ]
+        },
+        {
+          "region": "Rukwa",
+          "prices": [
+            500,
+            2100,
+            1700,
+            null,
+            null,
+            1100,
+            800
+          ]
+        }
+      ],
+      "num_regions": 11
+    },
+    {
+      "file": "sw-1779271417-Mwenendo wa Bei za Mazao tarehe 11 - 15 Mei, 2026.pdf",
+      "url": "https://www.kilimo.go.tz/uploads/documents/sw-1779271417-Mwenendo wa Bei za Mazao tarehe 11 - 15 Mei, 2026.pdf",
+      "date": "15 May, 2026",
+      "period": "Mwenendo wa Bei za Mazao tarehe 11 - 15 Mei, 2026",
+      "regions": [
+        {
+          "region": "Dodoma",
+          "prices": [
+            700,
+            2900,
+            2000,
+            null,
+            1400,
+            2100,
+            700
+          ]
+        },
+        {
+          "region": "Arusha",
+          "prices": [
+            800,
+            2900,
+            2100,
+            1300,
+            null,
+            2300,
+            900
+          ]
+        },
+        {
+          "region": "Dar es Salaam",
+          "prices": [
+            900,
+            2900,
+            2800,
+            1300,
+            1300,
+            2300,
+            null
+          ]
+        },
+        {
+          "region": "Lindi",
+          "prices": [
+            800,
+            2700,
+            2400,
+            2300,
+            1800,
+            3300,
+            800
+          ]
+        },
+        {
+          "region": "Morogoro",
+          "prices": [
+            900,
+            2900,
+            2300,
+            null,
+            null,
+            1700,
+            700
+          ]
+        },
+        {
+          "region": "Tanga",
+          "prices": [
+            900,
+            2600,
+            2100,
+            1200,
+            1400,
+            2500,
+            900
+          ]
+        },
+        {
+          "region": "Mtwara",
+          "prices": [
+            700,
+            2800,
+            2100,
+            2000,
+            null,
+            null,
+            900
+          ]
+        },
+        {
+          "region": "Iringa",
+          "prices": [
+            700,
+            2500,
+            2400,
+            1800,
+            1900,
+            2200,
+            600
+          ]
+        },
+        {
+          "region": "Ruvuma",
+          "prices": [
+            700,
+            2400,
+            2000,
+            null,
+            null,
+            null,
+            800
+          ]
+        }
+      ],
+      "num_regions": 9
+    },
+    {
+      "file": "sw-1778314460-Mwenendo wa Bei za Mazao tarehe 04 - 08 Mei, 2026.pdf",
+      "url": "https://www.kilimo.go.tz/uploads/documents/sw-1778314460-Mwenendo wa Bei za Mazao tarehe 04 - 08 Mei, 2026.pdf",
+      "date": "08 May, 2026",
+      "period": "Mwenendo wa Bei za Mazao tarehe 04 - 08 Mei, 2026",
+      "regions": [
+        {
+          "region": "Tabora",
+          "prices": [
+            700,
+            2100,
+            2100,
+            1900,
+            1800,
+            2400,
+            900
+          ]
+        },
+        {
+          "region": "Rukwa",
+          "prices": [
+            600,
+            2400,
+            1700,
+            null,
+            null,
+            1200,
+            800
+          ]
+        },
+        {
+          "region": "Kigoma",
+          "prices": [
+            700,
+            2500,
+            1900,
+            1500,
+            1500,
+            2100,
+            800
+          ]
+        },
+        {
+          "region": "Shinyanga",
+          "prices": [
+            700,
+            2300,
+            2100,
+            1500,
+            null,
+            2400,
+            900
+          ]
+        }
+      ],
+      "num_regions": 4
+    },
+    {
+      "file": "sw-1778314345-Mwenendo wa Bei za Mazao tarehe 27 Aprili - 01 Mei, 2026.pdf",
+      "url": "https://www.kilimo.go.tz/uploads/documents/sw-1778314345-Mwenendo wa Bei za Mazao tarehe 27 Aprili - 01 Mei, 2026.pdf",
+      "date": "01 May, 2026",
+      "period": "Mwenendo wa Bei za Mazao tarehe 27 Aprili - 01 Mei, 2026",
+      "regions": [
+        {
+          "region": "Dodoma",
+          "prices": [
+            700,
+            3000,
+            2300,
+            900,
+            1400,
+            2100,
+            800
+          ]
+        },
+        {
+          "region": "Arusha",
+          "prices": [
+            800,
+            2900,
+            2100,
+            1300,
+            null,
+            2300,
+            800
+          ]
+        },
+        {
+          "region": "Dar es Salaam",
+          "prices": [
+            900,
+            3000,
+            2800,
+            1300,
+            1200,
+            2300,
+            null
+          ]
+        },
+        {
+          "region": "Lindi",
+          "prices": [
+            1100,
+            3100,
+            2500,
+            2300,
+            2800,
+            3300,
+            800
+          ]
+        },
+        {
+          "region": "Morogoro",
+          "prices": [
+            900,
+            3000,
+            2300,
+            1500,
+            null,
+            1700,
+            800
+          ]
+        },
+        {
+          "region": "Tanga",
+          "prices": [
+            1000,
+            2600,
+            2000,
+            1300,
+            1600,
+            2300,
+            1400
+          ]
+        },
+        {
+          "region": "Mtwara",
+          "prices": [
+            700,
+            2800,
+            2600,
+            2000,
+            null,
+            null,
+            1000
+          ]
+        },
+        {
+          "region": "Iringa",
+          "prices": [
+            800,
+            2800,
+            2300,
+            1800,
+            1900,
+            2300,
+            600
+          ]
+        },
+        {
+          "region": "Ruvuma",
+          "prices": [
+            700,
+            2500,
+            2200,
+            null,
+            null,
+            null,
+            800
+          ]
+        },
+        {
+          "region": "Tabora",
+          "prices": [
+            700,
+            2100,
+            2100,
+            1900,
+            1800,
+            2400,
+            900
+          ]
+        },
+        {
+          "region": "Rukwa",
+          "prices": [
+            600,
+            2500,
+            1700,
+            null,
+            null,
+            1200,
+            800
+          ]
+        },
+        {
+          "region": "Kigoma",
+          "prices": [
+            600,
+            2300,
+            1700,
+            1500,
+            1500,
+            2500,
+            1100
+          ]
+        },
+        {
+          "region": "Shinyanga",
+          "prices": [
+            700,
+            2200,
+            2000,
+            1800,
+            1400,
+            2500,
+            900
+          ]
+        }
+      ],
+      "num_regions": 13
+    },
+    {
+      "file": "sw-1777041079-Mwenendo wa Bei za Mazao tarehe 20 - 24 Aprili, 2026.pdf",
+      "url": "https://www.kilimo.go.tz/uploads/documents/sw-1777041079-Mwenendo wa Bei za Mazao tarehe 20 - 24 Aprili, 2026.pdf",
+      "date": "24 Apr, 2026",
+      "period": "Mwenendo wa Bei za Mazao tarehe 20 - 24 Aprili, 2026",
+      "regions": [
+        {
+          "region": "Dodoma",
+          "prices": [
+            700,
+            3100,
+            2100,
+            900,
+            1400,
+            2200,
+            700
+          ]
+        },
+        {
+          "region": "Arusha",
+          "prices": [
+            800,
+            2900,
+            2100,
+            1300,
+            null,
+            2200,
+            900
+          ]
+        },
+        {
+          "region": "Dar es Salaam",
+          "prices": [
+            900,
+            3000,
+            2800,
+            1300,
+            1200,
+            2300,
+            null
+          ]
+        },
+        {
+          "region": "Lindi",
+          "prices": [
+            1000,
+            3100,
+            2700,
+            2300,
+            2900,
+            3300,
+            800
+          ]
+        },
+        {
+          "region": "Morogoro",
+          "prices": [
+            900,
+            2900,
+            2300,
+            1500,
+            null,
+            1700,
+            900
+          ]
+        },
+        {
+          "region": "Tanga",
+          "prices": [
+            1000,
+            2600,
+            2000,
+            1300,
+            1600,
+            2300,
+            1400
+          ]
+        },
+        {
+          "region": "Mtwara",
+          "prices": [
+            700,
+            2900,
+            2400,
+            2000,
+            null,
+            null,
+            1000
+          ]
+        },
+        {
+          "region": "Iringa",
+          "prices": [
+            800,
+            2800,
+            2200,
+            1800,
+            1900,
+            2300,
+            600
+          ]
+        },
+        {
+          "region": "Ruvuma",
+          "prices": [
+            700,
+            2500,
+            2100,
+            null,
+            null,
+            null,
+            700
+          ]
+        },
+        {
+          "region": "Tabora",
+          "prices": [
+            700,
+            2300,
+            2100,
+            1900,
+            1800,
+            2400,
+            1000
+          ]
+        },
+        {
+          "region": "Rukwa",
+          "prices": [
+            600,
+            2600,
+            1800,
+            null,
+            null,
+            1200,
+            800
+          ]
+        },
+        {
+          "region": "Kigoma",
+          "prices": [
+            600,
+            2700,
+            1800,
+            1500,
+            1500,
+            2300,
+            1100
+          ]
+        },
+        {
+          "region": "Shinyanga",
+          "prices": [
+            700,
+            2300,
+            2100,
+            1800,
+            1400,
+            2200,
+            1000
+          ]
+        }
+      ],
+      "num_regions": 13
+    },
+    {
+      "file": "sw-1776426590-Mwenendo wa Bei za Mazao tarehe 13 -17 Aprili, 2026.pdf",
+      "url": "https://www.kilimo.go.tz/uploads/documents/sw-1776426590-Mwenendo wa Bei za Mazao tarehe 13 -17 Aprili, 2026.pdf",
+      "date": "17 Apr, 2026",
+      "period": "Mwenendo wa Bei za Mazao tarehe 13 - 17 Aprili, 2026",
+      "regions": [
+        {
+          "region": "Dodoma",
+          "prices": [
+            800,
+            3200,
+            2100,
+            900,
+            1400,
+            2200,
+            700
+          ]
+        },
+        {
+          "region": "Arusha",
+          "prices": [
+            800,
+            2900,
+            2100,
+            1300,
+            null,
+            2200,
+            900
+          ]
+        },
+        {
+          "region": "Dar es Salaam",
+          "prices": [
+            900,
+            3000,
+            2800,
+            1300,
+            1200,
+            2300,
+            900
+          ]
+        },
+        {
+          "region": "Lindi",
+          "prices": [
+            1000,
+            3100,
+            2900,
+            2300,
+            3000,
+            3000,
+            900
+          ]
+        },
+        {
+          "region": "Morogoro",
+          "prices": [
+            900,
+            3000,
+            2300,
+            1500,
+            null,
+            1700,
+            900
+          ]
+        },
+        {
+          "region": "Tanga",
+          "prices": [
+            1000,
+            2800,
+            2300,
+            1600,
+            1600,
+            2700,
+            1400
+          ]
+        },
+        {
+          "region": "Mtwara",
+          "prices": [
+            800,
+            2900,
+            2400,
+            2000,
+            null,
+            null,
+            1200
+          ]
+        },
+        {
+          "region": "Iringa",
+          "prices": [
+            700,
+            2800,
+            2300,
+            1800,
+            1900,
+            2400,
+            600
+          ]
+        },
+        {
+          "region": "Ruvuma",
+          "prices": [
+            700,
+            2400,
+            2100,
+            null,
+            null,
+            null,
+            800
+          ]
+        },
+        {
+          "region": "Tabora",
+          "prices": [
+            800,
+            2300,
+            2100,
+            1900,
+            1800,
+            2400,
+            1000
+          ]
+        },
+        {
+          "region": "Rukwa",
+          "prices": [
+            600,
+            2600,
+            1800,
+            null,
+            null,
+            1200,
+            800
+          ]
+        },
+        {
+          "region": "Kigoma",
+          "prices": [
+            600,
+            2700,
+            1700,
+            1500,
+            1500,
+            2300,
+            1400
+          ]
+        },
+        {
+          "region": "Shinyanga",
+          "prices": [
+            800,
+            2300,
+            2100,
+            1700,
+            1600,
+            2200,
+            1000
+          ]
+        }
+      ],
+      "num_regions": 13
+    },
+    {
+      "file": "sw-1775830801-Mwenendo wa Bei za Mazao tarehe 06 -10 Aprili, 2026.pdf",
+      "url": "https://www.kilimo.go.tz/uploads/documents/sw-1775830801-Mwenendo wa Bei za Mazao tarehe 06 -10 Aprili, 2026.pdf",
+      "date": "10 Apr, 2026",
+      "period": "Mwenendo wa Bei za Mazao tarehe 06 - 10 Aprili, 2026",
+      "regions": [
+        {
+          "region": "Dodoma",
+          "prices": [
+            800,
+            3200,
+            2100,
+            800,
+            1400,
+            2200,
+            700
+          ]
+        },
+        {
+          "region": "Arusha",
+          "prices": [
+            800,
+            2900,
+            2100,
+            1300,
+            null,
+            2400,
+            900
+          ]
+        },
+        {
+          "region": "Dar es Salaam",
+          "prices": [
+            900,
+            3000,
+            2800,
+            1300,
+            1200,
+            2300,
+            900
+          ]
+        },
+        {
+          "region": "Lindi",
+          "prices": [
+            1000,
+            3100,
+            2900,
+            2300,
+            3000,
+            2800,
+            1200
+          ]
+        },
+        {
+          "region": "Morogoro",
+          "prices": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "region": "Tanga",
+          "prices": [
+            1300,
+            2800,
+            2300,
+            1400,
+            1200,
+            2500,
+            1200
+          ]
+        },
+        {
+          "region": "Iringa",
+          "prices": [
+            700,
+            2800,
+            2400,
+            1800,
+            1900,
+            2400,
+            600
+          ]
+        },
+        {
+          "region": "Ruvuma",
+          "prices": [
+            700,
+            2400,
+            2100,
+            null,
+            null,
+            null,
+            800
+          ]
+        },
+        {
+          "region": "Tabora",
+          "prices": [
+            800,
+            2300,
+            2100,
+            1900,
+            1800,
+            2400,
+            1000
+          ]
+        },
+        {
+          "region": "Rukwa",
+          "prices": [
+            600,
+            2600,
+            1400,
+            null,
+            null,
+            1200,
+            800
+          ]
+        },
+        {
+          "region": "Kigoma",
+          "prices": [
+            700,
+            2700,
+            1700,
+            1400,
+            1400,
+            2300,
+            1600
+          ]
+        },
+        {
+          "region": "Shinyanga",
+          "prices": [
+            700,
+            2300,
+            2100,
+            1800,
+            1600,
+            2500,
+            1000
+          ]
+        }
+      ],
+      "num_regions": 12
+    }
+  ]
+}

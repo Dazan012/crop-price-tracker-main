@@ -1,0 +1,165 @@
+// Smart Crops — Prisma Schema for Supabase PostgreSQL
+// Run: npx prisma db pull  (to sync from Supabase)
+// Run: npx prisma generate (to generate client)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ── Auth User (Django mirror) ──
+model AuthUser {
+  id           Int       @id @default(autoincrement())
+  password     String    @default("") @db.VarChar(128)
+  lastLogin    DateTime? @map("last_login")
+  isSuperuser  Boolean   @default(false) @map("is_superuser")
+  username     String    @unique @db.VarChar(150)
+  firstName    String    @default("") @map("first_name") @db.VarChar(150)
+  lastName     String    @default("") @map("last_name") @db.VarChar(150)
+  email        String    @default("") @db.VarChar(254)
+  isStaff      Boolean   @default(false) @map("is_staff")
+  isActive     Boolean   @default(true) @map("is_active")
+  dateJoined   DateTime  @default(now()) @map("date_joined")
+
+  profile      UserProfile?
+  tokens       AuthToken[]
+  priceEntries PriceEntry[]          @relation("submittedBy")
+  reviewedEntries PriceEntry[]       @relation("reviewedBy")
+
+  @@map("auth_user")
+}
+
+model AuthToken {
+  key     String   @id @db.VarChar(40)
+  created DateTime @default(now())
+  userId  Int      @unique @map("user_id")
+  user    AuthUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("authtoken_token")
+}
+
+// ── User Profile ──
+model UserProfile {
+  id                    Int       @id @default(autoincrement())
+  userId                Int       @unique @map("user_id")
+  user                  AuthUser  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role                  String    @default("general") @db.VarChar(20)
+  phone                 String    @default("") @db.VarChar(20)
+  phoneVerified         Boolean   @default(false) @map("phone_verified")
+  region                String    @default("") @db.VarChar(100)
+  district              String    @default("") @db.VarChar(100)
+  approvalStatus        String    @default("approved") @map("approval_status") @db.VarChar(20)
+  createdAt             DateTime  @default(now()) @map("created_at")
+
+  // Email verification
+  emailVerificationCode String    @default("") @map("email_verification_code") @db.VarChar(6)
+  emailVerified         Boolean   @default(false) @map("email_verified")
+  emailCodeSentAt       DateTime? @map("email_code_sent_at")
+
+  // Identity
+  nidaNumber            String?   @map("nida_number") @db.VarChar(20)
+  dateOfBirth           DateTime? @map("date_of_birth") @db.Date
+  gender                String?   @db.VarChar(10)
+
+  // Farmer fields
+  mainCrops             String?   @map("main_crops")
+  farmSize              Float?    @map("farm_size")
+  preferredMarkets       String?   @map("preferred_markets")
+  cooperativeName       String?   @map("cooperative_name") @db.VarChar(200)
+  mobileMoneyProvider   String?   @map("mobile_money_provider") @db.VarChar(20)
+
+  // Trader fields
+  operatingRegions      String?   @map("operating_regions")
+  cropsOfInterest        String?   @map("crops_of_interest")
+  transportCapacity     String?   @map("transport_capacity") @db.VarChar(100)
+
+  // Agent fields
+  assignedMarketId      Int?      @map("assigned_market_id")
+  assignedMarket        Market?   @relation(fields: [assignedMarketId], references: [id], onDelete: SetNull)
+  idVerification        String?   @map("id_verification")
+  experience            String?
+
+  @@map("prices_userprofile")
+}
+
+// ── Region ──
+model Region {
+  id      Int      @id @default(autoincrement())
+  name    String   @unique @db.VarChar(100)
+  zone    String?  @default("") @db.VarChar(100)
+
+  markets Market[]
+
+  @@map("prices_region")
+}
+
+// ── Crop ──
+model Crop {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique @db.VarChar(100)
+  category    String   @default("grain") @db.VarChar(20)
+  unit        String   @default("kg") @db.VarChar(50)
+  description String?  @default("")
+
+  prices      PriceEntry[]
+
+  @@map("prices_crop")
+}
+
+// ── Market ──
+model Market {
+  id                    Int       @id @default(autoincrement())
+  name                  String    @db.VarChar(200)
+  regionId              Int       @map("region_id")
+  region                Region    @relation(fields: [regionId], references: [id], onDelete: Cascade)
+  district              String?   @default("") @db.VarChar(100)
+  ward                  String?   @default("") @db.VarChar(100)
+  locationDescription   String?   @default("") @map("location_description")
+  marketType            String    @default("daily") @map("market_type") @db.VarChar(20)
+  operatingDays         String?   @default("") @map("operating_days")
+  governingAuthority    String?   @default("") @map("governing_authority") @db.VarChar(200)
+  isActive              Boolean   @default(true) @map("is_active")
+  createdAt             DateTime  @default(now()) @map("created_at")
+
+  prices                PriceEntry[]
+  assignedAgents        UserProfile[]
+
+  @@unique([name, regionId])
+  @@map("prices_market")
+}
+
+// ── Price Entry ──
+model PriceEntry {
+  id               Int       @id @default(autoincrement())
+  cropId           Int       @map("crop_id")
+  crop             Crop      @relation(fields: [cropId], references: [id], onDelete: Cascade)
+  marketId         Int       @map("market_id")
+  market           Market    @relation(fields: [marketId], references: [id], onDelete: Cascade)
+  price            Float
+  quantity         Float?
+  submittedById    Int?      @map("submitted_by_id")
+  submittedBy      AuthUser? @relation("submittedBy", fields: [submittedById], references: [id], onDelete: SetNull)
+  submittedAt      DateTime  @default(now()) @map("submitted_at")
+  priceDate        DateTime  @map("price_date") @db.Date
+  isAnomaly        Boolean   @default(false) @map("is_anomaly")
+  anomalyScore     Float?    @map("anomaly_score")
+  anomalyReason    String?   @default("") @map("anomaly_reason")
+  status           String    @default("approved") @db.VarChar(20)
+  reviewNotes      String?   @default("") @map("review_notes")
+  reviewedById     Int?      @map("reviewed_by_id")
+  reviewedBy       AuthUser? @relation("reviewedBy", fields: [reviewedById], references: [id], onDelete: SetNull)
+  reviewedAt       DateTime? @map("reviewed_at")
+  validationStatus String?   @default("approved") @map("validation_status") @db.VarChar(20)
+  zScore           Float?    @map("z_score")
+  source           String?   @default("agent") @db.VarChar(20)
+  segmentData      Json?     @default("{}") @map("segment_data")
+
+  @@index([cropId])
+  @@index([marketId])
+  @@index([priceDate])
+  @@index([status])
+  @@map("prices_priceentry")
+}

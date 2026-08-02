@@ -1,0 +1,18 @@
+{
+  "board": "TBT - Tea Board",
+  "short": "tea",
+  "url": "https://www.teaboard.go.tz",
+  "crops": [
+    "Tea"
+  ],
+  "scrape_date": "2026-06-29T08:35:39.669212",
+  "pdfs_found": 1,
+  "pdf_urls": [
+    "https://www.teaboard.go.tz/uploads/documents/sw-1763014962-TEA INDUSTRY DEVELOPMENT_compressed (1).pdf"
+  ],
+  "prices_found": 0,
+  "price_samples": [],
+  "subpages_checked": [
+    "https://www.teaboard.go.tz/publications"
+  ]
+}

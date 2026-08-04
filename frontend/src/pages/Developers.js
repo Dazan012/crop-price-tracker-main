@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
-import { Users, Mail, Github, Linkedin, ArrowLeft } from 'lucide-react';
+import { Users, Mail, ExternalLink, ArrowLeft } from 'lucide-react';
+
+// LinkedIn brand icon removed from lucide-react; use ExternalLink for profiles
+const Linkedin = ExternalLink;
 
 /* ------------------------------------------------------------------ */
 /*  Developer data — replace with the real team                        */
@@ -90,7 +93,7 @@ export default function Developers() {
                 )}
                 {dev.github && (
                   <a href={dev.github} target="_blank" rel="noopener noreferrer" aria-label={`GitHub ${dev.name}`}>
-                    <Github size={16} />
+                    <ExternalLink size={16} />
                   </a>
                 )}
                 {dev.linkedin && (

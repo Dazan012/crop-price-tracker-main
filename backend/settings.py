@@ -5,6 +5,9 @@ Django settings for Smart Crops Market Price Tracker.
 import os
 from pathlib import Path
 import ssl
+import logging
+
+logger = logging.getLogger(__name__)
 
 # Load .env file from project root
 _env_path = Path(__file__).resolve().parent.parent / '.env'
@@ -124,10 +127,10 @@ if _want_postgres:
     _pg = _neon_config()
     if _test_neon(_pg):
         DATABASES = {'default': _pg}
-        print(f"[db] Connected to PostgreSQL: {_pg['HOST']} ({_pg['NAME']})")
+        logger.info(f"[db] Connected to PostgreSQL: {_pg['HOST']} ({_pg['NAME']})")
     else:
         DATABASES = {'default': _sqlite_config()}
-        print(f"[db] PostgreSQL unreachable - falling back to SQLite ({BASE_DIR / 'db.sqlite3'})")
+        logger.info(f"[db] PostgreSQL unreachable - falling back to SQLite ({BASE_DIR / 'db.sqlite3'})")
 else:
     DATABASES = {'default': _sqlite_config()}
 
@@ -157,6 +160,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [BASE_DIR / 'frontend' / 'build' / 'static']
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

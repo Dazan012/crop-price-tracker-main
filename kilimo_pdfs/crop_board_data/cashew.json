@@ -5,16 +5,15 @@
   "crops": [
     "Cashew"
   ],
-  "scrape_date": "2026-06-29T08:33:34.822744",
-  "pdfs_found": 1,
+  "scrape_date": "2026-08-03T03:07:33.093548",
+  "pdfs_found": 4,
   "pdf_urls": [
-    "https://www.cashew.go.tz/wp-content/uploads/2022/09/TAKWIMU-ZA-UZALISHAJI-1.pdf"
+    "https://www.cashew.go.tz/documents/mwongozo-maombi-leseni.pdf",
+    "https://www.cashew.go.tz/documents/strategic-plan-2025-2026.pdf",
+    "https://www.cashew.go.tz/documents/public-notice-huduma.pdf",
+    "https://www.cashew.go.tz/documents/audited-financial-statements-2024.pdf"
   ],
   "prices_found": 0,
   "price_samples": [],
-  "subpages_checked": [
-    "https://www.cashew.go.tz/takwimu",
-    "https://www.cashew.go.tz/machapisho",
-    "https://www.cashew.go.tz/publications"
-  ]
+  "subpages_checked": []
 }

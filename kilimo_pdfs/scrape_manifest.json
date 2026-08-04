@@ -1,7 +1,7 @@
 {
-  "scrape_date": "2026-06-29T08:23:40.930090",
-  "total_pdfs": 120,
-  "total_size_bytes": 203703093,
+  "scrape_date": "2026-08-03T03:41:20.442724",
+  "total_pdfs": 121,
+  "total_size_bytes": 204171836,
   "pdfs": [
     {
       "file": "sw-1725612837-Mwenendo_wa_Bei_za_Mazao_tarehe_19-_23_Agosti__2024..._(3).pdf",
@@ -524,6 +524,11 @@
       "source": "kilimo.go.tz"
     },
     {
+      "file": "sw-1783057216-Mwenendo wa Bei za Mazao tarehe 22-26 Juni, 2026 -,docx (3).pdf",
+      "size": 468743,
+      "source": "kilimo.go.tz"
+    },
+    {
       "file": "sw-1776333884-Wholesale Price 13th April, 2026.pdf",
       "size": 302098,
       "source": "viwanda.go.tz"
@@ -608,7 +613,7 @@
     "kilimo.go.tz": {
       "url": "https://www.kilimo.go.tz",
       "publications_url": "https://www.kilimo.go.tz/publications/default?page=1",
-      "pages_scraped": "1-1"
+      "pages_scraped": "1-10"
     },
     "viwanda.go.tz": {
       "url": "https://www.viwanda.go.tz",

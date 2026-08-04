@@ -1,5 +1,5 @@
 // Smart Crops Service Worker — Cache-First with Network Fallback
-const CACHE_NAME = 'smart-crops-v1';
+const CACHE_NAME = 'smart-crops-v3';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -50,6 +50,30 @@ self.addEventListener('fetch', (event) => {
 
   // Skip cross-origin requests that aren't from our API
   if (url.origin !== location.origin && !url.href.includes('/api/')) return;
+
+  // Navigations (index.html): Network-first so users always get the
+  // latest app — cache only as an offline fallback. This prevents stale
+  // builds (and old content like the previous hero image) from resurfacing.
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response && response.status === 200 && response.type === 'basic') {
+            const cloned = response.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(request, cloned);
+            });
+          }
+          return response;
+        })
+        .catch(() => {
+          return caches.match(request).then((cached) => {
+            return cached || caches.match('/offline.html');
+          });
+        })
+    );
+    return;
+  }
 
   // API requests: Network-first, cache fallback
   if (url.href.includes('/api/')) {

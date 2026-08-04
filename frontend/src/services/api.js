@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = '/api';
+const API_BASE = `http://${window.location.hostname}:8000/api`;
 
 const api = axios.create({
   baseURL: API_BASE,
@@ -44,6 +44,7 @@ export const authAPI = {
   resendVerification: () => api.post('/auth/resend-verification/'),
   deleteAccount: (password) => api.post('/auth/delete-account/', { password }),
   changePassword: (data) => api.post('/auth/change-password/', data),
+  setPassword: (data) => api.post('/auth/set-password/', data),
   forgotPassword: (email) => api.post('/auth/forgot-password/', { email }),
   resetPassword: (data) => api.post('/auth/reset-password/', data),
   updateProfile: (data) => api.patch('/auth/profile/', data),
@@ -70,14 +71,14 @@ export const dataAPI = {
 };
 
 export const priceAPI = {
-  list: (params) => api.get('/prices/', { params }),
-  submit: (data) => api.post('/prices/submit/', data),
-  delete: (id) => api.delete(`/prices/${id}/`),
-  segments: (cropId) => api.get(`/prices/segments/${cropId}/`),
-  ohlc: (params) => api.get('/prices/ohlc/', { params }),
-  heatmap: (params) => api.get('/prices/heatmap/', { params }),
-  forecast: (params) => api.get('/prices/forecast/', { params }),
-};
+   list: (params) => api.get('/prices/', { params }),
+   submit: (data) => api.post('/prices/submit/', data),
+   delete: (id) => api.delete(`/prices/${id}/`),
+   segments: (cropId, params) => api.get(`/prices/segments/${cropId}/`, { params }),
+   ohlc: (params) => api.get('/prices/ohlc/', { params }),
+   heatmap: (params) => api.get('/prices/heatmap/', { params }),
+   forecast: (params) => api.get('/prices/forecast/', { params }),
+ };
 
 export const anomalyAPI = {
   list: () => api.get('/anomalies/'),

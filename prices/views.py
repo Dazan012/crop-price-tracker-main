@@ -887,6 +887,44 @@ def change_password(request):
     return Response({'message': 'Password changed successfully.'})
 
 
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def set_password(request):
+    """Set a password for a passwordless account (Google/phone/magic-link signups)."""
+    from django.contrib.auth.password_validation import validate_password
+
+    if request.user.has_usable_password():
+        return Response(
+            {'error': 'You already have a password. Use Change Password instead.'},
+            status=status.HTTP_400_BAD_REQUEST,
+        )
+
+    new_password = request.data.get('new_password', '')
+    confirm_password = request.data.get('confirm_password', '')
+
+    if not new_password:
+        return Response({'error': 'Password is required.'}, status=status.HTTP_400_BAD_REQUEST)
+
+    if len(new_password) < 8:
+        return Response({'error': 'Password must be at least 8 characters.'}, status=status.HTTP_400_BAD_REQUEST)
+
+    if confirm_password and new_password != confirm_password:
+        return Response({'error': 'Passwords do not match.'}, status=status.HTTP_400_BAD_REQUEST)
+
+    try:
+        validate_password(new_password, user=request.user)
+    except Exception as e:
+        return Response({'error': ' '.join(e.messages) if hasattr(e, 'messages') else str(e)},
+                        status=status.HTTP_400_BAD_REQUEST)
+
+    request.user.set_password(new_password)
+    request.user.save()
+    return Response({
+        'message': 'Password set successfully.',
+        'user': UserSerializer(request.user).data,
+    })
+
+
 # ──────────────────────────── FORGOT / RESET PASSWORD ────────────────────────────
 
 @api_view(['POST'])
@@ -1191,7 +1229,9 @@ def admin_update_user(request, user_id):
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def list_regions(request):
-    regions = Region.objects.all()
+    regions = Region.objects.annotate(
+        market_count=Count('markets', filter=Q(markets__is_active=True), distinct=True)
+    )
     serializer = RegionSerializer(regions, many=True)
     return Response(serializer.data)
 
@@ -1202,7 +1242,7 @@ def list_regions(request):
 @permission_classes([AllowAny])
 def list_markets(request):
     region_id = request.query_params.get('region')
-    qs = Market.objects.filter(is_active=True)
+    qs = Market.objects.select_related('region').filter(is_active=True)
     if region_id:
         qs = qs.filter(region_id=region_id)
     serializer = MarketSerializer(qs, many=True)
@@ -1227,7 +1267,7 @@ def list_crops(request):
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def get_prices(request):
-    """Fetch prices with optional filtering by crop, market, region, date range."""
+    """Fetch prices with optional filtering by crop, market, region, date range, and market type."""
     qs = PriceEntry.objects.filter(status='approved')
 
     crop_id = request.query_params.get('crop')
@@ -1235,6 +1275,7 @@ def get_prices(request):
     region_id = request.query_params.get('region')
     date_from = request.query_params.get('from')
     date_to = request.query_params.get('to')
+    market_type = request.query_params.get('market_type')
 
     if crop_id:
         qs = qs.filter(crop_id=crop_id)
@@ -1246,8 +1287,19 @@ def get_prices(request):
         qs = qs.filter(price_date__gte=date_from)
     if date_to:
         qs = qs.filter(price_date__lte=date_to)
+    if market_type == 'consumer':
+        qs = qs.filter(market__market_type__in=['daily', 'periodic'])
+    elif market_type == 'wholesale':
+        qs = qs.filter(market__market_type='wholesale')
 
-    qs = qs.order_by('-price_date', '-submitted_at')[:200]
+    limit = request.query_params.get('limit')
+    try:
+        limit = int(limit) if limit else 200
+    except ValueError:
+        limit = 200
+    limit = max(1, min(limit, 500))
+
+    qs = qs.order_by('-price_date', '-submitted_at').select_related('crop', 'market', 'market__region', 'submitted_by', 'reviewed_by')[:limit]
     serializer = PriceEntrySerializer(qs, many=True)
     return Response(serializer.data)
 
@@ -1732,7 +1784,14 @@ def price_segments(request, crop_id):
     except Crop.DoesNotExist:
         return Response({'error': 'Crop not found'}, status=404)
 
+    market_type = request.query_params.get('market_type')
     prices_qs = PriceEntry.objects.filter(crop=crop, status='approved')
+
+    if market_type == 'consumer':
+        prices_qs = prices_qs.filter(market__market_type__in=['daily', 'periodic'])
+    elif market_type == 'wholesale':
+        prices_qs = prices_qs.filter(market__market_type='wholesale')
+
     stats = prices_qs.aggregate(
         avg=Avg('price'), min=Min('price'), max=Max('price'), count=Count('id')
     )
@@ -3908,7 +3967,7 @@ def generate_report(request, fmt):
 @permission_classes([IsAuthenticated])
 def search(request):
     """Full-text search across crops, markets, regions, and price entries.
-    GET /api/search/?q=maize&type=all&crop=&region=&market=&min_price=&max_price=
+    GET /api/search/?q=maize&type=all&crop=&region=&market=&min_price=&max_price=&market_type=
     """
     q = request.query_params.get('q', '').strip()
     search_type = request.query_params.get('type', 'all')
@@ -3917,6 +3976,7 @@ def search(request):
     market_id = request.query_params.get('market')
     min_price = request.query_params.get('min_price')
     max_price = request.query_params.get('max_price')
+    market_type = request.query_params.get('market_type')
 
     results = {
         'crops': [],
@@ -3926,7 +3986,7 @@ def search(request):
         'total_count': 0,
     }
 
-    if not q and not crop_id and not region_id and not market_id and not min_price and not max_price:
+    if not q and not crop_id and not region_id and not market_id and not min_price and not max_price and not market_type:
         return Response(results)
 
     # Search crops
@@ -3970,6 +4030,10 @@ def search(request):
             prices_qs = prices_qs.filter(price__gte=float(min_price))
         if max_price:
             prices_qs = prices_qs.filter(price__lte=float(max_price))
+        if market_type == 'consumer':
+            prices_qs = prices_qs.filter(market__market_type__in=['daily', 'periodic'])
+        elif market_type == 'wholesale':
+            prices_qs = prices_qs.filter(market__market_type='wholesale')
         prices_qs = prices_qs.order_by('-price_date')[:20]
         results['prices'] = [
             {

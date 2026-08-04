@@ -78,7 +78,7 @@ export function AuthProvider({ children }) {
     const res = await authAPI.login({ username, password, remember_me: remember });
     const { token: t, user: u } = res.data;
     _storeSession(t, u, remember);
-    return { user: u, onboardingComplete: u.onboarding_complete ?? true };
+    return { user: u, onboardingComplete: u.onboarding_complete ?? true, hasPassword: u.has_password ?? true };
   };
 
   // Legacy registration (kept for backward compat)
@@ -86,7 +86,7 @@ export function AuthProvider({ children }) {
     const res = await authAPI.register(data);
     const { token: t, user: u } = res.data;
     _storeSession(t, u);
-    return { user: u, onboardingComplete: u.onboarding_complete ?? true };
+    return { user: u, onboardingComplete: u.onboarding_complete ?? true, hasPassword: u.has_password ?? true };
   };
 
   // ── Frictionless Auth Methods ──
@@ -104,6 +104,7 @@ export function AuthProvider({ children }) {
       user: u,
       isNewUser: res.data.is_new_user,
       onboardingComplete: res.data.onboarding_complete ?? u.onboarding_complete ?? true,
+      hasPassword: res.data.has_password ?? u.has_password ?? true,
     };
   };
 
@@ -120,6 +121,7 @@ export function AuthProvider({ children }) {
       user: u,
       isNewUser: res.data.is_new_user,
       onboardingComplete: res.data.onboarding_complete ?? u.onboarding_complete ?? true,
+      hasPassword: res.data.has_password ?? u.has_password ?? true,
     };
   };
 
@@ -142,6 +144,7 @@ export function AuthProvider({ children }) {
       user: u,
       isNewUser: res.data.is_new_user,
       onboardingComplete: res.data.onboarding_complete ?? u.onboarding_complete ?? true,
+      hasPassword: res.data.has_password ?? u.has_password ?? true,
     };
   };
 
@@ -209,6 +212,16 @@ export function AuthProvider({ children }) {
   const canReview = user && ['admin', 'agent'].includes(role) && isApproved;
   const approvalStatus = user?.approval_status || 'approved';
   const onboardingComplete = user?.onboarding_complete ?? true;
+  const hasPassword = user?.has_password ?? true;
+
+  const setPassword = async (newPassword, confirmPassword) => {
+    const res = await authAPI.setPassword({ new_password: newPassword, confirm_password: confirmPassword });
+    if (res.data?.user) {
+      localStorage.setItem('user', JSON.stringify(res.data.user));
+      setUser(res.data.user);
+    }
+    return res.data;
+  };
 
   return (
     <AuthContext.Provider value={{
@@ -220,6 +233,7 @@ export function AuthProvider({ children }) {
       sendPhoneCode, verifyPhoneCode,
       googleAuth, googleAuthWithCode,
       completeOnboarding,
+      setPassword,
       // Security
       rememberMe, accountLocked, lockedUntil,
       checkAccountStatus, fetchLoginHistory,
@@ -228,6 +242,7 @@ export function AuthProvider({ children }) {
       isApproved, canSubmit, canReview, approvalStatus,
       isAuthenticated: !!token,
       onboardingComplete,
+      hasPassword,
     }}>
       {children}
     </AuthContext.Provider>

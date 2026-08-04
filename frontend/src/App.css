@@ -218,8 +218,7 @@
   position: relative;
   background:
     radial-gradient(circle at top left, rgba(242, 160, 12, 0.15), transparent 24%),
-    linear-gradient(180deg, rgba(13, 36, 24, 0.82) 0%, rgba(8, 22, 17, 0.93) 100%),
-    url('./images/hero-section.jpg') center / cover no-repeat;
+    linear-gradient(180deg, rgba(13, 36, 24, 0.82) 0%, rgba(8, 22, 17, 0.93) 100%);
   color: var(--husk);
   overflow: hidden;
 }

@@ -7,6 +7,8 @@ import {
   BarChart3, Users, Sparkles, Activity, Wheat, Filter,
   Eye, Zap,
   Brain, Target, Truck,
+  Mail, ShieldCheck, Lock, CheckCircle2,
+  Camera, Share2, MessageCircle,
 } from 'lucide-react';
 
 /* ------------------------------------------------------------------ */
@@ -54,6 +56,10 @@ function normalizeHeatmapData(data) {
 export default function Landing() {
   const { isAuthenticated } = useAuth();
 
+  /* ---- newsletter state ---- */
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+
   /* ---- data state ---- */
   const [stats, setStats] = useState(null);
   const [recentPrices, setRecentPrices] = useState([]);
@@ -83,7 +89,7 @@ export default function Landing() {
       return;
     }
     setFilterLoading(true);
-    priceAPI.list({ crop: filterCrop, region: filterRegion, limit: 5 })
+    priceAPI.list({ crop: filterCrop, region: filterRegion, market_type: 'consumer', limit: 5 })
       .then((r) => {
         const data = (r.data || []).filter(Boolean);
         const validPrices = data
@@ -555,7 +561,123 @@ export default function Landing() {
       </section>
 
       <footer className="app-footer">
-        Smart Crops Market Price Tracker &copy; 2026 &middot; Mbeya University of Science and Technology
+        <div aria-hidden="true" className="footer-glow" />
+
+        <div className="footer-inner">
+          {/* Brand + newsletter */}
+          <div className="footer-top">
+            <div>
+              <div className="footer-brand">
+                <span className="header-logo" style={{ marginBottom: 8 }}>
+                  <span className="logo-icon"><Leaf size={20} /></span>
+                  <span className="logo-text">Smart Crops</span>
+                </span>
+                <span className="footer-tagline">Fresh prices. Better harvests.</span>
+              </div>
+              <p className="footer-desc">
+                Tanzania&rsquo;s trusted crop price tracker. Connecting farmers, traders, and market
+                agents with verified, real-time market data across the country.
+              </p>
+              <div className="footer-pills">
+                <span className="footer-pill"><ShieldCheck size={13} /> Verified prices</span>
+                <span className="footer-pill"><Lock size={13} /> Trusted data</span>
+                <span className="footer-pill"><MapPin size={13} /> Built for Tanzania</span>
+              </div>
+            </div>
+
+            <div className="footer-newsletter">
+              <p className="footer-newsletter-title">Get price alerts &amp; market updates</p>
+              <p className="footer-newsletter-sub">No spam. Unsubscribe anytime.</p>
+              {subscribed ? (
+                <div className="footer-newsletter-done">
+                  <CheckCircle2 size={16} /> You&rsquo;re subscribed. Welcome aboard!
+                </div>
+              ) : (
+                <form
+                  className="footer-newsletter-form"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    if (newsletterEmail.trim()) setSubscribed(true);
+                  }}
+                >
+                  <div className="footer-newsletter-input-wrap">
+                    <Mail size={15} />
+                    <input
+                      type="email"
+                      required
+                      value={newsletterEmail}
+                      onChange={(e) => setNewsletterEmail(e.target.value)}
+                      placeholder="you@example.com"
+                      aria-label="Email address"
+                    />
+                  </div>
+                  <button type="submit" className="footer-newsletter-btn">Subscribe</button>
+                </form>
+              )}
+            </div>
+          </div>
+
+          {/* Link columns */}
+          <div className="footer-columns">
+            <div>
+              <h3 className="footer-col-heading">Marketplace</h3>
+              <ul className="footer-col-links">
+                <li><Link to="/prices">Market Prices</Link></li>
+                <li><Link to="/prices/heatmap">Price Heatmap</Link></li>
+                <li><Link to="/prices/chart">Price Charts</Link></li>
+                <li><Link to="/forecast">Forecasting</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="footer-col-heading">Insights</h3>
+              <ul className="footer-col-links">
+                <li><Link to="/prices">Best Market Finder</Link></li>
+                <li><Link to="/prices/chart">Price Trends</Link></li>
+                <li><Link to="/forecast">Seasonal Forecast</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="footer-col-heading">Get Started</h3>
+              <ul className="footer-col-links">
+                {isAuthenticated ? (
+                  <li><Link to="/dashboard">Dashboard</Link></li>
+                ) : (
+                  <>
+                    <li><Link to="/register">Create Account</Link></li>
+                    <li><Link to="/login">Sign In</Link></li>
+                  </>
+                )}
+                <li><Link to="/developers">Developers</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="footer-col-heading">How It Works</h3>
+              <ul className="footer-col-links">
+                <li><Link to="/register">Join as Farmer</Link></li>
+                <li><Link to="/register">Join as Trader</Link></li>
+                <li><Link to="/register">Join as Agent</Link></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom bar */}
+          <div className="footer-bottom">
+            <div className="footer-social">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <Camera size={18} />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <Share2 size={18} />
+              </a>
+              <a href="https://wa.me/255700000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <MessageCircle size={18} />
+              </a>
+            </div>
+            <p className="footer-copyright">
+              Smart Crops &copy; 2026 &middot; Mbeya University of Science and Technology
+            </p>
+          </div>
+        </div>
       </footer>
     </div>
   );

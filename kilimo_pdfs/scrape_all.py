@@ -186,26 +186,145 @@ def download_kilimo_pdfs(docs):
     return local_paths
 
 
-def extract_table_from_pdf(pdf_path):
-    if not HAS_PDFPLUMBER:
+def clean_price(val):
+    """Clean a price string: remove spaces, commas, dashes. Returns int or None."""
+    if not val or not val.strip():
         return None
+    val = val.strip()
+    val = val.replace(' ', '').replace(',', '')
+    if val in ('-', '–', '—', 'N/A', '', '.'):
+        return None
+    try:
+        return int(float(val))
+    except (ValueError, TypeError):
+        return None
+
+
+def find_regional_price_table(data):
+    """Check if a table extracted from PDF is a regional price table.
+    Returns (clean_data, num_crops) or (None, 0) if not a match.
+    """
+    if not data or len(data) < 4:
+        return None, 0
+
+    wiki_hii_row = None
+    for r_idx, row in enumerate(data):
+        col1 = str(row[1]).strip() if len(row) > 1 and row[1] else ''
+        col0 = str(row[0]).strip() if row[0] else ''
+        if col1.lower() == 'wiki hii' and col0 and col0.lower() not in ('wiki', 'mkoa', ''):
+            wiki_hii_row = r_idx
+            break
+
+    if wiki_hii_row is None:
+        return None, 0
+
+    sample_row = data[wiki_hii_row]
+    num_crops = 0
+    for col_idx in range(2, len(sample_row)):
+        val = str(sample_row[col_idx]).strip() if sample_row[col_idx] else ''
+        if val and val != '':
+            num_crops += 1
+        else:
+            break
+    if num_crops < 3:
+        return None, 0
+
+    start = max(0, wiki_hii_row - 1)
+    return data[start:], num_crops
+
+
+def extract_regional_prices(pdf_path):
+    """Extract regional wholesale price data from a kilimo.go.tz PDF.
+    Returns list of dicts: [{'region': 'Dodoma', 'prices': [600, 2600, ...]}, ...]
+    """
+    results = []
     try:
         with pdfplumber.open(pdf_path) as pdf:
             for page_idx in range(min(4, len(pdf.pages))):
                 page = pdf.pages[page_idx]
-                text = page.extract_text()
                 tables = page.find_tables()
                 for table in tables:
                     data = table.extract()
-                    if not data or len(data) < 4:
+                    clean_data, num_crops = find_regional_price_table(data)
+                    if clean_data is None:
                         continue
-                    for row in data:
-                        if len(row) > 1 and str(row[1]).strip() in ('Wiki hii', 'wiki hii'):
-                            return data, page_idx
-        return None
+
+                    current_region = None
+                    for row_idx in range(1, len(clean_data)):
+                        row = clean_data[row_idx]
+                        if len(row) < 2:
+                            continue
+
+                        col0 = str(row[0]).strip() if row[0] else ''
+                        col1 = str(row[1]).strip() if len(row) > 1 and row[1] else ''
+
+                        if col0 in ('Jumla ndogo', 'JUMLA KUU', 'Jumla', 'Wiki', 'Mkoa', ''):
+                            continue
+
+                        if col1.lower() == 'wiki hii':
+                            current_region = col0
+                            prices = []
+                            for col in range(2, min(2 + num_crops, len(row))):
+                                val = str(row[col]).strip() if col < len(row) and row[col] else '-'
+                                prices.append(val)
+                            results.append({
+                                'region': current_region,
+                                'prices': prices,
+                            })
+
     except Exception as e:
-        print(f"    ERROR extracting from {os.path.basename(pdf_path)}: {e}")
-        return None
+        print(f"    ERROR extracting table from {os.path.basename(pdf_path)}: {e}")
+
+    for rp in results:
+        cleaned_prices = []
+        for p in rp['prices']:
+            cp = clean_price(p)
+            cleaned_prices.append(cp)
+        rp['prices'] = cleaned_prices
+
+    return results
+
+
+def extract_period_from_pdf(pdf_path, doc=None):
+    """Extract the period string from the PDF filename or title."""
+    if doc and doc.get('title'):
+        title = doc.get('title', '')
+        m = re.search(r'(\d{1,2})\s*[-–]\s*(\d{1,2})\s+(\w+),?\s*(\d{4})', title)
+        if m:
+            groups = m.groups()
+            return f"{groups[0]}-{groups[1]} {groups[2]}, {groups[3]}"
+
+    basename = os.path.basename(pdf_path)
+    patterns = [
+        r'(\d{1,2})\s*[-–]\s*(\d{1,2})\s+(\w+),?\s*(\d{4})',
+        r'(\d{1,2})\s+(\w+)\s*[-–]\s*(\d{1,2})\s+(\w+),?\s*(\d{4})',
+    ]
+    for pat in patterns:
+        m = re.search(pat, basename)
+        if m:
+            groups = m.groups()
+            if len(groups) == 4:
+                return f"{groups[0]}-{groups[1]} {groups[2]}, {groups[3]}"
+            elif len(groups) == 5:
+                return f"{groups[0]} {groups[1]} - {groups[2]} {groups[3]}, {groups[4]}"
+
+    try:
+        with pdfplumber.open(pdf_path) as pdf:
+            if pdf.pages:
+                text = pdf.pages[0].extract_text()
+                if text:
+                    for pat in patterns:
+                        m = re.search(pat, text)
+                        if m:
+                            groups = m.groups()
+                            if len(groups) == 4:
+                                return f"{groups[0]}-{groups[1]} {groups[2]}, {groups[3]}"
+                            elif len(groups) == 5:
+                                return f"{groups[0]} {groups[1]} - {groups[2]} {groups[3]}, {groups[4]}"
+    except Exception:
+        pass
+
+    return doc.get('title', 'unknown')
 
 
 def process_kilimo_pdf(doc):
@@ -213,37 +332,12 @@ def process_kilimo_pdf(doc):
     if not path or not os.path.exists(path):
         return None
     filename = os.path.basename(path)
-    period = doc.get('title', '')
-    result = extract_table_from_pdf(path)
-    regions = []
-    if result:
-        table_data, _ = result
-        current_region = None
-        for row in table_data:
-            if len(row) < 2:
-                continue
-            col0 = str(row[0]).strip() if row[0] else ''
-            col1 = str(row[1]).strip() if len(row) > 1 and row[1] else ''
-            if col1 == 'Wiki hii' and col0 and col0 not in ('Wiki', 'Mkoa', ''):
-                prices = []
-                for c in range(2, min(9, len(row))):
-                    val = str(row[c]).strip() if c < len(row) and row[c] else '-'
-                    prices.append(val)
-                regions.append({'region': col0, 'prices': prices})
-        cleaned = []
-        for r in regions:
-            cp = []
-            for p in r['prices']:
-                try:
-                    p_clean = p.replace(' ', '').replace(',', '')
-                    if p_clean in ('-', '–', '—', 'N/A', '', '.'):
-                        cp.append(None)
-                    else:
-                        cp.append(int(float(p_clean)))
-                except (ValueError, TypeError):
-                    cp.append(None)
-            cleaned.append({'region': r['region'], 'prices': cp})
-        regions = cleaned
+    period = extract_period_from_pdf(path, doc)
+    regions = extract_regional_prices(path)
+
+    for rp in regions:
+        rp['prices'] = [clean_price(p) if isinstance(p, str) else p for p in rp['prices']]
+
     return {
         'file': filename,
         'url': doc.get('url', ''),
@@ -261,11 +355,33 @@ def scrape_kilimo(args):
         return []
     if not args.skip_download:
         download_kilimo_pdfs(docs)
-    price_bulletins = [d for d in docs if 'Mwenendo wa Bei' in d['title']]
+    
+    # Process all PDFs in the folder (whether freshly downloaded or pre-existing)
+    price_bulletins = []
+    if os.path.exists(KILIMO_PDF_DIR):
+        for fname in sorted(os.listdir(KILIMO_PDF_DIR)):
+            if not fname.endswith('.pdf'):
+                continue
+            if 'Mwenendo' not in fname and 'Market Bulletin' not in fname:
+                continue
+            price_bulletins.append({
+                'local_path': os.path.join(KILIMO_PDF_DIR, fname),
+                'url': '',
+                'title': fname,
+                'date': '',
+            })
+    
+    # Also check docs that have local_path from download
+    for d in docs:
+        if 'Mwenendo wa Bei' in d.get('title', '') and 'local_path' in d:
+            if d not in price_bulletins:
+                price_bulletins.append(d)
+    
     print(f"\nPrice bulletins found: {len(price_bulletins)}")
     results = []
     for d in price_bulletins:
-        if 'local_path' not in d:
+        path = d.get('local_path')
+        if not path or not os.path.exists(path):
             continue
         print(f"  Processing: {os.path.basename(d.get('local_path', ''))}")
         processed = process_kilimo_pdf(d)
@@ -386,9 +502,13 @@ def is_skip_region(name):
 
 
 def parse_viwanda_rows(raw_data):
+    """Parse viwanda price table rows into structured data.
+    Table structure: Region | Market | Crop1_min | Crop1_max | Crop2_min | Crop2_max | ...
+    OR: Region | Market | Crop1 | Crop2 | Crop3 | ...
+    """
     parsed = []
     for row in raw_data:
-        if not row or len(row) < 4:
+        if not row or len(row) < 3:
             continue
         region = str(row[0]).strip() if row[0] else ''
         market = str(row[1]).strip() if len(row) > 1 and row[1] else ''
@@ -400,7 +520,7 @@ def parse_viwanda_rows(raw_data):
             continue
         region = REGION_NORMALIZE.get(region.lower(), region)
         prices = []
-        for col_idx in range(2, min(len(row), 2 + len(VIWANDA_CROP_COLUMNS) * 2)):
+        for col_idx in range(2, len(row)):
             prices.append(clean_viwanda_price(row[col_idx]))
         parsed.append({
             'region': region,
@@ -417,28 +537,53 @@ def scrape_viwanda(args):
     html = fetch_url(VIWANDA_PRICES)
     if not html:
         print("  ERROR: Could not fetch viwanda.go.tz prices page")
-        return
-    docs = parse_viwanda_prices_page(html)
-    print(f"  Found {len(docs)} price PDFs")
+        print("  Will try to use existing PDFs in viwanda_pdfs folder...")
+        docs = []
+    else:
+        docs = parse_viwanda_prices_page(html)
+        # Filter to only price-related PDFs
+        docs = [d for d in docs if 'wholesale price' in d['title'].lower() or 'bei' in d['title'].lower()]
+        print(f"  Found {len(docs)} price PDFs on page")
+    if not docs and os.path.exists(VIWANDA_PDF_DIR):
+        print("  No new PDFs found on website, checking existing files...")
+        for fname in os.listdir(VIWANDA_PDF_DIR):
+            if fname.endswith('.pdf') and 'wholesale price' in fname.lower():
+                docs.append({
+                    'url': f'existing://{fname}',
+                    'title': fname,
+                    'source_site': 'viwanda.go.tz',
+                    'local_path': os.path.join(VIWANDA_PDF_DIR, fname),
+                })
+        print(f"  Found {len(docs)} existing price PDFs")
     if not docs:
+        print("  No PDFs to process")
         return
     os.makedirs(VIWANDA_PDF_DIR, exist_ok=True)
     results = []
     for d in docs[:20]:
-        print(f"  Downloading: {d['title']}")
-        path = download_file(d['url'], VIWANDA_PDF_DIR)
-        if path:
-            d['local_path'] = path
-            data = extract_viwanda_prices(path)
-            results.append({
-                'file': os.path.basename(path),
-                'url': d['url'],
-                'title': d['title'],
-                'table_rows': len(data) if data else 0,
-                'raw_data': data if data else [],
-                'entries': parse_viwanda_rows(data) if data else [],
-                'crop_columns': VIWANDA_CROP_COLUMNS,
-            })
+        path = d.get('local_path')
+        if not path:
+            print(f"  Downloading: {d['title']}")
+            path = download_file(d['url'], VIWANDA_PDF_DIR)
+            if path:
+                d['local_path'] = path
+        if not path or not os.path.exists(path):
+            continue
+        data = extract_viwanda_prices(path)
+        entries = parse_viwanda_rows(data) if data else []
+        if entries:
+            print(f"  Processed: {os.path.basename(path)} ({len(entries)} entries)")
+        else:
+            print(f"  Processed: {os.path.basename(path)} (0 entries - may not be a price PDF)")
+        results.append({
+            'file': os.path.basename(path),
+            'url': d['url'],
+            'title': d['title'],
+            'table_rows': len(data) if data else 0,
+            'raw_data': data if data else [],
+            'entries': entries,
+            'crop_columns': VIWANDA_CROP_COLUMNS,
+        })
     output = {
         'source': 'viwanda.go.tz',
         'total_pdfs': len(results),

@@ -30,6 +30,9 @@ export default function AuthCallback() {
           if (cancelled) return;
           if (!result.onboardingComplete) {
             navigate('/onboarding', { replace: true });
+          } else if (result.hasPassword === false) {
+            localStorage.removeItem('skip_password_setup');
+            navigate('/setup-password', { replace: true });
           } else {
             navigate('/dashboard', { replace: true });
           }

@@ -20,6 +20,11 @@ KILIMO_DEFAULT = os.path.join(
     'kilimo_pdfs', 'all_crop_data.json'
 )
 
+VIWANDA_DEFAULT = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
+    'viwanda_prices.json'
+)
+
 REGION_MAP = {
     'Arusha': 'Northern', 'Dar Es Salaam': 'Coastal', 'Dar es salaam': 'Coastal',
     'Dodoma': 'Central', 'Geita': 'Lake', 'Iringa': 'Southern Highlands',
@@ -59,7 +64,7 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('--kilimo-file', default=KILIMO_DEFAULT,
                             help='Path to kilimo.all_crop_data.json')
-        parser.add_argument('--viwanda-file',
+        parser.add_argument('--viwanda-file', default=VIWANDA_DEFAULT,
                             help='Path to viwanda_prices.json')
         parser.add_argument('--kilimo-only', action='store_true',
                             help='Only import kilimo data')
@@ -101,14 +106,14 @@ class Command(BaseCommand):
         )
         return crop
 
-    def ensure_market(self, region, market_name='Central Market', dry_run=False):
+    def ensure_market(self, region, market_name='Central Market', market_type='daily', dry_run=False):
         norm = market_name.strip().title()
         if dry_run:
             return None
         market, _ = Market.objects.get_or_create(
             name=norm,
             region=region,
-            defaults={'market_type': 'wholesale'}
+            defaults={'market_type': market_type}
         )
         return market
 
@@ -179,7 +184,7 @@ class Command(BaseCommand):
                 result[n] = c
         return result
 
-    def _ensure_all_markets(self, pairs, dry_run=False):
+    def _ensure_all_markets(self, pairs, market_type='daily', dry_run=False):
         if dry_run:
             return {p: None for p in pairs}
         region_cache = {}
@@ -196,7 +201,7 @@ class Command(BaseCommand):
             m, _ = Market.objects.get_or_create(
                 name=mn,
                 region=region,
-                defaults={'market_type': 'wholesale'}
+                defaults={'market_type': market_type}
             )
             result[key] = m
         return result
@@ -219,7 +224,7 @@ class Command(BaseCommand):
         regions = self._ensure_all_regions(region_names, dry_run)
         crops = self._ensure_all_crops(set(crop_names), dry_run)
         market_pairs = [(rn, f'{rn} Central Market') for rn in region_names]
-        markets = self._ensure_all_markets(market_pairs, dry_run)
+        markets = self._ensure_all_markets(market_pairs, market_type='daily', dry_run=dry_run)
 
         objects = []
         count = 0
@@ -277,7 +282,7 @@ class Command(BaseCommand):
 
         regions = self._ensure_all_regions(region_names, dry_run)
         crops = self._ensure_all_crops(all_crop_names, dry_run)
-        markets = self._ensure_all_markets(list(market_pairs), dry_run)
+        markets = self._ensure_all_markets(list(market_pairs), market_type='wholesale', dry_run=dry_run)
 
         objects = []
         count = 0

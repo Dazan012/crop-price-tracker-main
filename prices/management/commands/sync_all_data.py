@@ -111,7 +111,6 @@ class Command(BaseCommand):
 
     def _run_scraper(self, source):
         """Run the external scraper script via subprocess."""
-        cmd = ['python', source.scraper_command.split()]
         cmd = ['python'] + source.scraper_command.split()
         self.stdout.write(f'  Running: {" ".join(cmd)}')
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)

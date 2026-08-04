@@ -27,6 +27,7 @@ class UserSerializer(serializers.ModelSerializer):
     can_submit_prices = serializers.SerializerMethodField()
     email_verified = serializers.SerializerMethodField()
     onboarding_complete = serializers.SerializerMethodField()
+    has_password = serializers.SerializerMethodField()
     # Profile fields flattened for frontend convenience
     phone = serializers.SerializerMethodField()
     region = serializers.SerializerMethodField()
@@ -49,7 +50,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id', 'username', 'email', 'first_name', 'last_name', 'role',
                   'approval_status', 'is_approved', 'can_submit_prices', 'email_verified',
-                  'onboarding_complete',
+                  'onboarding_complete', 'has_password',
                   'phone', 'region', 'district', 'main_crops', 'farm_size',
                   'preferred_markets', 'cooperative_name', 'mobile_money_provider',
                   'mobile_money_number', 'operating_regions', 'crops_of_interest',
@@ -85,6 +86,9 @@ class UserSerializer(serializers.ModelSerializer):
     def get_onboarding_complete(self, obj):
         p = self._profile(obj)
         return p.onboarding_complete if p else False
+
+    def get_has_password(self, obj):
+        return obj.has_usable_password()
 
     def get_phone(self, obj):
         p = self._profile(obj)
@@ -241,14 +245,11 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 
 class RegionSerializer(serializers.ModelSerializer):
-    market_count = serializers.SerializerMethodField()
+    market_count = serializers.IntegerField(read_only=True, default=0)
 
     class Meta:
         model = Region
         fields = ['id', 'name', 'zone', 'market_count']
-
-    def get_market_count(self, obj):
-        return obj.markets.filter(is_active=True).count()
 
 
 class MarketSerializer(serializers.ModelSerializer):
@@ -287,10 +288,14 @@ class PriceEntrySerializer(serializers.ModelSerializer):
 
     def get_price_category(self, obj):
         """Categorize price as low/medium/high relative to crop average."""
-        from django.db.models import Avg
-        avg = PriceEntry.objects.filter(
-            crop=obj.crop, status='approved'
-        ).aggregate(avg=Avg('price'))['avg']
+        cache = getattr(self, '_crop_avgs', None)
+        if cache is None:
+            from django.db.models import Avg
+            cache = dict(PriceEntry.objects.filter(
+                status='approved'
+            ).values('crop_id').annotate(avg=Avg('price')).values_list('crop_id', 'avg'))
+            self._crop_avgs = cache
+        avg = cache.get(obj.crop_id)
         if avg is None:
             return 'unknown'
         if obj.price < avg * 0.85:

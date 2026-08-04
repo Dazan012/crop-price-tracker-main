@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../services/AuthContext';
+import { dataAPI } from '../services/api';
 import {
   Sprout, TrendingUp, Shield, ArrowRight, ArrowLeft,
   Check, User, Phone, MapPin, CreditCard,
@@ -43,6 +44,9 @@ export default function Onboarding() {
   const [step, setStep] = useState(0);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [regions, setRegions] = useState([]);
+  const [crops, setCrops] = useState([]);
+  const [markets, setMarkets] = useState([]);
   const [form, setForm] = useState({
     role: '',
     first_name: '', last_name: '',
@@ -56,6 +60,18 @@ export default function Onboarding() {
   });
 
   const set = (key, val) => setForm(prev => ({ ...prev, [key]: val }));
+
+  const toggleTag = (key, name) => {
+    const cur = (form[key] || '').split(',').map(s => s.trim()).filter(Boolean);
+    if (cur.includes(name)) set(key, cur.filter(n => n !== name).join(', '));
+    else set(key, [...cur, name].join(', '));
+  };
+
+  useEffect(() => {
+    dataAPI.regions().then(r => setRegions(r.data || [])).catch(() => {});
+    dataAPI.crops().then(r => setCrops(r.data || [])).catch(() => {});
+    dataAPI.markets().then(r => setMarkets(r.data || [])).catch(() => {});
+  }, []);
 
   const totalSteps = 3; // role, personal, role-fields = indices 0-2
   const canGoNext = () => {
@@ -85,7 +101,12 @@ export default function Onboarding() {
       }
       const res = await completeOnboarding(data);
       if (res?.onboarding_complete) {
-        navigate('/dashboard', { replace: true });
+        if (res?.has_password === false) {
+          localStorage.removeItem('skip_password_setup');
+          navigate('/setup-password', { replace: true });
+        } else {
+          navigate('/dashboard', { replace: true });
+        }
       } else {
         navigate('/verify-email', { replace: true });
       }
@@ -199,7 +220,10 @@ export default function Onboarding() {
             </div>
             <div className="form-group" style={{ marginBottom: 12 }}>
               <label><MapPin size={12} style={{ marginRight: 4 }} />Region</label>
-              <input className="form-control" value={form.region} onChange={e => set('region', e.target.value)} placeholder="e.g. Mbeya, Dar es Salaam" />
+              <select className="form-control" value={form.region} onChange={e => set('region', e.target.value)} required>
+                <option value="">Select Region...</option>
+                {regions.map(r => <option key={r.id} value={r.name}>{r.name}</option>)}
+              </select>
             </div>
             <div className="form-group" style={{ marginBottom: 12 }}>
               <label><CreditCard size={12} style={{ marginRight: 4 }} />NIDA Number <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>(optional)</span></label>
@@ -227,19 +251,47 @@ export default function Onboarding() {
             <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: 20 }}>
               Tell us about your farming activity.
             </p>
-            <div className="form-group" style={{ marginBottom: 12 }}>
-              <label>Main Crops</label>
-              <input className="form-control" value={form.main_crops} onChange={e => set('main_crops', e.target.value)} placeholder="e.g. Maize, Rice, Beans" />
-              <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Comma-separated list</span>
-            </div>
+<div className="form-group" style={{ marginBottom: 12 }}>
+                <label>Main Crops</label>
+                <div className="reg-tag-list">
+                  {crops.map(c => {
+                    const active = (form.main_crops || '').split(',').map(s => s.trim()).includes(c.name);
+                    return (
+                      <button key={c.id} type="button" className={`reg-tag ${active ? 'active' : ''}`}
+                        style={active ? { background: '#22c55e', color: '#000', borderColor: '#22c55e' } : {}}
+                        onClick={() => toggleTag('main_crops', c.name)}>
+                        {active && <Check size={10} />}
+                        {c.name}
+                      </button>
+                    );
+                  })}
+                </div>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Tap to select multiple</span>
+              </div>
             <div className="form-group" style={{ marginBottom: 12 }}>
               <label>Farm Size (acres)</label>
               <input className="form-control" type="number" value={form.farm_size} onChange={e => set('farm_size', e.target.value)} placeholder="e.g. 5" min="0" step="0.5" />
             </div>
-            <div className="form-group" style={{ marginBottom: 12 }}>
-              <label>Preferred Markets</label>
-              <input className="form-control" value={form.preferred_markets} onChange={e => set('preferred_markets', e.target.value)} placeholder="e.g. Mbeya Main Market, Chunya Market" />
-            </div>
+<div className="form-group" style={{ marginBottom: 12 }}>
+                <label>Preferred Markets</label>
+                <div className="reg-tag-list">
+                  {markets
+                    .filter(m => !form.region || (m.region_name || m.region) === form.region)
+                    .slice(0, 15)
+                    .map(m => {
+                      const active = (form.preferred_markets || '').split(',').map(s => s.trim()).includes(m.name);
+                      return (
+                        <button key={m.id} type="button" className={`reg-tag ${active ? 'active' : ''}`}
+                          style={active ? { background: '#22c55e', color: '#000', borderColor: '#22c55e' } : {}}
+                          onClick={() => toggleTag('preferred_markets', m.name)}>
+                          {active && <Check size={10} />}
+                          {m.name}
+                        </button>
+                      );
+                    })}
+                </div>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Tap to select multiple</span>
+              </div>
             <div className="form-group" style={{ marginBottom: 0 }}>
               <label>Mobile Money Provider</label>
               <select className="form-control" value={form.mobile_money_provider} onChange={e => set('mobile_money_provider', e.target.value)}>
@@ -255,14 +307,40 @@ export default function Onboarding() {
             <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: 20 }}>
               Tell us about your trading activity.
             </p>
-            <div className="form-group" style={{ marginBottom: 12 }}>
-              <label>Operating Regions</label>
-              <input className="form-control" value={form.operating_regions} onChange={e => set('operating_regions', e.target.value)} placeholder="e.g. Mbeya, Dar es Salaam, Iringa" />
-            </div>
-            <div className="form-group" style={{ marginBottom: 12 }}>
-              <label>Crops of Interest</label>
-              <input className="form-control" value={form.crops_of_interest} onChange={e => set('crops_of_interest', e.target.value)} placeholder="e.g. Maize, Rice, Cashew" />
-            </div>
+<div className="form-group" style={{ marginBottom: 12 }}>
+                <label>Operating Regions</label>
+                <div className="reg-tag-list">
+                  {regions.map(r => {
+                    const active = (form.operating_regions || '').split(',').map(s => s.trim()).includes(r.name);
+                    return (
+                      <button key={r.id} type="button" className={`reg-tag ${active ? 'active' : ''}`}
+                        style={active ? { background: '#3b82f6', color: '#000', borderColor: '#3b82f6' } : {}}
+                        onClick={() => toggleTag('operating_regions', r.name)}>
+                        {active && <Check size={10} />}
+                        {r.name}
+                      </button>
+                    );
+                  })}
+                </div>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Tap to select multiple</span>
+              </div>
+<div className="form-group" style={{ marginBottom: 12 }}>
+                <label>Crops of Interest</label>
+                <div className="reg-tag-list">
+                  {crops.map(c => {
+                    const active = (form.crops_of_interest || '').split(',').map(s => s.trim()).includes(c.name);
+                    return (
+                      <button key={c.id} type="button" className={`reg-tag ${active ? 'active' : ''}`}
+                        style={active ? { background: '#3b82f6', color: '#000', borderColor: '#3b82f6' } : {}}
+                        onClick={() => toggleTag('crops_of_interest', c.name)}>
+                        {active && <Check size={10} />}
+                        {c.name}
+                      </button>
+                    );
+                  })}
+                </div>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Tap to select multiple</span>
+              </div>
             <div className="form-group" style={{ marginBottom: 12 }}>
               <label>Transport Capacity</label>
               <input className="form-control" value={form.transport_capacity} onChange={e => set('transport_capacity', e.target.value)} placeholder="e.g. 5 tons, pickup truck" />
@@ -282,10 +360,26 @@ export default function Onboarding() {
             <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: 20 }}>
               Tell us about your market assignment.
             </p>
-            <div className="form-group" style={{ marginBottom: 12 }}>
-              <label>Assigned Market</label>
-              <input className="form-control" value={form.assigned_market} onChange={e => set('assigned_market', e.target.value)} placeholder="Market name or ID" />
-            </div>
+<div className="form-group" style={{ marginBottom: 12 }}>
+                <label>Assigned Market</label>
+                <div className="reg-tag-list">
+                  {markets
+                    .filter(m => !form.region || (m.region_name || m.region) === form.region)
+                    .slice(0, 15)
+                    .map(m => {
+                      const active = String(form.assigned_market) === String(m.id);
+                      return (
+                        <button key={m.id} type="button" className={`reg-tag ${active ? 'active' : ''}`}
+                          style={active ? { background: '#f59e0b', color: '#000', borderColor: '#f59e0b' } : {}}
+                          onClick={() => set('assigned_market', active ? '' : m.id)}>
+                          {active && <Check size={10} />}
+                          {m.name}
+                        </button>
+                      );
+                    })}
+                </div>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Select your assigned market</span>
+              </div>
             <div className="form-group" style={{ marginBottom: 0 }}>
               <label>Experience</label>
               <textarea className="form-control" value={form.experience} onChange={e => set('experience', e.target.value)} placeholder="Describe your experience as a market agent..." rows={3} />

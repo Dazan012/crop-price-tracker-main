@@ -1,0 +1,74 @@
+{% extends "admin/index.html" %}
+{% load i18n static %}
+
+{% block content %}
+<div class="container-fluid mt-4 mb-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="card border-primary shadow-sm mb-4" style="border-width: 3px;">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center py-3">
+          <h3 class="mb-0 h4">
+            <i class="fas fa-sync-alt"></i> Agricultural Price Data Sync
+          </h3>
+          <span class="badge bg-light text-dark fs-7">v1.0</span>
+        </div>
+        <div class="card-body p-4">
+          <p class="mb-3 text-muted">
+            Fetch fresh price data from external sources (kilimo.go.tz, viwanda.go.tz, TMX, crop boards).
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <form method="post" action="{% url 'admin:sync-source-fetch-data' %}" style="display:inline;">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-success btn-lg px-4 py-2 shadow-sm"
+                      onclick="return confirm('This will fetch and import new data from all configured sources. Continue?');">
+                <i class="fas fa-download"></i> Fetch All Data
+              </button>
+            </form>
+            <form method="post" action="{% url 'admin:sync-source-sync-tmx' %}" style="display:inline;">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-info btn-lg px-4 py-2 shadow-sm text-dark"
+                      onclick="return confirm('Sync TMX data from Firebase?');">
+                <i class="fas fa-cloud-download-alt"></i> Sync TMX
+              </button>
+            </form>
+            <a href="{% url 'admin:sync-source-sync-all' %}" class="btn btn-outline-primary btn-lg px-4 py-2"
+               onclick="return confirm('Sync all sources? Some may take a while.')">
+              <i class="fas fa-sync-alt"></i> Sync Now
+            </a>
+            <a href="{% url 'admin:prices_syncsource_changelist' %}" class="btn btn-outline-secondary btn-lg px-4 py-2">
+              <i class="fas fa-cog"></i> Manage Sources
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Auto-dismiss messages after 5 seconds
+setTimeout(function() {
+  var alerts = document.querySelectorAll('.alert');
+  alerts.forEach(function(alert) {
+    if (alert.querySelector('.btn-close')) {
+      alert.querySelector('.btn-close').click();
+    }
+  });
+}, 5000);
+</script>
+
+<style>
+.card.border-primary {
+  border-color: #007bff !important;
+}
+.btn-lg {
+  font-weight: 600;
+  border-radius: 0.375rem;
+}
+.card-header.bg-primary {
+  background-color: #007bff !important;
+}
+</style>
+
+{{ block.super }}
+{% endblock %}

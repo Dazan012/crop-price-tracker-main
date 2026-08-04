@@ -12,6 +12,7 @@ export default function AuthScreen() {
   const [mode, setMode] = useState(null); // null | 'email' | 'phone'
   const [error, setError] = useState('');
   const [loadingAction, setLoadingAction] = useState(false);
+  const [gsReady, setGsReady] = useState(false);
 
   // Email/password login state
   const [identifier, setIdentifier] = useState(''); // username or email
@@ -25,8 +26,9 @@ export default function AuthScreen() {
   const [countdown, setCountdown] = useState(0);
   const [devCode, setDevCode] = useState(null);
   const codeRefs = useRef([]);
-  const googleButtonRef = useRef(null);
   const googleInitRef = useRef(false);
+  const googleRetryRef = useRef(0);
+  const googleButtonRef = useRef(null);
 
 
   // Countdown timer for phone OTP resend
@@ -39,26 +41,56 @@ export default function AuthScreen() {
   // Google Identity Services (ID token flow — no client_secret needed)
   useEffect(() => {
     if (!GOOGLE_CLIENT_ID || googleInitRef.current) return;
-    if (!window.google?.accounts?.id) return;
-    googleInitRef.current = true;
-    window.google.accounts.id.initialize({
-      client_id: GOOGLE_CLIENT_ID,
-      callback: handleCredentialResponse,
-    });
-    if (googleButtonRef.current) {
-      window.google.accounts.id.renderButton(googleButtonRef.current, {
-        theme: 'outline',
-        size: 'large',
-        width: googleButtonRef.current.parentElement?.offsetWidth || 400,
-        text: 'continue_with',
-        shape: 'rectangular',
-        logo_alignment: 'left',
+    if (!window.google?.accounts?.id) {
+      // GSI script loads async; retry until it's ready.
+      if (googleRetryRef.current < 20) {
+        googleRetryRef.current += 1;
+        setTimeout(initGoogle, 250);
+      }
+      return;
+    }
+    initGoogle();
+    function initGoogle() {
+      if (!window.google?.accounts?.id || googleInitRef.current) return;
+      googleInitRef.current = true;
+      window.google.accounts.id.initialize({
+        client_id: GOOGLE_CLIENT_ID,
+        ux_mode: 'popup',
+        callback: handleCredentialResponse,
       });
+      setGsReady(true);
     }
     return () => {
       window.google?.accounts?.id?.disableAutoSelect();
     };
   }, []);
+
+  // Render the GSI button once GSI is ready, and re-render on card remount (mode changes)
+  useEffect(() => {
+    if (!gsReady || !googleButtonRef.current) return;
+    if (!window.google?.accounts?.id) return;
+    const container = googleButtonRef.current;
+    container.innerHTML = '';
+    window.google.accounts.id.renderButton(container, {
+      theme: 'outline',
+      size: 'large',
+      shape: 'pill',
+      text: 'continue_with',
+      width: 400,
+      locale: 'en',
+    });
+  }, [gsReady, mode]);
+
+  const redirectAfterAuth = (result) => {
+    if (!result.onboardingComplete) {
+      navigate('/onboarding');
+    } else if (result.hasPassword === false) {
+      localStorage.removeItem('skip_password_setup');
+      navigate('/setup-password');
+    } else {
+      navigate('/dashboard');
+    }
+  };
 
   const handleCredentialResponse = async (response) => {
     if (!response?.credential) return;
@@ -66,15 +98,24 @@ export default function AuthScreen() {
     setLoadingAction(true);
     try {
       const result = await googleAuth(response.credential);
-      if (!result.onboardingComplete) {
-        navigate('/onboarding');
-      } else {
-        navigate('/dashboard');
-      }
+      redirectAfterAuth(result);
     } catch (err) {
       setError(err.response?.data?.error || 'Google sign-in failed. Please try another method.');
     } finally {
       setLoadingAction(false);
+    }
+  };
+
+  const handleGoogleClick = () => {
+    if (!GOOGLE_CLIENT_ID) {
+      setError('Google sign-in is not configured yet. Please contact the administrator.');
+      return;
+    }
+    setError('');
+    if (window.google?.accounts?.id) {
+      window.google.accounts.id.prompt();
+    } else {
+      setError('Google sign-in is still loading. Please try again.');
     }
   };
 
@@ -99,11 +140,7 @@ export default function AuthScreen() {
     setLoadingAction(true);
     try {
       const result = await login(identifier.trim(), password);
-      if (!result.onboardingComplete) {
-        navigate('/onboarding');
-      } else {
-        navigate('/dashboard');
-      }
+      redirectAfterAuth(result);
     } catch (err) {
       setError(err.response?.data?.error || err.response?.data?.non_field_errors?.[0] || 'Invalid credentials. Please check your username/email and password.');
     } finally {
@@ -175,11 +212,7 @@ export default function AuthScreen() {
       const cleanPhone = phone.replace(/\s/g, '');
       const fullPhone = cleanPhone.startsWith('+') ? cleanPhone : `+255${cleanPhone.replace(/^0+/, '')}`;
       const result = await verifyPhoneCode(fullPhone, codeStr);
-      if (!result.onboardingComplete) {
-        navigate('/onboarding');
-      } else {
-        navigate('/dashboard');
-      }
+      redirectAfterAuth(result);
     } catch (err) {
       setError(err.response?.data?.error || 'Invalid or expired code.');
       setCode(['', '', '', '', '', '']);
@@ -248,19 +281,10 @@ export default function AuthScreen() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {/* Google Sign-In (ID token flow — no client_secret needed) */}
-              {GOOGLE_CLIENT_ID ? (
-                loadingAction ? (
-                  <div className="btn btn-secondary" style={{ width: '100%', justifyContent: 'center', padding: '14px 20px', fontSize: '0.95rem', fontWeight: 600, cursor: 'default', opacity: 0.7 }}>
-                    <div className="spinner" style={{ width: 18, height: 18, marginRight: 10 }} />
-                    Signing in...
-                  </div>
-                ) : (
-                  <div ref={googleButtonRef} style={{ width: '100%', minHeight: 48 }} />
-                )
-              ) : (
+              <div className="auth-google-wrapper">
                 <button
                   type="button"
-                  onClick={() => setError('Google sign-in is not configured yet. Please contact the administrator.')}
+                  onClick={handleGoogleClick}
                   className="btn btn-secondary"
                   disabled={loadingAction}
                   style={{
@@ -268,15 +292,20 @@ export default function AuthScreen() {
                     fontSize: '0.95rem', fontWeight: 600,
                   }}
                 >
-                  <svg viewBox="0 0 48 48" width="18" height="18" style={{ marginRight: 10 }}>
-                    <path fill="#4285F4" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
-                    <path fill="#34A853" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
-                    <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
-                    <path fill="#EA4335" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.2-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
-                  </svg>
-                  Continue with Google
+                  {loadingAction ? (
+                    <div className="spinner" style={{ width: 18, height: 18, marginRight: 10 }} />
+                  ) : (
+                    <svg viewBox="0 0 48 48" width="18" height="18" style={{ marginRight: 10 }}>
+                      <path fill="#4285F4" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+                      <path fill="#34A853" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+                      <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+                      <path fill="#EA4335" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.2-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+                    </svg>
+                  )}
+                  {loadingAction ? 'Signing in...' : 'Continue with Google'}
                 </button>
-              )}
+                <div ref={googleButtonRef} className="auth-google-button" aria-hidden="true" />
+              </div>
 
               <button
                 onClick={() => { setMode('phone'); setError(''); }}

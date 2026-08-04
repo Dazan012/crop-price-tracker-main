@@ -65,10 +65,12 @@ const EditProfile = lazyWithRetry(() => import('./pages/EditProfile'));
 const Reports = lazyWithRetry(() => import('./pages/Reports'));
 const Search = lazyWithRetry(() => import('./pages/Search'));
 const ForgotPassword = lazyWithRetry(() => import('./pages/ForgotPassword'));
+const Developers = lazyWithRetry(() => import('./pages/Developers'));
 const ResetPassword = lazyWithRetry(() => import('./pages/ResetPassword'));
 const AuthCallback = lazyWithRetry(() => import('./pages/AuthCallback'));
 const Onboarding = lazyWithRetry(() => import('./pages/Onboarding'));
 const EmailVerification = lazyWithRetry(() => import('./pages/EmailVerification'));
+const SetupPassword = lazyWithRetry(() => import('./pages/SetupPassword'));
 
 function PageLoader() {
   return (
@@ -81,51 +83,63 @@ function PageLoader() {
 
 /* ── Route Guards ─────────────────────────────────────────── */
 
+function needsPasswordSetup() {
+  if (typeof window === 'undefined') return false;
+  const path = window.location.pathname;
+  if (path === '/setup-password' || path === '/onboarding' || path === '/verify-email') return false;
+  return !localStorage.getItem('skip_password_setup');
+}
+
 function ProtectedRoute({ children }) {
-  const { isAuthenticated, onboardingComplete, loading } = useAuth();
+  const { isAuthenticated, onboardingComplete, hasPassword, loading } = useAuth();
   if (loading) return <div className="loading-spinner"><div className="spinner" /><p>Loading...</p></div>;
   if (!isAuthenticated) return <Navigate to="/login" />;
   const path = window.location.pathname;
   if (!onboardingComplete && path !== '/onboarding' && path !== '/verify-email') return <Navigate to="/onboarding" />;
+  if (!hasPassword && needsPasswordSetup()) return <Navigate to="/setup-password" />;
   return children;
 }
 
 function CanSubmitRoute({ children }) {
-  const { isAuthenticated, canSubmit, onboardingComplete, loading } = useAuth();
+  const { isAuthenticated, canSubmit, onboardingComplete, hasPassword, loading } = useAuth();
   if (loading) return <div className="loading-spinner"><div className="spinner" /><p>Loading...</p></div>;
   if (!isAuthenticated) return <Navigate to="/login" />;
   const path = window.location.pathname;
   if (!onboardingComplete && path !== '/onboarding' && path !== '/verify-email') return <Navigate to="/onboarding" />;
+  if (!hasPassword && needsPasswordSetup()) return <Navigate to="/setup-password" />;
   if (!canSubmit) return <Navigate to="/dashboard" />;
   return children;
 }
 
 function CanReviewRoute({ children }) {
-  const { isAuthenticated, canReview, onboardingComplete, loading } = useAuth();
+  const { isAuthenticated, canReview, onboardingComplete, hasPassword, loading } = useAuth();
   if (loading) return <div className="loading-spinner"><div className="spinner" /><p>Loading...</p></div>;
   if (!isAuthenticated) return <Navigate to="/login" />;
   const path = window.location.pathname;
   if (!onboardingComplete && path !== '/onboarding' && path !== '/verify-email') return <Navigate to="/onboarding" />;
+  if (!hasPassword && needsPasswordSetup()) return <Navigate to="/setup-password" />;
   if (!canReview) return <Navigate to="/dashboard" />;
   return children;
 }
 
 function AdminRoute({ children }) {
-  const { isAuthenticated, isAdmin, onboardingComplete, loading } = useAuth();
+  const { isAuthenticated, isAdmin, onboardingComplete, hasPassword, loading } = useAuth();
   if (loading) return <div className="loading-spinner"><div className="spinner" /><p>Loading...</p></div>;
   if (!isAuthenticated) return <Navigate to="/login" />;
   const path = window.location.pathname;
   if (!onboardingComplete && path !== '/onboarding' && path !== '/verify-email') return <Navigate to="/onboarding" />;
+  if (!hasPassword && needsPasswordSetup()) return <Navigate to="/setup-password" />;
   if (!isAdmin) return <Navigate to="/dashboard" />;
   return children;
 }
 
 function RoleRoute({ allowedRoles, children }) {
-  const { isAuthenticated, role, onboardingComplete, loading } = useAuth();
+  const { isAuthenticated, role, onboardingComplete, hasPassword, loading } = useAuth();
   if (loading) return <div className="loading-spinner"><div className="spinner" /><p>Loading...</p></div>;
   if (!isAuthenticated) return <Navigate to="/login" />;
   const path = window.location.pathname;
   if (!onboardingComplete && path !== '/onboarding' && path !== '/verify-email') return <Navigate to="/onboarding" />;
+  if (!hasPassword && needsPasswordSetup()) return <Navigate to="/setup-password" />;
   if (!allowedRoles.includes(role)) return <Navigate to="/dashboard" />;
   return children;
 }
@@ -144,6 +158,7 @@ function AppRoutes() {
         <Route path="/prices" element={<MarketPrices />} />
         <Route path="/prices/heatmap" element={<PriceHeatmap />} />
         <Route path="/prices/chart" element={<CandlestickChart />} />
+        <Route path="/developers" element={<Developers />} />
 
         {/* Shared Authenticated */}
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
@@ -208,6 +223,7 @@ function AppRoutes() {
       <Route path="/verify-email" element={<ProtectedRoute><EmailVerification /></ProtectedRoute>} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password/:uid/:token" element={<ResetPassword />} />
+      <Route path="/setup-password" element={<ProtectedRoute><SetupPassword /></ProtectedRoute>} />
     </Routes>
     </Suspense>
   );

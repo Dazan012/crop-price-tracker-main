@@ -1,5 +1,5 @@
 {
-  "scrape_date": "2026-06-29T08:33:34.824373",
+  "scrape_date": "2026-08-03T03:07:33.094602",
   "total_boards": 5,
   "results": [
     {
@@ -13,7 +13,7 @@
         "Sorghum",
         "Finger Millet"
       ],
-      "scrape_date": "2026-06-29T08:32:06.227602",
+      "scrape_date": "2026-08-03T03:07:11.328627",
       "pdfs_found": 0,
       "pdf_urls": [],
       "prices_found": 0,
@@ -30,7 +30,7 @@
         "Coffee Arabica",
         "Coffee Robusta"
       ],
-      "scrape_date": "2026-06-29T08:32:11.754742",
+      "scrape_date": "2026-08-03T03:07:16.109616",
       "pdfs_found": 0,
       "pdf_urls": [],
       "prices_found": 3,
@@ -62,7 +62,7 @@
       "crops": [
         "Tea"
       ],
-      "scrape_date": "2026-06-29T08:32:28.125220",
+      "scrape_date": "2026-08-03T03:07:20.440459",
       "pdfs_found": 1,
       "pdf_urls": [
         "https://www.teaboard.go.tz/uploads/documents/sw-1763014962-TEA INDUSTRY DEVELOPMENT_compressed (1).pdf"
@@ -80,20 +80,20 @@
       "crops": [
         "Tobacco"
       ],
-      "scrape_date": "2026-06-29T08:33:12.545979",
+      "scrape_date": "2026-08-03T03:07:26.134419",
       "pdfs_found": 11,
       "pdf_urls": [
+        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 08 JUNE 2025.pdf",
         "https://www.tobaccoboard.go.tz/uploads/documents/TAARIFA YA MWISHO YA UZALISHAJI MSIMU 2024-2025.pdf",
-        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 08 JUNE 2025.pdf",
-        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 01 JUNE 2025.pdf",
         "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 15 JUNE 2025.pdf",
-        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 08 JUNE 2025.pdf",
         "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 01 JUNE 2025.pdf",
-        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 11 MAY 2025.pdf",
-        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 25 MAY 2025.pdf",
         "https://www.tobaccoboard.go.tz/uploads/documents/TAARIFA YA MWISHO YA UZALISHAJI MSIMU 2024-2025.pdf",
         "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 18 MAY 2025.pdf",
-        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 15 JUNE 2025.pdf"
+        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 01 JUNE 2025.pdf",
+        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 25 MAY 2025.pdf",
+        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 08 JUNE 2025.pdf",
+        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 15 JUNE 2025.pdf",
+        "https://www.tobaccoboard.go.tz/uploads/documents/TOBACCO BUYING REPORT FOR THE WEEK ENDING 11 MAY 2025.pdf"
       ],
       "prices_found": 0,
       "price_samples": [],
@@ -108,18 +108,17 @@
       "crops": [
         "Cashew"
       ],
-      "scrape_date": "2026-06-29T08:33:34.822475",
-      "pdfs_found": 1,
+      "scrape_date": "2026-08-03T03:07:33.093548",
+      "pdfs_found": 4,
       "pdf_urls": [
-        "https://www.cashew.go.tz/wp-content/uploads/2022/09/TAKWIMU-ZA-UZALISHAJI-1.pdf"
+        "https://www.cashew.go.tz/documents/mwongozo-maombi-leseni.pdf",
+        "https://www.cashew.go.tz/documents/strategic-plan-2025-2026.pdf",
+        "https://www.cashew.go.tz/documents/public-notice-huduma.pdf",
+        "https://www.cashew.go.tz/documents/audited-financial-statements-2024.pdf"
       ],
       "prices_found": 0,
       "price_samples": [],
-      "subpages_checked": [
-        "https://www.cashew.go.tz/takwimu",
-        "https://www.cashew.go.tz/machapisho",
-        "https://www.cashew.go.tz/publications"
-      ]
+      "subpages_checked": []
     }
   ]
 }

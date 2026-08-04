@@ -1,7 +1,11 @@
 from django.contrib import admin
 from django.urls import path, reverse
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.utils.html import format_html
+from django.core.management import call_command
+from django.contrib import messages
+import os
+
 from .models import (
     UserProfile, Region, Market, Crop, PriceEntry,
     MarketAgentSubmission, TransportRoute, Notification,
@@ -117,6 +121,16 @@ class SyncSourceAdmin(admin.ModelAdmin):
                 self.admin_site.admin_view(self.sync_all_view),
                 name='sync-source-sync-all',
             ),
+            path(
+                'fetch-data/',
+                self.admin_site.admin_view(self.fetch_data_view),
+                name='sync-source-fetch-data',
+            ),
+            path(
+                'sync-tmx/',
+                self.admin_site.admin_view(self.sync_tmx_view),
+                name='sync-source-sync-tmx',
+            ),
         ]
         return custom_urls + urls
 
@@ -140,9 +154,34 @@ class SyncSourceAdmin(admin.ModelAdmin):
             messages.error(request, f'Sync failed: {e}')
         return redirect('admin:prices_syncsource_changelist')
 
+    def fetch_data_view(self, request):
+        """Run scrapers AND import data in one click."""
+        if request.method == 'POST':
+            try:
+                # Run all scrapers and import in one step
+                call_command('sync_all_data', force=True, verbosity=1)
+                # Also import any pre-existing scraped JSON data
+                call_command('import_scraped_prices', verbosity=1)
+                messages.success(request, 'Data fetched and imported successfully!')
+            except Exception as e:
+                messages.error(request, f'Fetch failed: {e}')
+        return redirect('admin:prices_syncsource_changelist')
+
+    def sync_tmx_view(self, request):
+        """Sync TMX data from Firebase/Firestore."""
+        if request.method == 'POST':
+            try:
+                call_command('seed_tmx', verbosity=1)
+                messages.success(request, 'TMX data synced successfully!')
+            except Exception as e:
+                messages.error(request, f'TMX sync failed: {e}')
+        return redirect('admin:prices_syncsource_changelist')
+
     def changelist_view(self, request, extra_context=None):
         extra_context = extra_context or {}
         extra_context['sync_all_url'] = reverse('admin:sync-source-sync-all')
+        extra_context['fetch_data_url'] = reverse('admin:sync-source-fetch-data')
+        extra_context['sync_tmx_url'] = reverse('admin:sync-source-sync-tmx')
         return super().changelist_view(request, extra_context=extra_context)
 
 

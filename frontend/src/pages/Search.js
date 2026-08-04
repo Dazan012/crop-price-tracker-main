@@ -15,7 +15,7 @@ export default function Search() {
   const [showFilters, setShowFilters] = useState(false);
   const [filters, setFilters] = useState({
     type: 'all', crop: '', region: '', market: '',
-    min_price: '', max_price: '',
+    min_price: '', max_price: '', market_type: 'consumer',
   });
   const [activeTab, setActiveTab] = useState('all');
   const [voiceError, setVoiceError] = useState('');
@@ -194,7 +194,7 @@ export default function Search() {
                 <Filter size={14} /> Filters
               </h3>
               {hasFilters && (
-                <button className="btn btn-sm" onClick={() => setFilters({ type: 'all', crop: '', region: '', market: '', min_price: '', max_price: '' })}
+                <button className="btn btn-sm" onClick={() => setFilters({ type: 'all', crop: '', region: '', market: '', min_price: '', max_price: '', market_type: 'consumer' })}
                   style={{ fontSize: '0.7rem', padding: '2px 6px', color: 'var(--accent)', background: 'none', border: 'none', cursor: 'pointer' }}>
                   Clear all
                 </button>
@@ -236,13 +236,22 @@ export default function Search() {
               </select>
             </div>
 
-            <div style={{ marginBottom: 10 }}>
-              <label style={{ fontSize: '0.72rem', marginBottom: 3, display: 'block' }}>Price Range (TZS)</label>
-              <div style={{ display: 'flex', gap: 4 }}>
-                <input className="form-control" type="number" name="min_price" value={filters.min_price} onChange={(e) => setFilters(prev => ({ ...prev, min_price: e.target.value }))} placeholder="Min" style={{ fontSize: '0.78rem', padding: '4px 6px', width: '50%' }} />
-                <input className="form-control" type="number" name="max_price" value={filters.max_price} onChange={(e) => setFilters(prev => ({ ...prev, max_price: e.target.value }))} placeholder="Max" style={{ fontSize: '0.78rem', padding: '4px 6px', width: '50%' }} />
-              </div>
-            </div>
+<div className="form-group" style={{ marginBottom: 10 }}>
+               <label style={{ fontSize: '0.72rem', marginBottom: 3, display: 'block' }}>Price Type</label>
+               <select className="form-control" name="market_type" value={filters.market_type} onChange={(e) => setFilters(prev => ({ ...prev, market_type: e.target.value }))} style={{ fontSize: '0.78rem', padding: '4px 6px' }}>
+                 <option value="consumer">Consumer (Retail)</option>
+                 <option value="wholesale">Wholesale</option>
+                 <option value="all">All Types</option>
+               </select>
+             </div>
+
+             <div style={{ marginBottom: 10 }}>
+               <label style={{ fontSize: '0.72rem', marginBottom: 3, display: 'block' }}>Price Range (TZS)</label>
+               <div style={{ display: 'flex', gap: 4 }}>
+                 <input className="form-control" type="number" name="min_price" value={filters.min_price} onChange={(e) => setFilters(prev => ({ ...prev, min_price: e.target.value }))} placeholder="Min" style={{ fontSize: '0.78rem', padding: '4px 6px', width: '50%' }} />
+                 <input className="form-control" type="number" name="max_price" value={filters.max_price} onChange={(e) => setFilters(prev => ({ ...prev, max_price: e.target.value }))} placeholder="Max" style={{ fontSize: '0.78rem', padding: '4px 6px', width: '50%' }} />
+               </div>
+             </div>
           </div>
         )}
 

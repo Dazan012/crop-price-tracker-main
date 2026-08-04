@@ -293,6 +293,7 @@ export default function PriceHeatmap() {
       {/* Hover tooltip popup */}
       {hoveredCell && (
         <div
+          className="heatmap-tooltip"
           style={{
             position: 'fixed',
             left: Math.min(hoveredCell.x + 14, window.innerWidth - 200),
@@ -301,21 +302,18 @@ export default function PriceHeatmap() {
             pointerEvents: 'none',
             padding: '12px 16px',
             borderRadius: 'var(--radius, 10px)',
-            background: 'rgba(13, 31, 18, 0.95)',
             backdropFilter: 'blur(12px)',
-            border: '1px solid rgba(0, 212, 170, 0.18)',
-            boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
             minWidth: 180,
             maxWidth: 260,
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8 }}>
             <Wheat size={14} style={{ color: '#00d4aa' }} />
-            <span style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--text-primary, #e0e0e0)' }}>
+            <span className="heatmap-tooltip-title">
               {hoveredCell.crop}
             </span>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8, fontSize: '0.8rem', color: 'var(--text-secondary, #aaa)' }}>
+          <div className="heatmap-tooltip-region" style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8, fontSize: '0.8rem' }}>
             <MapPin size={12} />
             {hoveredCell.region}
           </div>
@@ -328,7 +326,7 @@ export default function PriceHeatmap() {
           }}>
             {formatTZS(hoveredCell.price)} TZS
           </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--text-muted, #777)' }}>
+          <div className="heatmap-tooltip-foot" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem' }}>
             <span>{hoveredCell.count} entries</span>
             <span style={{
               color: (TIER_CONFIG[hoveredCell.tier] || TIER_CONFIG.mid).color,

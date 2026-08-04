@@ -70,34 +70,66 @@ TEMPLATES = [
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 # ── Database Configuration ──
-# Uses PostgreSQL only when DB_HOST is set and USE_POSTGRES is enabled.
-# Otherwise fall back to SQLite for local development.
-if os.environ.get('DB_HOST') and os.environ.get('USE_POSTGRES', 'false').lower() in ('1', 'true', 'yes'):
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ.get('DB_NAME', 'neondb'),
-            'USER': os.environ.get('DB_USER', ''),
-            'PASSWORD': os.environ.get('DB_PASSWORD', ''),
-            'HOST': os.environ.get('DB_HOST', ''),
-            'PORT': os.environ.get('DB_PORT', '5432'),
-            'CONN_MAX_AGE': 0,
-            'OPTIONS': {
-                'sslmode': 'require',
-                'keepalives': 1,
-                'keepalives_idle': 30,
-                'keepalives_interval': 10,
-                'keepalives_count': 5,
-            },
-        }
+# Priority: PostgreSQL (Neon) first, SQLite as automatic fallback.
+# - If USE_POSTGRES is enabled and Neon is reachable, the app uses Neon.
+# - If USE_POSTGRES is disabled OR Neon cannot be reached, the app falls
+#   back to the local db.sqlite3 so local dev / offline still works.
+def _test_neon(neon_db):
+    """Return True if we can actually connect to the configured Neon DB."""
+    try:
+        import psycopg2
+        conn = psycopg2.connect(
+            host=neon_db['HOST'],
+            port=neon_db['PORT'],
+            dbname=neon_db['NAME'],
+            user=neon_db['USER'],
+            password=neon_db['PASSWORD'],
+            connect_timeout=8,
+            sslmode='require',
+        )
+        conn.close()
+        return True
+    except Exception:
+        return False
+
+
+def _neon_config():
+    return {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME', 'neondb'),
+        'USER': os.environ.get('DB_USER', ''),
+        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
+        'HOST': os.environ.get('DB_HOST', ''),
+        'PORT': os.environ.get('DB_PORT', '5432'),
+        'CONN_MAX_AGE': 300,
+        'OPTIONS': {
+            'sslmode': 'require',
+            'keepalives': 1,
+            'keepalives_idle': 30,
+            'keepalives_interval': 10,
+            'keepalives_count': 5,
+        },
     }
+
+
+def _sqlite_config():
+    return {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+
+
+_want_postgres = bool(os.environ.get('DB_HOST')) and os.environ.get('USE_POSTGRES', 'false').lower() in ('1', 'true', 'yes')
+if _want_postgres:
+    _pg = _neon_config()
+    if _test_neon(_pg):
+        DATABASES = {'default': _pg}
+        print(f"[db] Connected to PostgreSQL: {_pg['HOST']} ({_pg['NAME']})")
+    else:
+        DATABASES = {'default': _sqlite_config()}
+        print(f"[db] PostgreSQL unreachable - falling back to SQLite ({BASE_DIR / 'db.sqlite3'})")
 else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+    DATABASES = {'default': _sqlite_config()}
 
 # Supabase configuration
 SUPABASE_URL = os.environ.get('SUPABASE_URL', '')

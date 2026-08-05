@@ -141,6 +141,8 @@ def detect_anomaly(new_price, crop_name, market_id=None, historical_prices=None)
     if not reasons:
         reasons.append("Price within normal range")
 
-    combined_score = 0.6 * abs(z_score) + 0.4 * iqr_score
+    # Combine signals so flagged entries always carry a meaningful score,
+    # even when the historical prices are identical (std=0 -> z and IQR are 0).
+    combined_score = 0.5 * abs(z_score) + 0.3 * iqr_score + 0.2 * (pct_deviation / 50)
 
     return is_anomaly, round(combined_score, 4), "; ".join(reasons)

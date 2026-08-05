@@ -1346,22 +1346,32 @@ def submit_price(request):
         historical_prices=historical,
     )
 
-    # Calculate Z-score separately for pipeline decision
+    # Calculate Z-score and percent deviation for the pipeline decision
     z_score = abs(calculate_z_score(price, historical)) if len(historical) >= 3 else 0.0
+    mean_price = sum(historical) / len(historical) if historical else 0.0
+    pct_deviation = abs(price - mean_price) / mean_price * 100 if mean_price > 0 else 0.0
 
     # Validation pipeline decision
-    if z_score <= 2.0:
-        # LOW RISK — auto-approve
-        entry_status = 'approved'
-        validation_message = 'Price validated and approved.'
-    elif z_score <= 3.0:
+    if len(historical) < 3:
+        # INSUFFICIENT DATA — send to admin review instead of auto-approving
+        entry_status = 'flagged'
+        validation_message = 'Not enough historical data for automatic validation. Requires admin review.'
+    elif price <= 0:
+        # INVALID PRICE — reject
+        entry_status = 'rejected'
+        validation_message = 'Price rejected: price must be positive.'
+    elif z_score > 3.0 or pct_deviation > 100:
+        # HIGH RISK — reject
+        entry_status = 'rejected'
+        validation_message = 'Price rejected due to significant deviation from historical data.'
+    elif is_anomaly or pct_deviation > 50:
         # MEDIUM RISK — send to admin review
         entry_status = 'flagged'
         validation_message = 'Price submission requires admin review.'
     else:
-        # HIGH RISK — reject
-        entry_status = 'rejected'
-        validation_message = 'Price rejected due to significant deviation from historical data.'
+        # LOW RISK — auto-approve
+        entry_status = 'approved'
+        validation_message = 'Price validated and approved.'
 
     # Create the entry (serves as both submissions log and prices table)
     entry = PriceEntry.objects.create(

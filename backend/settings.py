@@ -107,6 +107,7 @@ def _neon_config():
         'CONN_MAX_AGE': 300,
         'OPTIONS': {
             'sslmode': 'require',
+            'connect_timeout': 15,
             'keepalives': 1,
             'keepalives_idle': 30,
             'keepalives_interval': 10,
@@ -127,10 +128,10 @@ if _want_postgres:
     _pg = _neon_config()
     if _test_neon(_pg):
         DATABASES = {'default': _pg}
-        logger.info(f"[db] Connected to PostgreSQL: {_pg['HOST']} ({_pg['NAME']})")
+        print(f"[db] Connected to PostgreSQL: {_pg['HOST']} ({_pg['NAME']})")
     else:
         DATABASES = {'default': _sqlite_config()}
-        logger.info(f"[db] PostgreSQL unreachable - falling back to SQLite ({BASE_DIR / 'db.sqlite3'})")
+        print(f"[db] PostgreSQL unreachable - falling back to SQLite ({BASE_DIR / 'db.sqlite3'})")
 else:
     DATABASES = {'default': _sqlite_config()}
 
@@ -216,6 +217,16 @@ LOGGING = {
     },
     'loggers': {
         'prices': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'backend': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'django.server': {
             'handlers': ['console'],
             'level': 'INFO',
             'propagate': False,
